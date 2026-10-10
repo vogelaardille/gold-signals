@@ -45,6 +45,18 @@ class OpenTrade:
         return self.signal.direction * (self.entry - self.signal.stop)
 
 
+def anchor_to_entry(sig: Signal, open_px: float) -> Signal:
+    """Signalen met meta['stop_dist'] (bijv. de 4h-forward-test) leggen stop en target vast
+    op een AFSTAND van de werkelijke entry, zoals in het onderzoek van ronde 2:
+    stop = entry -/+ stop_dist, target = entry +/- rr x stop_dist. Andere signalen: ongewijzigd."""
+    sd = sig.meta.get("stop_dist") if sig.meta else None
+    if not sd:
+        return sig
+    d = sig.direction
+    return Signal(sig.strategy, sig.time, d, open_px - d * sd, open_px + d * sig.meta["rr"] * sd, sig.reason,
+                  min_rr=sig.min_rr, max_hold_bars=sig.max_hold_bars, zone=sig.zone, meta=sig.meta)
+
+
 def try_fill(sig: Signal, open_px: float) -> bool:
     """Is het signaal op deze open-prijs nog geldig?"""
     d = sig.direction
@@ -110,6 +122,7 @@ def run_backtest(strategy, market, i_start: int, i_end: int, cfg: dict, cost_mul
     for i in range(i_start, i_hard_end + 1):
         # 1. Openstaande signalen vullen op de open van deze candle
         for sig in pending:
+            sig = anchor_to_entry(sig, O[i])
             if len(open_trades) < max_open and try_fill(sig, O[i]):
                 risk_eur = equity * acc["risk_pct"] / 100
                 risk_oz = sig.direction * (O[i] - sig.stop)

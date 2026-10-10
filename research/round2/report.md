@@ -364,3 +364,39 @@ je dat wilt:
 
 Beide vragen jouw akkoord. Zonder akkoord doe ik niets.
 
+
+## Hoeveel trades in H2, en wat kon je daar aantonen?
+
+_Toegevoegd na de keuze van de gebruiker voor forward paper trading (H2 blijft dicht).
+Berekend uit de research-periode; H2 zelf is niet geladen._
+
+**Hoeveel trades had H2 opgeleverd?** De variant F2 · 4h · squeeze 20% · target 2R had in
+2010–2018 gemiddeld 28 trades per jaar (tussen 18 en 37). H2 duurt
+1,75 jaar, dus verwacht **~49 trades** (afhankelijk van het jaar 31–65).
+
+**Wat kon je daarmee aantonen?** De spreiding per trade is groot (standaardafwijking
+1.42 R: bijna elke trade is −1 R of ongeveer +1,7 R). Met 49 trades:
+- is het 95%-interval ongeveer **±0.40 R** breed;
+- is het **kleinste effect dat je met 80% zekerheid zou vinden** (eenzijdige toets, 5%)
+  ongeveer **+0.50 R per trade**;
+- had een waar effect zo groot als in de research (+0.22 R) maar **28%
+  kans** om als positief bevestigd te worden.
+
+H2 openen had dus vooral een grote kans op een onduidelijke uitkomst gegeven, en de
+hold-out was daarna voorgoed verbruikt.
+
+**Ter vergelijking, 100 forward-trades** (~3.6 jaar): interval ±0.28 R,
+kleinste aantoonbare effect ~+0.35 R, kans om +0.22 R te bevestigen
+**43%**. Ook de forward-test is dus geen sluitend bewijs. Hij kan een groot effect
+bevestigen of een duidelijk negatief effect stoppen, maar een klein positief effect blijft
+waarschijnlijk onzeker.
+
+
+## Besluit van de gebruiker
+
+**Gekozen: optie 2.** F2 · 4h · squeeze 20% · target 2R wordt **alleen forward op paper
+gevolgd**. Hold-out H2 blijft dicht. Regels, evaluatie en stopregel staan vast in
+[FORWARD.md](FORWARD.md) (gecommit vóór de eerste trade). Label in alle meldingen:
+**AANWIJZING, NIET BEWEZEN**. Telegram stuurt voor deze strategie geen signaalmeldingen,
+alleen trade-updates en het weekoverzicht.
+

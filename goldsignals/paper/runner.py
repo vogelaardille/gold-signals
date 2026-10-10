@@ -22,7 +22,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from goldsignals.backtest.engine import OpenTrade, check_exit, cost_per_oz, try_fill
+from goldsignals.backtest.engine import OpenTrade, anchor_to_entry, check_exit, cost_per_oz, try_fill
 from goldsignals.config import project_path
 from goldsignals.data import DataDownloadError, get_provider
 from goldsignals.features import compute_features
@@ -204,7 +204,9 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
                 still_pending.append(p)
                 continue
             sig = Signal(p["strategy"], pd.Timestamp(p["signal_time"]), p["direction"], p["stop"], p["target"],
-                         p["reason"], min_rr=p["min_rr"])
+                         p["reason"], min_rr=p["min_rr"],
+                         meta={"stop_dist": p["stop_dist"], "rr": p["rr"]} if p.get("stop_dist") else {})
+            sig = anchor_to_entry(sig, O[i])
             tid = f"{p['strategy']}|{p['signal_time']}"
             if try_fill(sig, O[i]):
                 eq = state.equity(p["strategy"], acc["start_equity_eur"])
@@ -254,7 +256,8 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
             sig.strategy = sid
             state.pending.append({"strategy": sid, "signal_time": t_close.isoformat(), "direction": sig.direction,
                                   "stop": sig.stop, "target": sig.target, "reason": sig.reason,
-                                  "min_rr": sig.min_rr, "label": s["status"]})
+                                  "min_rr": sig.min_rr, "label": s.get("label", s["status"]),
+                                  "stop_dist": sig.meta.get("stop_dist"), "rr": sig.meta.get("rr")})
             if ncfg["signal"]["enabled"]:
                 eq = state.equity(sid, acc["start_equity_eur"])
                 risk_eur = eq * acc["risk_pct"] / 100

@@ -106,6 +106,16 @@ def fields(res, z, ex, f2) -> dict:
         row = ex[ex["variant"] == k.replace("family=", "")]
         if len(row):
             F.update(x_rnd=n(row["random_mean"].iloc[0]), x_rnd_pct=p(row["pct_vs_random"].iloc[0]))
+    pp = RES / "power.json"
+    if pp.exists():
+        pw = json.loads(pp.read_text())
+        F.update(pw_per_year=f"{pw['trades_per_year']:.0f}", pw_min=pw["trades_per_year_min"], pw_max=pw["trades_per_year_max"],
+                 pw_h2_n=pw["h2"]["n"], pw_h2_lo=pw["h2_n_range"][0], pw_h2_hi=pw["h2_n_range"][1],
+                 pw_sd=f"{pw['sd_r']:.2f}", pw_h2_ci=f"{pw['h2']['ci95_halfwidth']:.2f}",
+                 pw_h2_mde=f"{pw['h2']['mde_sim']:.2f}", pw_mean=f"{pw['mean_r_research']:.2f}",
+                 pw_h2_power=f"{pw['h2']['power_at_research_mean'] * 100:.0f}", pw_years100=f"{pw['years_to_100']:.1f}",
+                 pw_f_ci=f"{pw['forward100']['ci95_halfwidth']:.2f}", pw_f_mde=f"{pw['forward100']['mde_sim']:.2f}",
+                 pw_f_power=f"{pw['forward100']['power_at_research_mean'] * 100:.0f}")
     return F
 
 
@@ -184,6 +194,10 @@ def build(cfg) -> str:
            "## Wat ik gecontroleerd heb", "", text("controles", F), "",
            "## Conclusie", "", text("conclusie", F), "",
            "## Voorstel (vraagt jouw akkoord)", "", text("voorstel", F), ""]
+    if (RES / "power.json").exists():
+        md += ["## Hoeveel trades in H2, en wat kon je daar aantonen?", "", text("power", F), ""]
+    if (ROOT / "text" / "besluit.md").exists():
+        md += ["## Besluit van de gebruiker", "", text("besluit", F), ""]
     return "\n".join(md)
 
 
@@ -196,7 +210,8 @@ def to_html(md_text: str) -> str:
         f = ROOT / m.group(1)
         return f'src="data:image/png;base64,{base64.b64encode(f.read_bytes()).decode()}"' if f.exists() else m.group(0)
     body = re.sub(r'src="(figures/[^"]+\.png)"', embed, body)
-    body = body.replace('href="PLAN2.md"', 'href="https://github.com/vogelaardille/gold-signals/blob/main/research/round2/PLAN2.md"')
+    for f in ("PLAN2.md", "FORWARD.md"):
+        body = body.replace(f'href="{f}"', f'href="https://github.com/vogelaardille/gold-signals/blob/main/research/round2/{f}"')
     return ("<!doctype html><html lang='nl'><head><meta charset='utf-8'>"
             "<meta name='viewport' content='width=device-width,initial-scale=1'>"
             f"<title>Onderzoek ronde 2</title><style>{CSS}</style></head><body><main>{body}</main></body></html>")

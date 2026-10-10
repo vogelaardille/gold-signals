@@ -1,0 +1,24 @@
+{
+ "signals_research": 579,
+ "signals_plugin": 579,
+ "identical": 579,
+ "only_research": [],
+ "only_plugin": [],
+ "different_value": [],
+ "live_engine_1h_exits": {
+  "n": 251,
+  "avg_r": 0.21505365351605454,
+  "results": {
+   "sl": 144,
+   "tp": 107
+  }
+ },
+ "research_4h_exits": {
+  "n": 251,
+  "avg_r": 0.21505365351605454,
+  "results": {
+   "sl": 144,
+   "tp": 107
+  }
+ }
+}
