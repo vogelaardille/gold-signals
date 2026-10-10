@@ -153,6 +153,12 @@ of expliciet gemarkeerd als zwak/onzeker.
 
 ## 8. Wijzigingslog (na het zien van resultaten)
 
+- 2026-10-10, **ná** de eerste walk-forward-run: de long-bias-toets vergelijkt met
+  willekeurige entries met **dezelfde SL/TP-regels als de strategie** (mediane stopafstand
+  in ATR en mediane R:R van zijn OOS-trades), in plaats van vast 1 ATR / 1:2. Reden: dat
+  vroeg de opdracht expliciet, en mijn eerdere versie was te gunstig voor strategieën met
+  een bredere stop (die langer in de goudtrend zitten). De toets wordt hierdoor strenger,
+  niet makkelijker. Uitkomst vóór de wijziging (ema_pullback): excess +0,21 R.
 - 2026-10-10, **vóór** het bekijken van resultaten: volatiliteitsregime gebaseerd op
   ATR/koers in plaats van ATR in dollars. Reden: bij een koers die van 1.700 naar 5.000
   steeg is de dollar-ATR vooral 'hoog' omdat goud duurder is (44% van de uren in

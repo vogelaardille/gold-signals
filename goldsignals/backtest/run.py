@@ -59,14 +59,20 @@ def _evaluate(args):
     return sid, {"oos": wf["oos"], "chosen": wf["chosen"], "final": final, "trials": trials}
 
 
-def random_baseline(cfg, spec) -> pd.DataFrame:
-    """Veel willekeurige entries in de walk-forward test-periode, voor 'excess t.o.v. random'."""
-    _, research_end = period_bounds(cfg, "research")
-    market = load_market(cfg, methods=("A",), build=False, until=research_end)
+def random_baseline(cfg, spec, market, oos: pd.DataFrame = None) -> pd.DataFrame:
+    """Veel willekeurige entries in de walk-forward test-periode, voor 'excess t.o.v. random'.
+    Met oos: dezelfde SL/TP-regels als die strategie (mediane stopafstand in ATR en mediane
+    R:R van zijn trades), zoals de opdracht vraagt. Een bredere stop houdt trades langer
+    open en pakt dus meer van de goudtrend mee; dat moet de baseline ook krijgen."""
     w = windows(cfg)
     i0, _ = index_range(market, w[0][2], w[0][3])
     _, i1 = index_range(market, w[-1][2], w[-1][3])
     params = {**spec["params"], "prob": cfg["validation"]["random_baseline_prob"]}
+    if oos is not None and len(oos):
+        atr = market.array("atr")
+        sig_i = [market.index_of_close(t) for t in pd.to_datetime(oos["signal_time"], utc=True)]
+        risk_atr = (oos["entry"] - oos["stop"]).abs().to_numpy() / atr[sig_i]
+        params.update(stop_atr=float(np.median(risk_atr)), rr=float(np.median(oos["rr"])))
     return run_backtest(load_class(spec["class"])(params), market, i0, i1, cfg).trades
 
 
@@ -108,13 +114,13 @@ def main():
     n_trials = int(len(all_trials)) + sum(1 for s in cfg["strategies"].values() if not s.get("space"))
     trial_sr = all_trials["sharpe"].to_numpy(float) if len(all_trials) else np.array([])
 
-    # 2. Willekeurige-entry-baseline voor de 'long-bias'-toets
-    rnd_spec = cfg["strategies"]["random_entry"]
-    rnd = random_baseline(cfg, rnd_spec)
-
-    # 3. Buy-and-hold over dezelfde OOS-periode
+    # 2. Willekeurige-entry-baseline (standaardregels; per strategie hieronder met eigen SL/TP)
     _, research_end = period_bounds(cfg, "research")
     market = load_market(cfg, methods=("A",), build=False, until=research_end)
+    rnd_spec = cfg["strategies"]["random_entry"]
+    rnd = random_baseline(cfg, rnd_spec, market)
+
+    # 3. Buy-and-hold over dezelfde OOS-periode
     w = windows(cfg)
     i0, _ = index_range(market, w[0][2], w[0][3])
     _, i1 = index_range(market, w[-1][2], w[-1][3])
@@ -129,7 +135,8 @@ def main():
         oos = r["oos"][1.0]
         s = summarize(oos, acc["start_equity_eur"], acc["risk_pct"])
         dsr = deflated_sharpe(oos["r"].to_numpy(), n_trials, trial_sr) if len(oos) > 2 else {"dsr": np.nan}
-        exc = excess_vs_random(oos, rnd)
+        rnd_own = random_baseline(cfg, rnd_spec, market, oos) if not spec.get("baseline") else rnd
+        exc = excess_vs_random(oos, rnd_own)
         inst = load_class(spec["class"])(r["final"])
         if spec.get("baseline"):
             st = {"status": "baseline", "reasons": ["baseline, handelt nooit"]}
@@ -152,7 +159,9 @@ def main():
                "reasons": "; ".join(st["reasons"])}
         rows.append(row)
         details[sid] = {"summary": s, "by_year": r_by_year(oos), "chosen": r["chosen"], "final": r["final"],
-                        "dsr": dsr, "holdout": ho, "status": st}
+                        "dsr": dsr, "holdout": ho, "status": st,
+                        "random_same_rules": {str(k): float(v) for k, v in rnd_own.groupby("direction")["r"].mean().items()},
+                        "random_same_rules_n": len(rnd_own)}
         strategies_json[sid] = {"class": spec["class"], "title": spec.get("title", sid), "status": st["status"],
                                 "params": r["final"], "reasons": st["reasons"],
                                 "backtest": {"n": s["n"], "winrate": s["winrate"], "avg_r": s["avg_r"],

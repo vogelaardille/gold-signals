@@ -109,6 +109,7 @@ class SRBounce(Strategy):
                    f"{' Eerste test van de zone.' if p.get('fresh_only') else ''}"
                    f"{' Afwijzingscandle (lange lont).' if p.get('reject_candle') else ''}"
                    f" Target = volgende 4h/daily-zone ({target:.2f}).")
+            why = " ".join(why.split())
             return [Signal(self.name, view.t, d, float(stop), float(target), why, min_rr=p["min_rr"],
                            zone={k: zone[k] for k in ("low", "high", "timeframes", "score")})]
         return []

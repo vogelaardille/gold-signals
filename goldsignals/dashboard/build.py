@@ -232,7 +232,9 @@ def page_strategies(updated) -> str:
             "<b>candidate</b>: ≥ 100 out-of-sample trades in de walk-forward, positief na kosten, niet gedragen door één jaar; "
             "handelt op paper. <b>validated</b>: daarbovenop één keer positief op de hold-out (≥ 30 trades), "
             "overleeft de correctie voor het aantal geprobeerde varianten (deflated Sharpe) en is beter dan "
-            "willekeurige entries in dezelfde richting. Alle cijfers zijn out-of-sample (walk-forward test-vensters), na kosten.</p>")
+            "willekeurige entries in dezelfde richting. Alle cijfers zijn out-of-sample (walk-forward test-vensters), na kosten. "
+            "Uitgebreid verslag met kosten, long/short en hold-out: "
+            "<a href='https://github.com/vogelaardille/gold-signals/blob/main/research/backtest.md'>research/backtest.md</a>.</p>")
     if not p.exists():
         return page("Strategieën", "strategies.html", body + "<p class='note'>Nog geen leaderboard.</p>", updated)
     lb = pd.read_csv(p)

@@ -1,0 +1,671 @@
+strategy,window,trial,params,n,avg_r,sharpe,objective
+sr_bounce,0,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",22,-0.06480971490282289,-0.032362416922610326,-0.06480971490282289
+sr_bounce,0,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",15,-0.6180022724062181,-0.6129763337006411,-0.6180022724062181
+sr_bounce,0,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,0,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,0,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",1,2.5959871600346425,,-1.0
+sr_bounce,0,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,0,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,0,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,0,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,0,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",7,-0.35567894144798223,-0.20864443569015081,-1.0
+sr_bounce,0,10,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",2,0.8925769581232597,,-1.0
+sr_bounce,0,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",36,0.1482665039645543,0.07718447396446688,0.1482665039645543
+sr_bounce,0,12,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": true}",14,0.2767323050670291,0.15404144574474365,-1.0
+sr_bounce,0,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",191,-0.24648364752237192,-0.16799118309123734,-0.24648364752237192
+sr_bounce,0,14,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",27,0.2099053336562871,0.11523473071081397,0.2099053336562871
+sr_bounce,0,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",19,-0.18579486558825398,-0.10879438905936341,-0.18579486558825398
+sr_bounce,0,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",18,-0.07673911973002806,-0.04970659128910303,-0.07673911973002806
+sr_bounce,0,17,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,0,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": false}",23,0.43592881029264796,0.2275840133970947,0.43592881029264796
+sr_bounce,1,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",21,0.12765822987968495,0.05673049041041237,0.12765822987968495
+sr_bounce,1,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",17,0.1457327944422081,0.08979047792261496,0.1457327944422081
+sr_bounce,1,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,1,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,1,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",2,2.545395298245844,,-1.0
+sr_bounce,1,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,1,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,1,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,1,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,1,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",11,-0.024751415548237524,-0.014326599778821949,-1.0
+sr_bounce,1,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",7,0.3939090704556888,0.2239345609535465,-1.0
+sr_bounce,1,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",18,0.3948177027056778,0.1871882947075983,0.3948177027056778
+sr_bounce,1,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",116,-0.27195253756591997,-0.18480671604120302,-0.27195253756591997
+sr_bounce,1,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": true}",9,0.11248642754803478,0.06681800984510938,-1.0
+sr_bounce,1,14,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",1,2.5959871600346425,,-1.0
+sr_bounce,1,15,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",27,0.3180831670930488,0.1942398928452837,0.3180831670930488
+sr_bounce,1,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",4,0.78699201148683,0.37676795656279405,-1.0
+sr_bounce,1,17,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,1,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",9,0.37737676282048493,0.22568465078012828,-1.0
+sr_bounce,1,19,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": false}",75,0.18703270388990756,0.10771402887248503,0.18703270388990756
+sr_bounce,2,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",24,0.32686083931900295,0.1429520379705724,0.32686083931900295
+sr_bounce,2,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",20,0.03358876722643733,0.021941047225068018,0.03358876722643733
+sr_bounce,2,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,2,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,2,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",2,2.545395298245844,,-1.0
+sr_bounce,2,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,2,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,2,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,2,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,2,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",9,0.11764686556252481,0.06866938589733163,-1.0
+sr_bounce,2,10,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",2,0.8925769581232597,,-1.0
+sr_bounce,2,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",41,0.037528349175941646,0.019462934593337568,0.037528349175941646
+sr_bounce,2,12,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": true}",12,0.14899056287711576,0.08716737142929055,-1.0
+sr_bounce,2,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",87,-0.01861907809305051,-0.011438737786071048,-0.01861907809305051
+sr_bounce,2,14,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",5,0.04399338371407531,0.01884536781161179,-1.0
+sr_bounce,2,15,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",15,0.3820617675699758,0.21473690456287603,0.3820617675699758
+sr_bounce,2,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",8,0.2794397514995403,0.15500846147111574,-1.0
+sr_bounce,2,17,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,3,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",24,0.19935881198057537,0.0877875741964564,0.19935881198057537
+sr_bounce,3,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",24,-0.04486206983307816,-0.029159353470816437,-0.04486206983307816
+sr_bounce,3,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,3,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,3,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",2,2.545395298245844,,-1.0
+sr_bounce,3,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",2,-0.5946304975109434,,-1.0
+sr_bounce,3,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,3,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,3,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",3,-1.0,,-1.0
+sr_bounce,3,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",12,-0.16176485082810635,-0.10463305531000028,-1.0
+sr_bounce,3,10,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",2,0.8925769581232597,,-1.0
+sr_bounce,3,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",42,-0.024800483934962564,-0.012974826818092568,-0.024800483934962564
+sr_bounce,3,12,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": true}",10,0.07278380984031271,0.041939213889224516,-1.0
+sr_bounce,3,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",90,-0.0673628447857404,-0.039338908893414584,-0.0673628447857404
+sr_bounce,3,14,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",4,0.30499172964259413,0.11685580939510015,-1.0
+sr_bounce,3,15,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",16,0.2956829070968523,0.16864735879606718,0.2956829070968523
+sr_bounce,3,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",10,0.02355180119963225,0.014028151287259195,-1.0
+sr_bounce,3,17,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,4,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",28,-0.1651727325687744,-0.09833144269352784,-0.1651727325687744
+sr_bounce,4,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",27,0.003876568764607846,0.002438780247279874,0.003876568764607846
+sr_bounce,4,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,4,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,4,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",2,0.7474017182285226,,-1.0
+sr_bounce,4,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",3,-1.0,,-1.0
+sr_bounce,4,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,4,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,4,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",5,-1.0,,-1.0
+sr_bounce,4,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",13,-0.0035931951011451456,-0.002265192769645136,-1.0
+sr_bounce,4,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",10,0.04028262211669555,0.023974476426386945,-1.0
+sr_bounce,4,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",22,0.2203147100924601,0.11423409132935407,0.2203147100924601
+sr_bounce,4,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",120,-0.28829633805328775,-0.20083830384916576,-0.28829633805328775
+sr_bounce,4,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": true}",12,-0.41754206937042887,-0.30548035892380876,-1.0
+sr_bounce,4,14,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,4,15,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",37,0.4194340407528707,0.23448180926155868,0.4194340407528707
+sr_bounce,4,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",11,-0.002809985056909356,-0.0016410418315218553,-1.0
+sr_bounce,4,17,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,4,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",17,-0.2618231989614295,-0.18791626663746663,-0.2618231989614295
+sr_bounce,4,19,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": false}",97,0.21237053760335453,0.11152817237153978,0.21237053760335453
+sr_bounce,5,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",31,-0.5427115928527853,-0.4376527396838469,-0.5427115928527853
+sr_bounce,5,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",24,-0.3062286419097889,-0.2210179298107822,-0.3062286419097889
+sr_bounce,5,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,5,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,5,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,5,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",3,-1.0,,-1.0
+sr_bounce,5,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,5,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,5,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",3,-1.0,,-1.0
+sr_bounce,5,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",12,-0.21731255213094922,-0.1508133074975798,-1.0
+sr_bounce,5,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",8,-0.5661148406041923,-0.4613013767041437,-1.0
+sr_bounce,5,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",24,-0.06913077531613161,-0.03980893299397369,-0.06913077531613161
+sr_bounce,5,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",93,-0.4813898760142684,-0.39085949492764316,-0.4813898760142684
+sr_bounce,5,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": true}",11,-0.7107012116947525,-0.7407029914865488,-1.0
+sr_bounce,5,14,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,5,15,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",35,0.015873146168790837,0.009490227836891917,0.015873146168790837
+sr_bounce,5,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",11,-0.36384553635656935,-0.25705267267664705,-1.0
+sr_bounce,5,17,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,5,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",18,-0.6750044457692671,-0.7136108458095494,-0.6750044457692671
+sr_bounce,5,19,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": false}",87,0.051428580594781524,0.02903114613528729,0.051428580594781524
+sr_bounce,6,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",33,-0.7191199778457978,-0.7963318026383126,-0.7191199778457978
+sr_bounce,6,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",25,-0.33281402501246304,-0.24373967712767403,-0.33281402501246304
+sr_bounce,6,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,6,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,6,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,6,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",3,-1.0,,-1.0
+sr_bounce,6,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,6,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,6,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",5,-1.0,,-1.0
+sr_bounce,6,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",13,-0.5730065689637578,-0.5491673099100708,-1.0
+sr_bounce,6,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",9,-0.614324302759282,-0.5309506641239516,-1.0
+sr_bounce,6,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",26,-0.290727402181948,-0.18468303811988834,-0.290727402181948
+sr_bounce,6,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",107,-0.4084081619118818,-0.2909807245314916,-0.4084081619118818
+sr_bounce,6,13,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": true}",11,-0.7160138551662094,-0.76020011586771,-1.0
+sr_bounce,6,14,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,6,15,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",42,-0.3851477647240865,-0.26948417389645074,-0.3851477647240865
+sr_bounce,6,16,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",18,0.4097424370666957,0.1900261600380135,0.4097424370666957
+sr_bounce,6,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,7,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",28,-0.6689628310325474,-0.686602048467168,-0.6689628310325474
+sr_bounce,7,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",34,-0.12523170691340368,-0.08360682989684018,-0.12523170691340368
+sr_bounce,7,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,7,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,7,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,7,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",3,0.39761220415274073,0.164252653503287,-1.0
+sr_bounce,7,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,7,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,7,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",4,-1.0,,-1.0
+sr_bounce,7,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",13,-0.32373820990101526,-0.2508284410269087,-1.0
+sr_bounce,7,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",12,-0.398936985906621,-0.28394784414130936,-1.0
+sr_bounce,7,11,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.5, ""trend_filter"": false}",22,-0.16176874803321117,-0.09604506301887701,-0.16176874803321117
+sr_bounce,7,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",134,-0.10998755490045764,-0.06083565452919681,-0.10998755490045764
+sr_bounce,7,13,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",18,0.3961563865365625,0.15770987732606198,0.3961563865365625
+sr_bounce,7,14,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,7,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",6,0.586762049257788,0.2166656922734697,-1.0
+sr_bounce,7,16,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",7,1.255064457263458,0.3780461926533455,-1.0
+sr_bounce,7,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": true}",13,0.5825259547300092,0.2138749160937245,-1.0
+sr_bounce,7,18,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",14,0.37638299077282295,0.157778552959521,-1.0
+sr_bounce,8,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",22,-0.35958883767746264,-0.25722339885874473,-0.35958883767746264
+sr_bounce,8,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",44,0.09882931906365719,0.06324601835416413,0.09882931906365719
+sr_bounce,8,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,8,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,8,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,8,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",5,1.1163436171876764,0.5622016668166444,-1.0
+sr_bounce,8,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,8,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,8,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,8,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",14,-0.3031707599267803,-0.21583659947630918,-1.0
+sr_bounce,8,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",16,0.048063404025512485,0.029698562082344573,0.048063404025512485
+sr_bounce,8,11,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",146,0.0990836831130186,0.05059272721704552,0.0990836831130186
+sr_bounce,8,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",25,0.7376391943636997,0.3086014023535385,0.7376391943636997
+sr_bounce,8,13,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,8,14,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,8,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",11,0.8106610467211568,0.2824469408417676,-1.0
+sr_bounce,8,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",56,0.029160696526290466,0.0160630439918595,0.029160696526290466
+sr_bounce,8,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",18,0.9052217089311867,0.38593471571631605,0.9052217089311867
+sr_bounce,9,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",16,-0.1194346518065112,-0.07537969872693435,-0.1194346518065112
+sr_bounce,9,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",54,0.13637287947354593,0.08677886334316258,0.13637287947354593
+sr_bounce,9,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,9,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,9,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,9,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",7,1.0992848242226756,0.5469591260431539,-1.0
+sr_bounce,9,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",1,-1.0,,-1.0
+sr_bounce,9,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,9,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,9,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",17,-0.1101572105302762,-0.06631028033363459,-0.1101572105302762
+sr_bounce,9,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",25,-0.021958446183570866,-0.013582492467507866,-0.021958446183570866
+sr_bounce,9,11,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",181,0.11102957603438364,0.05615587068779873,0.11102957603438364
+sr_bounce,9,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",38,0.6646712053366782,0.2802266827290009,0.6646712053366782
+sr_bounce,9,13,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",11,0.7720933680599508,0.27205003840265374,-1.0
+sr_bounce,9,14,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,9,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",18,0.852803309475064,0.43012279464374314,0.852803309475064
+sr_bounce,9,16,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.25, ""trend_filter"": true}",22,0.5892685326905464,0.2574274711178222,0.5892685326905464
+sr_bounce,9,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",25,1.047589444214304,0.4561681765449045,1.047589444214304
+sr_bounce,9,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",30,-0.15629158037738825,-0.0973800462307829,-0.15629158037738825
+sr_bounce,10,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",12,-0.09732432121765659,-0.059252062570123464,-1.0
+sr_bounce,10,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",58,0.3239311502493972,0.1944402333888175,0.3239311502493972
+sr_bounce,10,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,10,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,10,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,10,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",7,1.5814211305979022,0.869902369878642,-1.0
+sr_bounce,10,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",2,0.6874770723132926,,-1.0
+sr_bounce,10,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,10,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",3,0.7732647361850141,0.2517642146043798,-1.0
+sr_bounce,10,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",20,-0.24363362895073476,-0.15628330956114025,-0.24363362895073476
+sr_bounce,10,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",29,0.22400828597560657,0.12932229453663083,0.22400828597560657
+sr_bounce,10,11,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",178,0.24189276006831018,0.11441528621392387,0.24189276006831018
+sr_bounce,10,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",39,0.8731737140037524,0.3591310998954979,0.8731737140037524
+sr_bounce,10,13,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",14,0.7331696405841476,0.2700797695055379,-1.0
+sr_bounce,10,14,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,10,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",19,1.1168774663299759,0.5785122353707317,1.1168774663299759
+sr_bounce,10,16,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.25, ""trend_filter"": true}",23,0.5201699008344355,0.23007660006306857,0.5201699008344355
+sr_bounce,10,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",26,1.2971153508372333,0.5674718948027719,1.2971153508372333
+sr_bounce,10,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",35,0.005382437734598408,0.00324864199347881,0.005382437734598408
+sr_bounce,11,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",12,-0.09732432121765659,-0.059252062570123464,-1.0
+sr_bounce,11,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",62,0.14537807722393692,0.08951825942517483,0.14537807722393692
+sr_bounce,11,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,11,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,11,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,11,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",7,0.9824444716752991,0.5203916799691676,-1.0
+sr_bounce,11,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",3,0.12498471487552838,0.06414305707785455,-1.0
+sr_bounce,11,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,11,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",4,0.3299485521387606,0.12404560748164013,-1.0
+sr_bounce,11,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",19,-0.374376907727913,-0.2521537059182137,-0.374376907727913
+sr_bounce,11,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",36,-0.012301137604639542,-0.007554527754315284,-0.012301137604639542
+sr_bounce,11,11,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",176,0.030723999787938352,0.015045762699157706,0.030723999787938352
+sr_bounce,11,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",44,0.5302482461919031,0.2502302477062311,0.5302482461919031
+sr_bounce,11,13,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",12,0.2958182631156936,0.15182123409251932,-1.0
+sr_bounce,11,14,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,11,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",17,0.7997638468363253,0.45204459727252766,0.7997638468363253
+sr_bounce,11,16,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.25, ""trend_filter"": true}",29,0.26292108390578744,0.13245129757775823,0.26292108390578744
+sr_bounce,11,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",30,0.8217775263802055,0.4062894084032793,0.8217775263802055
+sr_bounce,11,18,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",41,-0.0076122413233366375,-0.004845108635176128,-0.0076122413233366375
+sr_bounce,final,0,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 0.25, ""trend_filter"": false}",18,-1.0,,-1.0
+sr_bounce,final,1,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": false}",53,0.0014994349386734888,0.0009247516302737507,0.0014994349386734888
+sr_bounce,final,2,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 30, ""stop_atr"": 1.0, ""trend_filter"": false}",1,-1.0,,-1.0
+sr_bounce,final,3,"{""allow_short"": true, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 1.0, ""trend_filter"": true}",0,,,-1.0
+sr_bounce,final,4,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 0.5, ""trend_filter"": true}",2,-1.0,,-1.0
+sr_bounce,final,5,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": true}",4,0.8720574570617332,0.399553637616209,-1.0
+sr_bounce,final,6,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": true}",2,0.6874770723132926,,-1.0
+sr_bounce,final,7,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 50, ""stop_atr"": 1.0, ""trend_filter"": false}",2,-1.0,,-1.0
+sr_bounce,final,8,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",4,0.3299485521387606,0.12404560748164013,-1.0
+sr_bounce,final,9,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": false, ""rsi_max"": 30, ""stop_atr"": 0.5, ""trend_filter"": false}",18,-0.5539907783439451,-0.42677397201600803,-0.5539907783439451
+sr_bounce,final,10,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 40, ""stop_atr"": 1.0, ""trend_filter"": false}",30,-0.24900601747403794,-0.1624488313756743,-0.24900601747403794
+sr_bounce,final,11,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": false, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",163,0.02812387130949473,0.013823836627781775,0.02812387130949473
+sr_bounce,final,12,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",36,0.5068680449590134,0.22443459574924693,0.5068680449590134
+sr_bounce,final,13,"{""allow_short"": false, ""fresh_only"": true, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",0,,,-1.0
+sr_bounce,final,14,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 5, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": true}",6,-0.4841681920749888,-0.3831885387345642,-1.0
+sr_bounce,final,15,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 3, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",6,0.41812118949651406,0.18824604467042338,-1.0
+sr_bounce,final,16,"{""allow_short"": true, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.25, ""trend_filter"": false}",74,0.0924519406055291,0.048741150779686854,0.0924519406055291
+sr_bounce,final,17,"{""allow_short"": false, ""fresh_only"": false, ""min_confluence"": 1, ""reject_candle"": true, ""rsi_max"": 100, ""stop_atr"": 0.5, ""trend_filter"": false}",24,0.9483844951432343,0.4238677190689359,0.9483844951432343
+breakout_retest,0,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",36,0.20467289852124743,0.16746903742698693,0.20467289852124743
+breakout_retest,0,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",152,-0.07374381426347008,-0.06469906799676466,-0.07374381426347008
+breakout_retest,0,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",25,0.3861113999047484,0.2620930358725849,0.3861113999047484
+breakout_retest,0,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",30,0.28523014622635606,0.23317467453728966,0.28523014622635606
+breakout_retest,0,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",147,-0.03593743817592151,-0.031070708258053564,-0.03593743817592151
+breakout_retest,0,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",85,0.040711253859668936,0.0344989280490118,0.040711253859668936
+breakout_retest,0,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",54,0.20135903750689751,0.16600678001123112,0.20135903750689751
+breakout_retest,0,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",104,0.10952063160023427,0.07950178037891709,0.10952063160023427
+breakout_retest,0,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",91,0.002029345145276923,0.001729313344174675,0.002029345145276923
+breakout_retest,0,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",68,0.11544124863804546,0.0822210084453611,0.11544124863804546
+breakout_retest,0,10,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",48,0.20119036016585157,0.1400362015742314,0.20119036016585157
+breakout_retest,0,11,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.25}",19,0.412013604018262,0.2167776108569502,0.412013604018262
+breakout_retest,0,12,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",16,0.44334135985642364,0.23026514682595686,0.44334135985642364
+breakout_retest,0,13,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",72,-0.023777390722257277,-0.014237417889930102,-0.023777390722257277
+breakout_retest,0,14,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",23,0.35079331591616164,0.18547680573676834,0.35079331591616164
+breakout_retest,0,15,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 3.0, ""stop_atr"": 1.0}",37,-0.14417927213774584,-0.09034314035196912,-0.14417927213774584
+breakout_retest,1,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",37,0.0827480532403323,0.06900262893296656,0.0827480532403323
+breakout_retest,1,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",193,0.005748389822451326,0.005025341922761643,0.005748389822451326
+breakout_retest,1,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",22,0.3841879412460671,0.2661661454797078,0.3841879412460671
+breakout_retest,1,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",27,0.30619840535137993,0.2546581994815789,0.30619840535137993
+breakout_retest,1,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",159,-0.016493334629738537,-0.014218351597685247,-0.016493334629738537
+breakout_retest,1,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",98,0.17023536590916497,0.14373322254433912,0.17023536590916497
+breakout_retest,1,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",52,0.13269573434216256,0.11061627194608918,0.13269573434216256
+breakout_retest,1,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",133,0.04281166840432909,0.03156673724635858,0.04281166840432909
+breakout_retest,1,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",104,0.13518073107077472,0.11514382737224414,0.13518073107077472
+breakout_retest,1,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",76,0.07747730918201522,0.05557552778809302,0.07747730918201522
+breakout_retest,1,10,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",45,0.18062144396433202,0.12739831229108464,0.18062144396433202
+breakout_retest,1,11,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.25}",17,0.21835757413900098,0.12285434458151054,0.21835757413900098
+breakout_retest,1,12,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",18,0.3714803905547112,0.2563613974486653,0.3714803905547112
+breakout_retest,1,13,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 0.25}",98,0.13683000642856458,0.09853674243798663,0.13683000642856458
+breakout_retest,1,14,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",32,0.21895418207499215,0.1539001517452496,0.21895418207499215
+breakout_retest,1,15,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",84,-0.0710821333752935,-0.04338637454031975,-0.0710821333752935
+breakout_retest,1,16,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.25}",164,-0.028433646509992458,-0.021421933730810666,-0.028433646509992458
+breakout_retest,1,17,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.5}",22,0.38594648335032034,0.2667269944875809,0.38594648335032034
+breakout_retest,2,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",36,0.14207551372634536,0.11601678685093494,0.14207551372634536
+breakout_retest,2,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",178,-0.028843199963244335,-0.02530210599707534,-0.028843199963244335
+breakout_retest,2,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",26,0.2567160517843701,0.17842657334165962,0.2567160517843701
+breakout_retest,2,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",32,0.23359956663597056,0.19334209953628811,0.23359956663597056
+breakout_retest,2,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",146,-0.05736139522663279,-0.049649269913986716,-0.05736139522663279
+breakout_retest,2,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",96,0.09231369929045691,0.07796124066831321,0.09231369929045691
+breakout_retest,2,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",56,0.17760597110591445,0.14756103812865662,0.17760597110591445
+breakout_retest,2,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",132,-0.05832976388578643,-0.04391531606170292,-0.05832976388578643
+breakout_retest,2,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",101,0.02441950642514041,0.020928080379463324,0.02441950642514041
+breakout_retest,2,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",73,0.23576113957892997,0.16521471978085775,0.23576113957892997
+breakout_retest,2,10,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",45,0.24070417075134334,0.1681933384043768,0.24070417075134334
+breakout_retest,2,11,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.25}",24,0.004957720194624667,0.0029104388397072694,0.004957720194624667
+breakout_retest,2,12,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",25,0.3168784413715396,0.21784597303776793,0.3168784413715396
+breakout_retest,2,13,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",25,0.2832442803384195,0.19169344558345408,0.2832442803384195
+breakout_retest,2,14,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",73,-0.0951980425717707,-0.05852860734508872,-0.0951980425717707
+breakout_retest,3,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",33,0.1715485396281031,0.1398785189729766,0.1715485396281031
+breakout_retest,3,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",168,-0.05690732550470557,-0.050122151405789975,-0.05690732550470557
+breakout_retest,3,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",30,0.06255356572858775,0.04403609925419428,0.06255356572858775
+breakout_retest,3,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",32,0.13156729888372165,0.10748404363581186,0.13156729888372165
+breakout_retest,3,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",130,-0.02284711758658132,-0.019621907917984655,-0.02284711758658132
+breakout_retest,3,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",89,0.09006245369888609,0.07589204919140972,0.09006245369888609
+breakout_retest,3,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",54,0.024946137430054954,0.0207673382863858,0.024946137430054954
+breakout_retest,3,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",131,-0.11815862119382808,-0.09002371319313081,-0.11815862119382808
+breakout_retest,3,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",94,0.019567300038241024,0.016772934114970516,0.019567300038241024
+breakout_retest,3,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",75,0.15145192876794478,0.10665523884059043,0.15145192876794478
+breakout_retest,3,10,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",23,0.012812334125540779,0.007349935373107424,0.012812334125540779
+breakout_retest,3,11,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",26,0.34519897797469246,0.23295984308985904,0.34519897797469246
+breakout_retest,3,12,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",64,-0.04678389573208194,-0.028108623069243405,-0.04678389573208194
+breakout_retest,3,13,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",22,0.05930108921408897,0.03349108590939603,0.05930108921408897
+breakout_retest,3,14,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 0.25}",76,0.22512336535039515,0.15982088173026937,0.22512336535039515
+breakout_retest,3,15,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",38,0.14856109272271817,0.10306754730845367,0.14856109272271817
+breakout_retest,3,16,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 1.0}",93,0.10563116343340012,0.07549741176371427,0.10563116343340012
+breakout_retest,4,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",40,-0.09398296646953216,-0.07933513709750305,-0.09398296646953216
+breakout_retest,4,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",172,-0.1663202566040417,-0.1508306336068183,-0.1663202566040417
+breakout_retest,4,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",38,-0.09062665515264207,-0.06679774547556974,-0.09062665515264207
+breakout_retest,4,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",38,-0.11378834534098252,-0.09675479234337707,-0.11378834534098252
+breakout_retest,4,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",131,-0.11092379424577405,-0.0975323031397046,-0.11092379424577405
+breakout_retest,4,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",86,-0.06512424020794753,-0.05597597502315039,-0.06512424020794753
+breakout_retest,4,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",60,-0.07951551533806309,-0.06752910895046414,-0.07951551533806309
+breakout_retest,4,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",136,-0.2213551294300385,-0.17614396104176128,-0.2213551294300385
+breakout_retest,4,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",92,-0.11003848994310736,-0.09628561099657815,-0.11003848994310736
+breakout_retest,4,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",64,0.029157793020972725,0.021042031184468967,0.029157793020972725
+breakout_retest,4,10,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",59,0.25846786733166377,0.14462278502401107,0.25846786733166377
+breakout_retest,4,11,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",70,-0.04345382492027649,-0.026424771506911842,-0.04345382492027649
+breakout_retest,4,12,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.5}",46,0.4251494806592704,0.23312247283598594,0.4251494806592704
+breakout_retest,4,13,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",36,0.0392452187926998,0.022963986699492327,0.0392452187926998
+breakout_retest,5,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",49,0.11601840523364125,0.09387737209131253,0.11601840523364125
+breakout_retest,5,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",148,-0.20846243595275685,-0.18892071110020636,-0.20846243595275685
+breakout_retest,5,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",46,-0.01965233242243103,-0.01396012600923965,-0.01965233242243103
+breakout_retest,5,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",46,-0.07588458456544102,-0.06293780095352916,-0.07588458456544102
+breakout_retest,5,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",134,-0.05726702178804503,-0.04957133722537696,-0.05726702178804503
+breakout_retest,5,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",81,-0.2453449818438989,-0.21737289268961138,-0.2453449818438989
+breakout_retest,5,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",66,0.0389845736940906,0.03202797217786999,0.0389845736940906
+breakout_retest,5,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",120,-0.13795836171478568,-0.10613578310545141,-0.13795836171478568
+breakout_retest,5,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",87,-0.33268547445985164,-0.3062077773302013,-0.33268547445985164
+breakout_retest,5,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",62,0.15320027118229576,0.10689910681611443,0.15320027118229576
+breakout_retest,5,10,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",56,0.3226575280220891,0.17780448357123035,0.3226575280220891
+breakout_retest,5,11,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",71,0.08491575895763519,0.04929027057302389,0.08491575895763519
+breakout_retest,5,12,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.5}",54,0.39508042636753304,0.21558290927022897,0.39508042636753304
+breakout_retest,5,13,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",40,0.32565910653925123,0.17369801030086388,0.32565910653925123
+breakout_retest,6,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",46,0.08157766712187155,0.06618219869583285,0.08157766712187155
+breakout_retest,6,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",177,-0.19480312726602178,-0.17666861437147352,-0.19480312726602178
+breakout_retest,6,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",40,-0.09474352321159615,-0.06863307137292159,-0.09474352321159615
+breakout_retest,6,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",39,-0.16205586608145342,-0.13699316745148932,-0.16205586608145342
+breakout_retest,6,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",173,-0.11967709868463826,-0.10530030502713789,-0.11967709868463826
+breakout_retest,6,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",87,-0.35836013571545333,-0.335179479999459,-0.35836013571545333
+breakout_retest,6,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",57,-0.012257029458898757,-0.010138586325099055,-0.012257029458898757
+breakout_retest,6,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",151,-0.18013733448152794,-0.14101883672358764,-0.18013733448152794
+breakout_retest,6,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",97,-0.31211591761946933,-0.2876698454948639,-0.31211591761946933
+breakout_retest,6,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",64,0.021695533497440064,0.015569382668822998,0.021695533497440064
+breakout_retest,6,10,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",32,0.07752548212855027,0.04429052996847457,0.07752548212855027
+breakout_retest,6,11,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 1.0}",40,0.13506181207237444,0.10916576306921418,0.13506181207237444
+breakout_retest,6,12,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",35,0.1448404088339026,0.09950620116982478,0.1448404088339026
+breakout_retest,6,13,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.25}",181,-0.17153626146650242,-0.13473222203022486,-0.17153626146650242
+breakout_retest,6,14,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 3.0, ""stop_atr"": 1.0}",62,0.032325208475411836,0.018863706358115236,0.032325208475411836
+breakout_retest,7,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",43,0.005439958446529611,0.004488734451111693,0.005439958446529611
+breakout_retest,7,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",180,-0.12810699221900063,-0.11389782230758373,-0.12810699221900063
+breakout_retest,7,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",34,-0.020671647302929017,-0.014616722191198956,-0.020671647302929017
+breakout_retest,7,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",34,-0.03885901261410246,-0.0318423493861847,-0.03885901261410246
+breakout_retest,7,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",198,-0.1540823411525871,-0.13679984642748097,-0.1540823411525871
+breakout_retest,7,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",84,-0.30358119461916977,-0.27597299132742453,-0.30358119461916977
+breakout_retest,7,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",52,0.036537015348234184,0.029965443178203273,0.036537015348234184
+breakout_retest,7,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",155,-0.07501296273965598,-0.05681793604977031,-0.07501296273965598
+breakout_retest,7,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",94,-0.2116615925764289,-0.1874623453119909,-0.2116615925764289
+breakout_retest,7,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",72,0.029202735310399457,0.020932747659086204,0.029202735310399457
+breakout_retest,7,10,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.25}",40,0.20806406213059664,0.11428738193725584,0.20806406213059664
+breakout_retest,7,11,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.25}",163,-0.014875289200565713,-0.009060772384951756,-0.014875289200565713
+breakout_retest,7,12,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",32,0.062201977850375276,0.035263379124156995,0.062201977850375276
+breakout_retest,7,13,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.25}",30,-0.08328451938489151,-0.05086547007875436,-0.08328451938489151
+breakout_retest,7,14,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.5}",43,0.1814841041423512,0.125091639420953,0.1814841041423512
+breakout_retest,7,15,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",107,-0.11387915645301036,-0.07074474845714743,-0.11387915645301036
+breakout_retest,7,16,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",35,0.2831111467555797,0.15266321397143764,0.2831111467555797
+breakout_retest,7,17,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 3.0, ""stop_atr"": 0.5}",72,0.09455528360173046,0.05421023743731154,0.09455528360173046
+breakout_retest,8,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",35,0.28803032648691984,0.23022614548303827,0.28803032648691984
+breakout_retest,8,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",209,-0.12840747072904574,-0.11405673654451749,-0.12840747072904574
+breakout_retest,8,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",23,0.07863230537053308,0.053324874242056355,0.07863230537053308
+breakout_retest,8,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",23,0.11494916623359415,0.09052216379290219,0.11494916623359415
+breakout_retest,8,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",223,-0.15805886977098685,-0.13985028700456462,-0.15805886977098685
+breakout_retest,8,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",75,-0.24898481088389995,-0.22067853996586115,-0.24898481088389995
+breakout_retest,8,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",40,0.11478106117080115,0.09228088828338667,0.11478106117080115
+breakout_retest,8,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",156,-0.012404292683138087,-0.009224012177441643,-0.012404292683138087
+breakout_retest,8,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",86,-0.18987544109548132,-0.16634522026883666,-0.18987544109548132
+breakout_retest,8,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",71,0.12806618191323801,0.08990924999848499,0.12806618191323801
+breakout_retest,8,10,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",24,0.5657813512226223,0.2877816220434105,0.5657813512226223
+breakout_retest,8,11,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 3.0, ""stop_atr"": 0.5}",74,0.06334342984817977,0.036669911822891345,0.06334342984817977
+breakout_retest,8,12,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",22,0.20236566529791666,0.10902162181254971,0.20236566529791666
+breakout_retest,8,13,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.25}",205,-0.14665527439488407,-0.09418667594364383,-0.14665527439488407
+breakout_retest,8,14,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.5}",38,0.1923770351011391,0.13136893008600534,0.1923770351011391
+breakout_retest,8,15,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.5}",135,-0.004000765987501556,-0.002411180169509458,-0.004000765987501556
+breakout_retest,8,16,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",21,0.6059687734930898,0.30542126254907065,0.6059687734930898
+breakout_retest,9,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",19,0.21719858342672543,0.17887708505839803,0.21719858342672543
+breakout_retest,9,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",252,-0.10111139183241846,-0.08943650905067552,-0.10111139183241846
+breakout_retest,9,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",11,-0.22655735704130778,-0.17094714696985416,-1.0
+breakout_retest,9,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",11,0.09065676798100152,0.07231843277927189,-1.0
+breakout_retest,9,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",247,-0.10920320866761096,-0.09563741227307476,-0.10920320866761096
+breakout_retest,9,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",85,-0.21790294814361647,-0.19407641316754476,-0.21790294814361647
+breakout_retest,9,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",26,-0.17035508470921512,-0.14643859671351755,-0.17035508470921512
+breakout_retest,9,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",187,-0.024683458016663686,-0.018406179679604555,-0.024683458016663686
+breakout_retest,9,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",95,-0.08421279663218194,-0.0730287855655103,-0.08421279663218194
+breakout_retest,9,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",74,0.0963178186692146,0.06848980696365117,0.0963178186692146
+breakout_retest,9,10,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",16,0.5696404993434878,0.301786731597646,0.5696404993434878
+breakout_retest,9,11,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 3.0, ""stop_atr"": 0.5}",72,0.24148059916590073,0.13564636761269783,0.24148059916590073
+breakout_retest,9,12,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",14,0.24079032536305953,0.13455863415561595,-1.0
+breakout_retest,9,13,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.25}",222,-0.1049748152046728,-0.0661364685437104,-0.1049748152046728
+breakout_retest,9,14,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.5}",24,-0.1605873955625535,-0.12013770204018193,-0.1605873955625535
+breakout_retest,9,15,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.5}",157,-0.03823779082804957,-0.023390518903078944,-0.03823779082804957
+breakout_retest,9,16,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",11,0.3916066947880262,0.2027428721400967,-1.0
+breakout_retest,9,17,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.5}",18,0.20173629161577178,0.14092566315482777,0.20173629161577178
+breakout_retest,10,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",15,0.29816278949854425,0.23720580359938556,0.29816278949854425
+breakout_retest,10,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",277,-0.08814028273537039,-0.07765424614032092,-0.08814028273537039
+breakout_retest,10,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",8,-0.6344052111269355,-0.6135101490241589,-1.0
+breakout_retest,10,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",8,-0.08616486817730595,-0.06831885368192542,-1.0
+breakout_retest,10,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",257,-0.08990696745597224,-0.07800805850490188,-0.08990696745597224
+breakout_retest,10,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",85,-0.18649931579731058,-0.1639527465207759,-0.18649931579731058
+breakout_retest,10,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",22,-0.22684063862916923,-0.19581524273874143,-0.22684063862916923
+breakout_retest,10,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",201,0.06464309327190634,0.04720333935227192,0.06464309327190634
+breakout_retest,10,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",92,-0.10035001575580206,-0.08688728391922976,-0.10035001575580206
+breakout_retest,10,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",82,0.09391229333046476,0.0665108420539451,0.09391229333046476
+breakout_retest,10,10,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 0.5}",12,0.6185413743625303,0.3092276707180273,-1.0
+breakout_retest,10,11,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 1.0}",13,0.3537991849132208,0.23245758486160042,-1.0
+breakout_retest,10,12,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 1.0}",82,0.03081308857216392,0.02563174973291221,0.03081308857216392
+breakout_retest,10,13,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.5}",20,-0.26957213459974594,-0.2076796018909292,-0.26957213459974594
+breakout_retest,10,14,"{""lookback"": 48, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 0.5}",85,0.046447045672156385,0.033417597132311815,0.046447045672156385
+breakout_retest,10,15,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",15,0.13317866380830623,0.10620385795473854,0.13317866380830623
+breakout_retest,10,16,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",8,-0.5105542004814665,-0.36880113965514855,-1.0
+breakout_retest,11,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",14,0.5677102607040274,0.46813430835698816,-1.0
+breakout_retest,11,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",329,-0.07640734602264405,-0.06641065794969146,-0.07640734602264405
+breakout_retest,11,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",6,-0.5125402815025807,-0.42925330191853256,-1.0
+breakout_retest,11,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",6,0.22625425900961552,0.16842412822684447,-1.0
+breakout_retest,11,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",281,0.006090596948714093,0.005152370772255484,0.006090596948714093
+breakout_retest,11,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",98,-0.04079573571835552,-0.03441313437308119,-0.04079573571835552
+breakout_retest,11,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",16,-0.08836256314557218,-0.07269406592344406,-0.08836256314557218
+breakout_retest,11,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",225,0.10148090182508539,0.07292699095940314,0.10148090182508539
+breakout_retest,11,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",106,-0.05531182990818951,-0.04700147709007153,-0.05531182990818951
+breakout_retest,11,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",80,0.011361229493883452,0.008128783217305197,0.011361229493883452
+breakout_retest,11,10,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",125,0.22000101477212763,0.12290461235038853,0.22000101477212763
+breakout_retest,11,11,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",129,-0.020621882131232876,-0.012243984607666744,-0.020621882131232876
+breakout_retest,11,12,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",6,0.31372758464665473,0.154144490372521,-1.0
+breakout_retest,11,13,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",138,0.03514889965945527,0.020474671530127605,0.03514889965945527
+breakout_retest,11,14,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 1.0}",185,0.08432469708440021,0.07020176980750897,0.08432469708440021
+breakout_retest,11,15,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.25}",252,-0.09559190165159066,-0.05936681578533719,-0.09559190165159066
+breakout_retest,final,0,"{""lookback"": 48, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",14,0.5623806276364391,0.46529470932301653,-1.0
+breakout_retest,final,1,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.25}",328,-0.03581153327210449,-0.030727769579180643,-0.03581153327210449
+breakout_retest,final,2,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 2.0, ""stop_atr"": 0.25}",10,-0.7132779887455788,-0.7866794179601708,-1.0
+breakout_retest,final,3,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.5}",9,0.07979661084110856,0.062309765852430414,-1.0
+breakout_retest,final,4,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 0.5}",277,0.0681451236172049,0.0570423712785168,0.0681451236172049
+breakout_retest,final,5,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.5}",124,0.019317645527503615,0.01613153070201165,0.019317645527503615
+breakout_retest,final,6,"{""lookback"": 96, ""min_confluence"": 5, ""rr"": 1.5, ""stop_atr"": 0.25}",18,-0.06252074930878453,-0.05169763293945069,-0.06252074930878453
+breakout_retest,final,7,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 2.0, ""stop_atr"": 0.5}",234,0.09373742239015023,0.06718701552930663,0.09373742239015023
+breakout_retest,final,8,"{""lookback"": 24, ""min_confluence"": 3, ""rr"": 1.5, ""stop_atr"": 0.25}",138,0.0094248771934724,0.007932579675844072,0.0094248771934724
+breakout_retest,final,9,"{""lookback"": 96, ""min_confluence"": 3, ""rr"": 2.0, ""stop_atr"": 1.0}",94,-0.07726385420174557,-0.056633402739323296,-0.07726385420174557
+breakout_retest,final,10,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",122,0.16871403974731092,0.09483722215622986,0.16871403974731092
+breakout_retest,final,11,"{""lookback"": 96, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",146,-0.05467245663278158,-0.032842778347139334,-0.05467245663278158
+breakout_retest,final,12,"{""lookback"": 24, ""min_confluence"": 5, ""rr"": 3.0, ""stop_atr"": 1.0}",8,-0.02022965505182156,-0.011149738146474153,-1.0
+breakout_retest,final,13,"{""lookback"": 48, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 1.0}",144,0.12486886080074343,0.07097428873812749,0.12486886080074343
+breakout_retest,final,14,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 1.5, ""stop_atr"": 1.0}",196,0.06835300225533855,0.056806660149294794,0.06835300225533855
+breakout_retest,final,15,"{""lookback"": 24, ""min_confluence"": 1, ""rr"": 3.0, ""stop_atr"": 0.25}",232,-0.06725983667454824,-0.04114062124201383,-0.06725983667454824
+ema_pullback,0,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",59,0.027188447712137746,0.020227092704271674,0.027188447712137746
+ema_pullback,0,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",147,-0.0014504454713184496,-0.000884744058760897,-0.0014504454713184496
+ema_pullback,0,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",175,-0.010544334715649152,-0.007940102492162626,-0.010544334715649152
+ema_pullback,0,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",115,0.054781027482756574,0.032789621713277844,0.054781027482756574
+ema_pullback,0,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",47,0.11538543205393774,0.06663832425216244,0.11538543205393774
+ema_pullback,0,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",64,0.09584508906713896,0.08148453199102432,0.09584508906713896
+ema_pullback,0,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",186,-0.042925441999996906,-0.033593445993025065,-0.042925441999996906
+ema_pullback,0,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",241,-0.06434563109039883,-0.05068741526075261,-0.06434563109039883
+ema_pullback,0,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",117,0.10593743891042977,0.0767520158987714,0.10593743891042977
+ema_pullback,0,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",66,-0.09911796625608164,-0.08797953143414636,-0.09911796625608164
+ema_pullback,0,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",35,0.1787342393130597,0.1011415598277294,0.1787342393130597
+ema_pullback,0,11,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",71,-0.007338178316855223,-0.004593132899727778,-0.007338178316855223
+ema_pullback,0,12,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",82,0.05327392969760869,0.0313771976615228,0.05327392969760869
+ema_pullback,0,13,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 2.0}",44,0.08545700907261762,0.06173695926686954,0.08545700907261762
+ema_pullback,0,14,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",112,0.04623545207174083,0.039477643518112435,0.04623545207174083
+ema_pullback,1,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",63,0.0025001501040077378,0.0018751790569990646,0.0025001501040077378
+ema_pullback,1,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",145,0.013299998692272578,0.00807015754600709,0.013299998692272578
+ema_pullback,1,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",166,-0.02125827268378014,-0.016017741622121995,-0.02125827268378014
+ema_pullback,1,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",120,0.07125189127815418,0.0424841595944629,0.07125189127815418
+ema_pullback,1,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",53,0.18589737264015938,0.10647932904140223,0.18589737264015938
+ema_pullback,1,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",62,-0.02034612948603232,-0.017501709709341583,-0.02034612948603232
+ema_pullback,1,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",186,0.0038332814721507404,0.0029614889414826943,0.0038332814721507404
+ema_pullback,1,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",227,-0.04836682659983799,-0.03780434515952565,-0.04836682659983799
+ema_pullback,1,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",123,0.0520287554975028,0.03806041763205435,0.0520287554975028
+ema_pullback,1,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",73,-0.05834584872841312,-0.051375662860618274,-0.05834584872841312
+ema_pullback,1,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",43,0.19833818349060925,0.11336840495016837,0.19833818349060925
+ema_pullback,1,11,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",72,0.023683601662973737,0.014731411663091134,0.023683601662973737
+ema_pullback,1,12,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",89,0.0884166723794658,0.05181640070640628,0.0884166723794658
+ema_pullback,1,13,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 2.0}",48,0.05118337550654045,0.03730942551616696,0.05118337550654045
+ema_pullback,1,14,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",115,0.0402446551319252,0.034359844923811084,0.0402446551319252
+ema_pullback,2,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",56,-0.021127686630968163,-0.015939568237641998,-0.021127686630968163
+ema_pullback,2,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",138,0.04520120464899504,0.027252227398065428,0.04520120464899504
+ema_pullback,2,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",163,-0.0019397373801991994,-0.0014538270076639916,-0.0019397373801991994
+ema_pullback,2,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",114,0.07133429918589348,0.042701368236787614,0.07133429918589348
+ema_pullback,2,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",48,0.1928197788670114,0.11083981796706038,0.1928197788670114
+ema_pullback,2,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",61,-0.11862049057936083,-0.10382891654489274,-0.11862049057936083
+ema_pullback,2,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",189,0.030790597590681076,0.023657638664596897,0.030790597590681076
+ema_pullback,2,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",230,-0.01429897974402489,-0.011091562691041876,-0.01429897974402489
+ema_pullback,2,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",116,0.09352476985478667,0.06778320802914274,0.09352476985478667
+ema_pullback,2,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",65,-0.04825154214651133,-0.042392778733000874,-0.04825154214651133
+ema_pullback,2,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",38,0.2087192243627447,0.11981498596147261,0.2087192243627447
+ema_pullback,2,11,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",71,-0.10741306055841764,-0.06960478677736295,-0.10741306055841764
+ema_pullback,2,12,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",81,0.17404118203775049,0.10003766718542974,0.17404118203775049
+ema_pullback,2,13,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 2.0}",45,-0.06572146628257357,-0.04917696447825922,-0.06572146628257357
+ema_pullback,2,14,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",113,0.03960005461049026,0.03376288857115649,0.03960005461049026
+ema_pullback,3,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",65,-0.0491017482566523,-0.03671510964188994,-0.0491017482566523
+ema_pullback,3,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",150,0.018973973699680187,0.011440703995398899,0.018973973699680187
+ema_pullback,3,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",170,-0.018471286314953317,-0.01386483648898303,-0.018471286314953317
+ema_pullback,3,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",120,0.028858755206710714,0.017313782024587287,0.028858755206710714
+ema_pullback,3,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",50,0.25774199164418443,0.14338329780925266,0.25774199164418443
+ema_pullback,3,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",63,-0.08237357651505822,-0.07086817166647959,-0.08237357651505822
+ema_pullback,3,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",196,-0.03331674195708001,-0.026175678092561713,-0.03331674195708001
+ema_pullback,3,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",243,-0.02359369046405675,-0.018482583658815405,-0.02359369046405675
+ema_pullback,3,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",125,0.05338961176556141,0.038869567535322475,0.05338961176556141
+ema_pullback,3,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",74,-0.08772578898496493,-0.07629734737403708,-0.08772578898496493
+ema_pullback,3,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",42,0.2276923981518327,0.12719104380685486,0.2276923981518327
+ema_pullback,3,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",93,-0.09406306607793666,-0.0608845222767939,-0.09406306607793666
+ema_pullback,3,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",58,0.004049218814557531,0.0029594580434978536,0.004049218814557531
+ema_pullback,3,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",108,0.10556646943154838,0.0611976390765064,0.10556646943154838
+ema_pullback,3,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",69,0.04153298383403463,0.024682765905903195,0.04153298383403463
+ema_pullback,3,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",113,0.011532293691452249,0.009828656050812084,0.011532293691452249
+ema_pullback,3,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",80,-0.12195412704681201,-0.07965759455789735,-0.12195412704681201
+ema_pullback,4,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",75,-0.10572926498142797,-0.08066288763773143,-0.10572926498142797
+ema_pullback,4,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",155,-0.04407467347612881,-0.027239526122865555,-0.04407467347612881
+ema_pullback,4,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",180,-0.05031804004350655,-0.03830671216600347,-0.05031804004350655
+ema_pullback,4,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",121,-0.01793844024054428,-0.010976201273897694,-0.01793844024054428
+ema_pullback,4,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",62,0.1301878462421763,0.07494800254539334,0.1301878462421763
+ema_pullback,4,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",77,-0.13133063981183143,-0.1148819063209222,-0.13133063981183143
+ema_pullback,4,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",197,-0.03454566471601879,-0.027359048227630953,-0.03454566471601879
+ema_pullback,4,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",250,-0.028557758024256384,-0.022560201778276695,-0.028557758024256384
+ema_pullback,4,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",137,-0.04597252970790351,-0.03442397123756798,-0.04597252970790351
+ema_pullback,4,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",83,-0.13447266469814417,-0.11866392011020514,-0.13447266469814417
+ema_pullback,4,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",51,0.08134551907127827,0.04729068698291091,0.08134551907127827
+ema_pullback,4,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",107,-0.08818000549528963,-0.05726174025517575,-0.08818000549528963
+ema_pullback,4,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",70,-0.05128957003653603,-0.038187829407040186,-0.05128957003653603
+ema_pullback,4,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",119,0.027604773064794585,0.016447656495314673,0.027604773064794585
+ema_pullback,4,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",80,-0.05887608088097072,-0.03626114263587447,-0.05887608088097072
+ema_pullback,4,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",125,-0.07443263327119427,-0.06475704927727659,-0.07443263327119427
+ema_pullback,4,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",90,-0.1081051994741209,-0.07056366978852487,-0.1081051994741209
+ema_pullback,5,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",78,-0.17214506327135154,-0.13378865441225385,-0.17214506327135154
+ema_pullback,5,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",149,-0.0796163459747378,-0.04981689824691672,-0.0796163459747378
+ema_pullback,5,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",174,-0.08150261272615453,-0.0625780923173292,-0.08150261272615453
+ema_pullback,5,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",114,-0.05400626690438755,-0.0334292379312108,-0.05400626690438755
+ema_pullback,5,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",54,0.09223457883552467,0.0534490490035201,0.09223457883552467
+ema_pullback,5,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",74,-0.15746009923641174,-0.13832052857679816,-0.15746009923641174
+ema_pullback,5,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",192,-0.06749854814248184,-0.05402966875377157,-0.06749854814248184
+ema_pullback,5,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",247,-0.072563419922078,-0.058041803218606344,-0.072563419922078
+ema_pullback,5,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",128,-0.022706851550815334,-0.016900079430911766,-0.022706851550815334
+ema_pullback,5,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",82,-0.17778664661586804,-0.15820472954166334,-0.17778664661586804
+ema_pullback,5,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",45,0.06368025175797444,0.037026569380808304,0.06368025175797444
+ema_pullback,5,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",115,-0.15088032756192185,-0.10028807896967257,-0.15088032756192185
+ema_pullback,5,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",66,-0.0344086808133115,-0.02545525461570979,-0.0344086808133115
+ema_pullback,5,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",106,-0.0011433245380956792,-0.0006786818795001549,-0.0011433245380956792
+ema_pullback,5,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",78,-0.12732990996384566,-0.08029061883022866,-0.12732990996384566
+ema_pullback,5,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",115,-0.07543588312500576,-0.06562342276359633,-0.07543588312500576
+ema_pullback,5,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",102,-0.17663789201410984,-0.11832574159877898,-0.17663789201410984
+ema_pullback,6,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",84,-0.13792339850819535,-0.10657786597930066,-0.13792339850819535
+ema_pullback,6,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",154,-0.08677426636639377,-0.05448713205344317,-0.08677426636639377
+ema_pullback,6,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",184,-0.07524522061448854,-0.05785548225253704,-0.07524522061448854
+ema_pullback,6,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",112,-0.006057428883465039,-0.0036945606897968272,-0.006057428883465039
+ema_pullback,6,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",58,0.14428935029253825,0.08267759693119145,0.14428935029253825
+ema_pullback,6,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",77,-0.1338186332029343,-0.11737939858517642,-0.1338186332029343
+ema_pullback,6,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",185,-0.062222067769259794,-0.04982601556108049,-0.062222067769259794
+ema_pullback,6,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",253,-0.08625935442554436,-0.06933958767437129,-0.08625935442554436
+ema_pullback,6,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",134,-0.026365220251195386,-0.0196715415031416,-0.026365220251195386
+ema_pullback,6,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",92,-0.12208568311239505,-0.10789151580124502,-0.12208568311239505
+ema_pullback,6,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",49,0.1276270691624028,0.07316424931261815,0.1276270691624028
+ema_pullback,6,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",116,-0.10235098535872565,-0.06699973012371714,-0.10235098535872565
+ema_pullback,6,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",68,0.017248342771154373,0.012640179295370271,0.017248342771154373
+ema_pullback,6,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",111,-0.013564356224818084,-0.008095678364066453,-0.013564356224818084
+ema_pullback,6,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",80,-0.058731701986527184,-0.036164129230356674,-0.058731701986527184
+ema_pullback,6,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",116,-0.0866839593629596,-0.07579308721564726,-0.0866839593629596
+ema_pullback,6,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",103,-0.12173341376145991,-0.08008612470240566,-0.12173341376145991
+ema_pullback,7,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",87,-0.08516658705772605,-0.06540286489059255,-0.08516658705772605
+ema_pullback,7,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",144,-0.08893466993606859,-0.0561373303324348,-0.08893466993606859
+ema_pullback,7,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",174,-0.09087876734712616,-0.0704409414956379,-0.09087876734712616
+ema_pullback,7,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",98,0.07721163991629929,0.04620546140351245,0.07721163991629929
+ema_pullback,7,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",60,0.24500194472329806,0.13793767487721023,0.24500194472329806
+ema_pullback,7,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",80,-0.06718420999865855,-0.05841056322283179,-0.06718420999865855
+ema_pullback,7,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",169,0.024684182273011116,0.019197911807924083,0.024684182273011116
+ema_pullback,7,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",244,-0.06317055371196918,-0.050013884727386014,-0.06317055371196918
+ema_pullback,7,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",125,0.029315090936564182,0.021637080348061558,0.029315090936564182
+ema_pullback,7,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",98,-0.06407079261625358,-0.056519523898849275,-0.06407079261625358
+ema_pullback,7,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",53,0.19971812746015852,0.11326937742469705,0.19971812746015852
+ema_pullback,7,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",119,-0.028593880868220293,-0.018136263610518857,-0.028593880868220293
+ema_pullback,7,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",71,0.10661060615316144,0.07715719027395784,0.10661060615316144
+ema_pullback,7,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",102,0.044104300818849695,0.025919815061525183,0.044104300818849695
+ema_pullback,7,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",80,0.05268857638280594,0.031577794733937535,0.05268857638280594
+ema_pullback,7,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",105,-0.04944258437265897,-0.043091785267161814,-0.04944258437265897
+ema_pullback,7,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",108,-0.05618980684385565,-0.03586206894196017,-0.05618980684385565
+ema_pullback,8,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",104,0.014171225393380466,0.010547130317797169,0.014171225393380466
+ema_pullback,8,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",141,-0.1341144463738056,-0.08529054605558406,-0.1341144463738056
+ema_pullback,8,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",168,-0.07654370945699103,-0.058414814783743864,-0.07654370945699103
+ema_pullback,8,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",95,0.05317281713084022,0.0316375531018158,0.05317281713084022
+ema_pullback,8,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",65,0.27523757885301864,0.15315504089315943,0.27523757885301864
+ema_pullback,8,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",89,0.005560763685669569,0.004745102008501893,0.005560763685669569
+ema_pullback,8,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",166,0.0035468259442013924,0.002718153513774431,0.0035468259442013924
+ema_pullback,8,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",242,-0.06847490069957264,-0.053430567463255085,-0.06847490069957264
+ema_pullback,8,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",123,-0.033656855028400594,-0.02497243874119432,-0.033656855028400594
+ema_pullback,8,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",120,0.004189685220786613,0.0036315672870699815,0.004189685220786613
+ema_pullback,8,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",64,0.23823223923419568,0.13337459774475646,0.23823223923419568
+ema_pullback,8,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",132,-0.0012727182883868306,-0.0007917271868787003,-0.0012727182883868306
+ema_pullback,8,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",80,0.09685707655491778,0.069777639382818,0.09685707655491778
+ema_pullback,8,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",100,0.0025433945410680402,0.001500803559547405,0.0025433945410680402
+ema_pullback,8,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",89,0.1225102885042109,0.0715932041334609,0.1225102885042109
+ema_pullback,8,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",97,-0.028844488660867595,-0.024745488237601657,-0.028844488660867595
+ema_pullback,8,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",131,-0.01918685939361832,-0.01198870681382378,-0.01918685939361832
+ema_pullback,9,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",97,0.0050782493965449834,0.003775037024927557,0.0050782493965449834
+ema_pullback,9,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",146,-0.15823260738745734,-0.10121377485431218,-0.15823260738745734
+ema_pullback,9,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",170,-0.1317961461736076,-0.10183568284528773,-0.1317961461736076
+ema_pullback,9,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",101,-0.0049223027811209595,-0.0029724940896208754,-0.0049223027811209595
+ema_pullback,9,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",61,0.17990518945492642,0.10169062776377635,0.17990518945492642
+ema_pullback,9,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",84,-0.04330244021624743,-0.0370911470428836,-0.04330244021624743
+ema_pullback,9,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",171,-0.11114074108259474,-0.08682065634443659,-0.11114074108259474
+ema_pullback,9,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",247,-0.1449612348105817,-0.11473166286157122,-0.1449612348105817
+ema_pullback,9,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",125,-0.09057444273958003,-0.06803644208389843,-0.09057444273958003
+ema_pullback,9,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",112,-0.02360325326381588,-0.020454639000881347,-0.02360325326381588
+ema_pullback,9,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",61,0.17990518945492642,0.10169062776377635,0.17990518945492642
+ema_pullback,9,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",119,-0.062147943081075525,-0.039143831049663895,-0.062147943081075525
+ema_pullback,9,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",78,0.020614119003242174,0.01501423064333613,0.020614119003242174
+ema_pullback,9,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",101,-0.025419013985680833,-0.015278189373075039,-0.025419013985680833
+ema_pullback,9,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",84,0.10889232660331052,0.06352543529809775,0.10889232660331052
+ema_pullback,9,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",101,-0.13409812331493934,-0.11713751773221107,-0.13409812331493934
+ema_pullback,9,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",119,-0.062147943081075525,-0.039143831049663895,-0.062147943081075525
+ema_pullback,10,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",104,0.0583785136514373,0.04251465122569218,0.0583785136514373
+ema_pullback,10,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",142,-0.07470081767855447,-0.046004347476721004,-0.07470081767855447
+ema_pullback,10,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",160,-0.10193902955334996,-0.07739045902582922,-0.10193902955334996
+ema_pullback,10,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",105,0.07377134668903292,0.043239878956600024,0.07377134668903292
+ema_pullback,10,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",70,0.25588759492927843,0.1415020609961262,0.25588759492927843
+ema_pullback,10,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",93,0.00110582155048158,0.0009336008128005499,0.00110582155048158
+ema_pullback,10,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",181,-0.04320138568535069,-0.032845600792733784,-0.04320138568535069
+ema_pullback,10,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",239,-0.09348770409620577,-0.07221370483063863,-0.09348770409620577
+ema_pullback,10,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",124,-0.05398380076132485,-0.039941182038288975,-0.05398380076132485
+ema_pullback,10,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",120,0.02038516017053166,0.01739495629832968,0.02038516017053166
+ema_pullback,10,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",70,0.25588759492927843,0.1415020609961262,0.25588759492927843
+ema_pullback,10,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",131,0.032438495085139345,0.019632537439650086,0.032438495085139345
+ema_pullback,10,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",86,0.06671762862272813,0.0478628293316422,0.06671762862272813
+ema_pullback,10,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",104,0.06349300877039385,0.03694256091441343,0.06349300877039385
+ema_pullback,10,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",92,0.18561501866268346,0.10562930574847085,0.18561501866268346
+ema_pullback,10,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",106,-0.0769223151634291,-0.06586566369481704,-0.0769223151634291
+ema_pullback,10,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",131,0.032438495085139345,0.019632537439650086,0.032438495085139345
+ema_pullback,11,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",113,-0.04056233584975868,-0.02924174417716857,-0.04056233584975868
+ema_pullback,11,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",146,-0.1138840982560939,-0.06922648802615658,-0.1138840982560939
+ema_pullback,11,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",163,-0.1316236563471944,-0.09786675130646601,-0.1316236563471944
+ema_pullback,11,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",113,-0.015190991867895421,-0.00890848601860425,-0.015190991867895421
+ema_pullback,11,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",79,0.05181732914053423,0.0295434456935902,0.05181732914053423
+ema_pullback,11,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",103,-0.10657747208779804,-0.08964467130211193,-0.10657747208779804
+ema_pullback,11,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",188,-0.11815133339643699,-0.0913223260460741,-0.11815133339643699
+ema_pullback,11,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",239,-0.1741509460439288,-0.13592168142790617,-0.1741509460439288
+ema_pullback,11,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",130,-0.15122511645027806,-0.1129364456754358,-0.15122511645027806
+ema_pullback,11,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",130,-0.05268850243451562,-0.04393821213833863,-0.05268850243451562
+ema_pullback,11,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",79,0.05181732914053423,0.0295434456935902,0.05181732914053423
+ema_pullback,11,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",144,-0.026217569216470282,-0.016057857540280187,-0.026217569216470282
+ema_pullback,11,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",96,-0.05482207695918997,-0.039585141317195593,-0.05482207695918997
+ema_pullback,11,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",112,-0.05706208856880591,-0.033872960725981185,-0.05706208856880591
+ema_pullback,11,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",101,0.06548523003511125,0.03736583017213927,0.06548523003511125
+ema_pullback,11,15,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 1.5}",130,-0.05268850243451562,-0.04393821213833863,-0.05268850243451562
+ema_pullback,final,0,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.5}",112,-0.10137992298449934,-0.07385738856011707,-0.10137992298449934
+ema_pullback,final,1,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",146,-0.061303650047874116,-0.036534402679310504,-0.061303650047874116
+ema_pullback,final,2,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.5}",163,-0.17769233415914307,-0.13344033560667098,-0.17769233415914307
+ema_pullback,final,3,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.5}",115,0.0004993493285410853,0.0002913874948145388,0.0004993493285410853
+ema_pullback,final,4,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",76,0.13332282825471511,0.07455566686596599,0.13332282825471511
+ema_pullback,final,5,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 1.5, ""stop_atr"": 2.0}",96,-0.11103019738785065,-0.09288814410584957,-0.11103019738785065
+ema_pullback,final,6,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 2.0, ""stop_atr"": 1.0}",188,-0.12674266191552397,-0.09772063242931392,-0.12674266191552397
+ema_pullback,final,7,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 1.0}",240,-0.17155139752315857,-0.13310643555392185,-0.17155139752315857
+ema_pullback,final,8,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",123,-0.10066626324102769,-0.07377751286161276,-0.10066626324102769
+ema_pullback,final,9,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 1.5}",123,-0.12822602925654814,-0.10782972304364949,-0.12822602925654814
+ema_pullback,final,10,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 2.0}",76,0.13332282825471511,0.07455566686596599,0.13332282825471511
+ema_pullback,final,11,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.0}",139,-0.00848908671198066,-0.005136219660887187,-0.00848908671198066
+ema_pullback,final,12,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 2.0, ""stop_atr"": 2.0}",89,-0.011330135885909474,-0.008068424559703198,-0.011330135885909474
+ema_pullback,final,13,"{""allow_short"": true, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 2.0}",107,0.016100168512692158,0.009342838002150336,0.016100168512692158
+ema_pullback,final,14,"{""allow_short"": false, ""daily_filter"": false, ""rr"": 3.0, ""stop_atr"": 1.5}",100,0.07553881498557524,0.04296193101946949,0.07553881498557524
+ema_pullback,final,15,"{""allow_short"": true, ""daily_filter"": true, ""rr"": 1.5, ""stop_atr"": 2.0}",111,-0.1452821232701142,-0.1230940612554473,-0.1452821232701142
+ema_pullback,final,16,"{""allow_short"": false, ""daily_filter"": true, ""rr"": 3.0, ""stop_atr"": 1.0}",139,-0.00848908671198066,-0.005136219660887187,-0.00848908671198066

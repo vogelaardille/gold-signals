@@ -1,0 +1,23 @@
+{
+  "ema_pullback": {
+    "fingerprint": "1b76c42a78ef2209",
+    "opened_at": "2026-10-10T14:51:46+00:00",
+    "params": {
+      "allow_short": false,
+      "daily_filter": false,
+      "rr": 3.0,
+      "stop_atr": 2.0
+    },
+    "result": {
+      "avg_r": -0.0019252764685554371,
+      "avg_r_long": -0.0019252764685554371,
+      "avg_r_short": NaN,
+      "max_dd_pct": -16.776826489888265,
+      "n": 51,
+      "n_long": 51,
+      "n_short": 0,
+      "total_r": -0.09818909989632729,
+      "winrate": 25.49019607843137
+    }
+  }
+}

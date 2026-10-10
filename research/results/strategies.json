@@ -1,0 +1,99 @@
+{
+ "sr_bounce": {
+  "class": "goldsignals.strategies.sr_bounce:SRBounce",
+  "title": "S/R-bounce + RSI + daily-trend",
+  "status": "rejected",
+  "params": {
+   "method": "A",
+   "rsi_max": 100,
+   "stop_atr": 0.5,
+   "trend_filter": false,
+   "min_confluence": 1,
+   "allow_short": false,
+   "min_rr": 2.0,
+   "fresh_only": false,
+   "fresh_bars": 120,
+   "reject_candle": true
+  },
+  "reasons": [
+   "te weinig trades (94 < 100)",
+   "zonder beste jaar niet positief (-3.7R)"
+  ],
+  "backtest": {
+   "n": 94,
+   "winrate": 28.723404255319153,
+   "avg_r": 0.09705263260756151,
+   "max_dd_pct": -27.514627746148474,
+   "std_r": 1.8000095256913382
+  }
+ },
+ "breakout_retest": {
+  "class": "goldsignals.strategies.breakout_retest:BreakoutRetest",
+  "title": "Breakout + retest",
+  "status": "rejected",
+  "params": {
+   "method": "A",
+   "lookback": 24,
+   "break_atr": 0.5,
+   "stop_atr": 1.0,
+   "rr": 3.0,
+   "min_confluence": 1,
+   "allow_short": true
+  },
+  "reasons": [
+   "zonder beste jaar niet positief (-1.7R)"
+  ],
+  "backtest": {
+   "n": 134,
+   "winrate": 29.1044776119403,
+   "avg_r": 0.02722665817637628,
+   "max_dd_pct": -14.090778551761197,
+   "std_r": 1.6251399813853509
+  }
+ },
+ "ema_pullback": {
+  "class": "goldsignals.strategies.ema_pullback:EmaPullback",
+  "title": "EMA-trend pullback (benchmark zonder S/R)",
+  "status": "candidate",
+  "params": {
+   "stop_atr": 2.0,
+   "rr": 3.0,
+   "daily_filter": false,
+   "allow_short": false
+  },
+  "reasons": [
+   "voldoet aan candidate-eisen",
+   "hold-out niet positief (-0.002R)",
+   "deflated Sharpe te laag (0.00 < 0.95)"
+  ],
+  "backtest": {
+   "n": 206,
+   "winrate": 30.582524271844658,
+   "avg_r": 0.14396106960875615,
+   "max_dd_pct": -13.762644516687338,
+   "std_r": 1.7541450744865483
+  }
+ },
+ "random_entry": {
+  "class": "goldsignals.strategies.baselines:RandomEntry",
+  "title": "Willekeurige entries (baseline)",
+  "status": "baseline",
+  "params": {
+   "prob": 0.03,
+   "stop_atr": 1.0,
+   "rr": 2.0,
+   "allow_short": true,
+   "seed": 1
+  },
+  "reasons": [
+   "baseline, handelt nooit"
+  ],
+  "backtest": {
+   "n": 421,
+   "winrate": 35.86698337292161,
+   "avg_r": -0.03688368617479336,
+   "max_dd_pct": -35.119932946647225,
+   "std_r": 1.308196047029582
+  }
+ }
+}

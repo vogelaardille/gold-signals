@@ -1,0 +1,943 @@
+{
+ "n_trials_total": 671,
+ "random_baseline": {
+  "-1": -0.16326715661787003,
+  "1": -0.06559369273092688
+ },
+ "random_baseline_n": 1814,
+ "buy_and_hold": {
+  "return_pct": 132.3889813367601,
+  "max_dd_pct": -11.741522056899885
+ },
+ "oos_period": [
+  "2022-10-01",
+  "2025-10-01"
+ ],
+ "details": {
+  "sr_bounce": {
+   "summary": {
+    "n": 94,
+    "winrate": 28.723404255319153,
+    "avg_r": 0.09705263260756151,
+    "total_r": 9.122947465110782,
+    "pf": 1.1361633950016534,
+    "sharpe": 0.053917843890457215,
+    "max_dd_pct": -27.514627746148474,
+    "return_pct": 7.934289673912673,
+    "n_long": 53,
+    "avg_r_long": 0.5987398510956022,
+    "n_short": 41,
+    "avg_r_short": -0.5514698693403937
+   },
+   "by_year": {
+    "2022": {
+     "n": 5,
+     "total_r": 3.2956811033669666,
+     "avg_r": 0.6591362206733933
+    },
+    "2023": {
+     "n": 20,
+     "total_r": -8.791078437065078,
+     "avg_r": -0.4395539218532539
+    },
+    "2024": {
+     "n": 52,
+     "total_r": 1.7528622599675123,
+     "avg_r": 0.03370888961475985
+    },
+    "2025": {
+     "n": 17,
+     "total_r": 12.865482538841379,
+     "avg_r": 0.7567930905200811
+    }
+   },
+   "chosen": [
+    {
+     "window": 0,
+     "test_start": "2022-10-01 00:00:00+00:00",
+     "test_end": "2023-01-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 50,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 5,
+      "allow_short": true,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 1,
+     "test_start": "2023-01-01 00:00:00+00:00",
+     "test_end": "2023-04-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 40,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 5,
+      "allow_short": true,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 2,
+     "test_start": "2023-04-01 00:00:00+00:00",
+     "test_end": "2023-07-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 40,
+      "stop_atr": 1.0,
+      "trend_filter": false,
+      "min_confluence": 5,
+      "allow_short": true,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 3,
+     "test_start": "2023-07-01 00:00:00+00:00",
+     "test_end": "2023-10-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 40,
+      "stop_atr": 1.0,
+      "trend_filter": false,
+      "min_confluence": 5,
+      "allow_short": true,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 4,
+     "test_start": "2023-10-01 00:00:00+00:00",
+     "test_end": "2024-01-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 50,
+      "stop_atr": 1.0,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": true,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 5,
+     "test_start": "2024-01-01 00:00:00+00:00",
+     "test_end": "2024-04-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 50,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": true,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 6,
+     "test_start": "2024-04-01 00:00:00+00:00",
+     "test_end": "2024-07-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 100,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 5,
+      "allow_short": false,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": false
+     }
+    },
+    {
+     "window": 7,
+     "test_start": "2024-07-01 00:00:00+00:00",
+     "test_end": "2024-10-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 100,
+      "stop_atr": 0.25,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": false,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": true
+     }
+    },
+    {
+     "window": 8,
+     "test_start": "2024-10-01 00:00:00+00:00",
+     "test_end": "2025-01-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 100,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": false,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": true
+     }
+    },
+    {
+     "window": 9,
+     "test_start": "2025-01-01 00:00:00+00:00",
+     "test_end": "2025-04-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 100,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": false,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": true
+     }
+    },
+    {
+     "window": 10,
+     "test_start": "2025-04-01 00:00:00+00:00",
+     "test_end": "2025-07-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 100,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": false,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": true
+     }
+    },
+    {
+     "window": 11,
+     "test_start": "2025-07-01 00:00:00+00:00",
+     "test_end": "2025-10-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "rsi_max": 100,
+      "stop_atr": 0.5,
+      "trend_filter": false,
+      "min_confluence": 1,
+      "allow_short": false,
+      "min_rr": 2.0,
+      "fresh_only": false,
+      "fresh_bars": 120,
+      "reject_candle": true
+     }
+    }
+   ],
+   "final": {
+    "method": "A",
+    "rsi_max": 100,
+    "stop_atr": 0.5,
+    "trend_filter": false,
+    "min_confluence": 1,
+    "allow_short": false,
+    "min_rr": 2.0,
+    "fresh_only": false,
+    "fresh_bars": 120,
+    "reject_candle": true
+   },
+   "dsr": {
+    "dsr": 3.6281608989661764e-07,
+    "sr": 0.053917843890457215,
+    "sr0": 0.551467961032251
+   },
+   "holdout": null,
+   "status": {
+    "status": "rejected",
+    "reasons": [
+     "te weinig trades (94 < 100)",
+     "zonder beste jaar niet positief (-3.7R)"
+    ]
+   },
+   "random_same_rules": {
+    "-1": -0.18248545550547973,
+    "1": 0.036151952959869976
+   },
+   "random_same_rules_n": 1088
+  },
+  "breakout_retest": {
+   "summary": {
+    "n": 134,
+    "winrate": 29.1044776119403,
+    "avg_r": 0.02722665817637628,
+    "total_r": 3.6483721956344213,
+    "pf": 1.0384039178487836,
+    "sharpe": 0.0167534233901297,
+    "max_dd_pct": -14.090778551761197,
+    "return_pct": 1.9289638814626215,
+    "n_long": 75,
+    "avg_r_long": 0.2924075372985096,
+    "n_short": 59,
+    "avg_r_short": -0.30986767969074236
+   },
+   "by_year": {
+    "2022": {
+     "n": 5,
+     "total_r": -1.146837530967375,
+     "avg_r": -0.229367506193475
+    },
+    "2023": {
+     "n": 54,
+     "total_r": 3.2251561333159016,
+     "avg_r": 0.059725113579924105
+    },
+    "2024": {
+     "n": 47,
+     "total_r": -3.741364800351867,
+     "avg_r": -0.07960350639046525
+    },
+    "2025": {
+     "n": 28,
+     "total_r": 5.311418393637764,
+     "avg_r": 0.18969351405849158
+    }
+   },
+   "chosen": [
+    {
+     "window": 0,
+     "test_start": "2022-10-01 00:00:00+00:00",
+     "test_end": "2023-01-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 24,
+      "break_atr": 0.5,
+      "stop_atr": 1.0,
+      "rr": 3.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 1,
+     "test_start": "2023-01-01 00:00:00+00:00",
+     "test_end": "2023-04-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 24,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 2.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 2,
+     "test_start": "2023-04-01 00:00:00+00:00",
+     "test_end": "2023-07-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 24,
+      "break_atr": 0.5,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 3,
+     "test_start": "2023-07-01 00:00:00+00:00",
+     "test_end": "2023-10-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 48,
+      "break_atr": 0.5,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 4,
+     "test_start": "2023-10-01 00:00:00+00:00",
+     "test_end": "2024-01-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 96,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 3.0,
+      "min_confluence": 1,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 5,
+     "test_start": "2024-01-01 00:00:00+00:00",
+     "test_end": "2024-04-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 96,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 3.0,
+      "min_confluence": 1,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 6,
+     "test_start": "2024-04-01 00:00:00+00:00",
+     "test_end": "2024-07-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 48,
+      "break_atr": 0.5,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 7,
+     "test_start": "2024-07-01 00:00:00+00:00",
+     "test_end": "2024-10-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 96,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 3.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 8,
+     "test_start": "2024-10-01 00:00:00+00:00",
+     "test_end": "2025-01-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 24,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 3.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 9,
+     "test_start": "2025-01-01 00:00:00+00:00",
+     "test_end": "2025-04-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 48,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 3.0,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 10,
+     "test_start": "2025-04-01 00:00:00+00:00",
+     "test_end": "2025-07-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 48,
+      "break_atr": 0.5,
+      "stop_atr": 0.5,
+      "rr": 1.5,
+      "min_confluence": 5,
+      "allow_short": true
+     }
+    },
+    {
+     "window": 11,
+     "test_start": "2025-07-01 00:00:00+00:00",
+     "test_end": "2025-10-01 00:00:00+00:00",
+     "params": {
+      "method": "A",
+      "lookback": 24,
+      "break_atr": 0.5,
+      "stop_atr": 1.0,
+      "rr": 3.0,
+      "min_confluence": 1,
+      "allow_short": true
+     }
+    }
+   ],
+   "final": {
+    "method": "A",
+    "lookback": 24,
+    "break_atr": 0.5,
+    "stop_atr": 1.0,
+    "rr": 3.0,
+    "min_confluence": 1,
+    "allow_short": true
+   },
+   "dsr": {
+    "dsr": 2.52426239996325e-10,
+    "sr": 0.0167534233901297,
+    "sr0": 0.551467961032251
+   },
+   "holdout": null,
+   "status": {
+    "status": "rejected",
+    "reasons": [
+     "zonder beste jaar niet positief (-1.7R)"
+    ]
+   },
+   "random_same_rules": {
+    "-1": -0.3706942232198062,
+    "1": 0.2308158110755366
+   },
+   "random_same_rules_n": 339
+  },
+  "ema_pullback": {
+   "summary": {
+    "n": 206,
+    "winrate": 30.582524271844658,
+    "avg_r": 0.14396106960875615,
+    "total_r": 29.65598033940377,
+    "pf": 1.2044222028674059,
+    "sharpe": 0.08206907838047241,
+    "max_dd_pct": -13.762644516687338,
+    "return_pct": 30.36836306033436,
+    "n_long": 206,
+    "avg_r_long": 0.14396106960875615,
+    "n_short": 0,
+    "avg_r_short": NaN
+   },
+   "by_year": {
+    "2022": {
+     "n": 19,
+     "total_r": 3.2019735956576874,
+     "avg_r": 0.1685249260872467
+    },
+    "2023": {
+     "n": 52,
+     "total_r": 6.980667257118332,
+     "avg_r": 0.13424360109842948
+    },
+    "2024": {
+     "n": 61,
+     "total_r": 10.974216556750513,
+     "avg_r": 0.17990518945492642
+    },
+    "2025": {
+     "n": 74,
+     "total_r": 8.499122929877236,
+     "avg_r": 0.1148530125659086
+    }
+   },
+   "chosen": [
+    {
+     "window": 0,
+     "test_start": "2022-10-01 00:00:00+00:00",
+     "test_end": "2023-01-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": true,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 1,
+     "test_start": "2023-01-01 00:00:00+00:00",
+     "test_end": "2023-04-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": true,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 2,
+     "test_start": "2023-04-01 00:00:00+00:00",
+     "test_end": "2023-07-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": true,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 3,
+     "test_start": "2023-07-01 00:00:00+00:00",
+     "test_end": "2023-10-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 4,
+     "test_start": "2023-10-01 00:00:00+00:00",
+     "test_end": "2024-01-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 5,
+     "test_start": "2024-01-01 00:00:00+00:00",
+     "test_end": "2024-04-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 6,
+     "test_start": "2024-04-01 00:00:00+00:00",
+     "test_end": "2024-07-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 7,
+     "test_start": "2024-07-01 00:00:00+00:00",
+     "test_end": "2024-10-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 8,
+     "test_start": "2024-10-01 00:00:00+00:00",
+     "test_end": "2025-01-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 9,
+     "test_start": "2025-01-01 00:00:00+00:00",
+     "test_end": "2025-04-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 10,
+     "test_start": "2025-04-01 00:00:00+00:00",
+     "test_end": "2025-07-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 2.0,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    },
+    {
+     "window": 11,
+     "test_start": "2025-07-01 00:00:00+00:00",
+     "test_end": "2025-10-01 00:00:00+00:00",
+     "params": {
+      "stop_atr": 1.5,
+      "rr": 3.0,
+      "daily_filter": false,
+      "allow_short": false
+     }
+    }
+   ],
+   "final": {
+    "stop_atr": 2.0,
+    "rr": 3.0,
+    "daily_filter": false,
+    "allow_short": false
+   },
+   "dsr": {
+    "dsr": 1.7293889624606067e-12,
+    "sr": 0.08206907838047241,
+    "sr0": 0.551467961032251
+   },
+   "holdout": {
+    "n": 51,
+    "avg_r": -0.0019252764685554371,
+    "total_r": -0.09818909989632729,
+    "winrate": 25.49019607843137,
+    "max_dd_pct": -16.776826489888265,
+    "n_long": 51,
+    "avg_r_long": -0.0019252764685554371,
+    "n_short": 0,
+    "avg_r_short": NaN,
+    "burned": false,
+    "opened_at": "2026-10-10T14:51:46+00:00"
+   },
+   "status": {
+    "status": "candidate",
+    "reasons": [
+     "voldoet aan candidate-eisen",
+     "hold-out niet positief (-0.002R)",
+     "deflated Sharpe te laag (0.00 < 0.95)"
+    ]
+   },
+   "random_same_rules": {
+    "-1": -0.2681461603701587,
+    "1": 0.14352608415817789
+   },
+   "random_same_rules_n": 500
+  },
+  "random_entry": {
+   "summary": {
+    "n": 421,
+    "winrate": 35.86698337292161,
+    "avg_r": -0.03688368617479336,
+    "total_r": -15.528031879588005,
+    "pf": 0.9429804877600704,
+    "sharpe": -0.02819431098155529,
+    "max_dd_pct": -35.119932946647225,
+    "return_pct": -17.395181231434336,
+    "n_long": 212,
+    "avg_r_long": 0.02619587312985728,
+    "n_short": 209,
+    "avg_r_short": -0.10086869369912799
+   },
+   "by_year": {
+    "2022": {
+     "n": 42,
+     "total_r": 8.311690667681681,
+     "avg_r": 0.19789739684956384
+    },
+    "2023": {
+     "n": 134,
+     "total_r": -22.114950662054547,
+     "avg_r": -0.16503694523921303
+    },
+    "2024": {
+     "n": 131,
+     "total_r": -0.7866237086843828,
+     "avg_r": -0.006004761134995288
+    },
+    "2025": {
+     "n": 114,
+     "total_r": -0.938148176530754,
+     "avg_r": -0.008229369969568018
+    }
+   },
+   "chosen": [
+    {
+     "window": 0,
+     "test_start": "2022-10-01 00:00:00+00:00",
+     "test_end": "2023-01-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 1,
+     "test_start": "2023-01-01 00:00:00+00:00",
+     "test_end": "2023-04-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 2,
+     "test_start": "2023-04-01 00:00:00+00:00",
+     "test_end": "2023-07-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 3,
+     "test_start": "2023-07-01 00:00:00+00:00",
+     "test_end": "2023-10-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 4,
+     "test_start": "2023-10-01 00:00:00+00:00",
+     "test_end": "2024-01-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 5,
+     "test_start": "2024-01-01 00:00:00+00:00",
+     "test_end": "2024-04-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 6,
+     "test_start": "2024-04-01 00:00:00+00:00",
+     "test_end": "2024-07-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 7,
+     "test_start": "2024-07-01 00:00:00+00:00",
+     "test_end": "2024-10-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 8,
+     "test_start": "2024-10-01 00:00:00+00:00",
+     "test_end": "2025-01-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 9,
+     "test_start": "2025-01-01 00:00:00+00:00",
+     "test_end": "2025-04-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 10,
+     "test_start": "2025-04-01 00:00:00+00:00",
+     "test_end": "2025-07-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    },
+    {
+     "window": 11,
+     "test_start": "2025-07-01 00:00:00+00:00",
+     "test_end": "2025-10-01 00:00:00+00:00",
+     "params": {
+      "prob": 0.03,
+      "stop_atr": 1.0,
+      "rr": 2.0,
+      "allow_short": true,
+      "seed": 1
+     }
+    }
+   ],
+   "final": {
+    "prob": 0.03,
+    "stop_atr": 1.0,
+    "rr": 2.0,
+    "allow_short": true,
+    "seed": 1
+   },
+   "dsr": {
+    "dsr": 2.3111763357054923e-32,
+    "sr": -0.02819431098155529,
+    "sr0": 0.551467961032251
+   },
+   "holdout": null,
+   "status": {
+    "status": "baseline",
+    "reasons": [
+     "baseline, handelt nooit"
+    ]
+   },
+   "random_same_rules": {
+    "-1": -0.16326715661787003,
+    "1": -0.06559369273092688
+   },
+   "random_same_rules_n": 1814
+  }
+ }
+}

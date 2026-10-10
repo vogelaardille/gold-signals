@@ -1,85 +1,121 @@
 # gold-signals
 
-Support/resistance-zones, signalen en (later) paper trading op goud (XAUUSD).
-Zie `CLAUDE.md` voor het volledige doel en de fasen. **Status: fase 1** (data, zones,
-charts, Pine Script-export).
+Onderzoek, backtest en **paper trading** (fictief geld) op goud (XAUUSD), met
+Telegram-meldingen en een dashboard. Geen echt geld, geen broker, geen trading-API.
 
-## Installatie
+- Dashboard: <https://vogelaardille.github.io/gold-signals/>
+- Onderzoek: [`research/report.md`](research/report.md) (ook op het dashboard, tab *Onderzoek*)
+- Huidige stand en open punten: [`STATUS.md`](STATUS.md)
+
+## Hoe het in elkaar zit
+
+| Map | Wat |
+|---|---|
+| `goldsignals/data/` | Dukascopy 1h-data (cache), resamplen naar 4h/daily |
+| `goldsignals/sr/` | zone-detectie (A: clustering, B: KDE) en `zones_as_of` (geen lookahead) |
+| `goldsignals/features.py` | ATR, RSI, EMA, daily-trend, volatiliteitsregime (causaal) |
+| `goldsignals/snapshots.py` | zones per uur, eenmalig berekend via `zones_as_of` |
+| `goldsignals/research/` | deel A: zone-tests, nulmodel, bootstrap, rapport |
+| `goldsignals/strategies/` | strategie-plugins (`generate_signals(view)`) |
+| `goldsignals/backtest/` | engine, walk-forward + Optuna, validatie, hold-out-bewaker, leaderboard |
+| `goldsignals/paper/` | uurlijkse paper-trading-run, state (CSV/JSON) |
+| `goldsignals/notify/` | Telegram, teksten van de meldingen, signaal-chart |
+| `goldsignals/dashboard/` | statische site (GitHub Pages) |
+| `scripts/secret_scan.py` | scan op tokens/e-mail/lokale paden vóór publicatie |
+| `.github/workflows/hourly.yml` | elk uur om minuut 5 |
+
+Alle parameters staan in `config.yaml`.
+
+## Installatie (lokaal)
 
 Vereist Python ≥ 3.10 (dukascopy-python werkt niet op 3.9).
 
 ```bash
 cd ~/gold-signals
-python3.12 -m venv .venv          # of het pad naar een andere Python >= 3.10
+python3.12 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-## Gebruik
+Secrets alleen in `.env` (staat in `.gitignore`):
 
-```bash
-.venv/bin/python -m goldsignals.phase1     # alles draaien + samenvatting
-.venv/bin/python -m pytest -q              # tests (offline)
+```
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_CHAT_ID=...
 ```
 
-De eerste run downloadt ~5 jaar 1h-data van Dukascopy (± 15 s) en cachet die in
-`data/cache/`. Volgende runs halen alleen de nieuwste uren op.
+## Commando's
 
-Output in `output/`:
+```bash
+.venv/bin/python -m pytest -q                       # tests (offline, synthetische data)
+.venv/bin/python -m goldsignals.phase1              # zones + charts + Pine-export (fase 1)
+.venv/bin/python -m goldsignals.research.run        # deel A: onderzoek doorrekenen
+.venv/bin/python -m goldsignals.research.report     # deel A: rapport md + html
+.venv/bin/python -m goldsignals.backtest.run        # deel B: walk-forward + leaderboard
+.venv/bin/python -m goldsignals.backtest.run --holdout   # hold-out openen (eenmalig per strategie!)
+.venv/bin/python -m goldsignals.paper.run --no-send # één paper-run lokaal, zonder Telegram
+.venv/bin/python -m goldsignals.dashboard.build     # dashboard in site/
+.venv/bin/python scripts/secret_scan.py             # secret-scan
+```
 
-| Bestand | Inhoud |
-|---|---|
-| `zones_A.csv`, `zones_B.csv` | samengevoegde zones per methode, gesorteerd op score |
-| `zones_*_per_timeframe.csv` | dezelfde zones vóór het samenvoegen |
-| `chart_zones_A.html`, `chart_zones_B.html` | interactieve 4h-chart (laatste 3 maanden) |
-| `tradingview_zones.pine` | top-20 zones als Pine Script v6-indicator |
+De eerste keer worden de zone-snapshots berekend (~25 min op 8 cores). Daarna staan ze in
+`data/snapshots/`.
 
-**TradingView:** open de Pine Editor, plak `tradingview_zones.pine`, klik *Add to chart*.
-Gebruik een **spot**-chart (bijv. `OANDA:XAUUSD`), geen futures.
+## Handmatig een run starten (GitHub)
 
-Alle instellingen staan in `config.yaml`.
+- Op GitHub: tab **Actions** → **Elk uur** → **Run workflow** (vink *force* aan om ook
+  in het weekend te draaien).
+- Of in de terminal: `gh workflow run hourly.yml` (met force: `gh workflow run hourly.yml -f force=true`).
 
-## Hoe het werkt
+## Een strategie toevoegen
 
-1. **Data** (`goldsignals/data/`): een `DataProvider`-interface, met Dukascopy als
-   implementatie. Alleen 1h-candles worden gedownload; 4h en daily worden daaruit
-   geresampled, zodat alle timeframes consistent zijn. Bij een mislukte download stopt
-   het programma met een duidelijke fout — er is **geen** automatische fallback naar
-   yfinance.
-2. **Pivots**: swing highs/lows met een fractal-venster van n candles. Een pivot is pas
-   bekend n candles later (`confirmed_time`).
-3. **Zones per timeframe**, twee methodes met hetzelfde outputformaat:
-   - **A – pivot-clustering:** pivots binnen k × ATR van elkaar vormen een zone.
-   - **B – KDE:** dichtheid van pivotprijzen; elke piek wordt een zone.
-4. **Sterkte** = som van de aanrakingen, elk gewogen naar recency
-   (halfwaardetijd per timeframe).
-5. **Samenvoegen over timeframes**: de zone van de hoogste timeframe is het anker, en
-   overlappende lagere zones versterken hem. `confluence` = som van de
-   timeframe-gewichten (daily 3, 4h 2, 1h 1); `score` = Σ gewicht × sterkte.
-   `role` = support/resistance t.o.v. de laatste prijs.
+1. Maak `goldsignals/strategies/mijn_idee.py` met een klasse die erft van `Strategy`:
+
+   ```python
+   from goldsignals.strategies.base import Signal, Strategy
+
+   class MijnIdee(Strategy):
+       name = "mijn_idee"
+       zone_method = "A"          # of None als je geen zones gebruikt
+
+       def generate_signals(self, view):
+           f, bar = view.feat, view.bar          # indicatoren en laatste candle
+           zones = view.zones("A")               # zones zoals ze NU bekend zijn
+           if f["rsi"] < self.params["rsi_max"]:
+               stop = bar["close"] - 1.5 * f["atr"]
+               target = bar["close"] + 3.0 * f["atr"]
+               return [Signal(self.name, view.t, 1, stop, target, "uitleg in gewone taal", min_rr=2)]
+           return []
+   ```
+   De `view` geeft alleen wat op dat moment bekend was. Kijk niet naar andere data.
+2. Voeg hem toe in `config.yaml` onder `strategies:` met `class`, `params` en een
+   **kleine** `space` (lijsten met opties). Hoe groter de ruimte, hoe strenger de
+   correctie voor het aantal varianten.
+3. Draai `.venv/bin/python -m goldsignals.backtest.run --only mijn_idee`. Het
+   leaderboard laat de status zien.
+4. Alleen bij status **candidate**: eventueel
+   `... backtest.run --only mijn_idee --holdout` (één keer!). Daarna niet meer aan de
+   strategie sleutelen, anders is de hold-out "verbrand".
+5. Commit en push `research/results/` (o.a. `strategies.json`). Vanaf de volgende
+   uurlijkse run handelt de strategie op paper, maar alleen als hij candidate of
+   validated is.
+
+## Regels die het systeem bewaakt
+
+- **Geen lookahead**: zones via `zones_as_of`, indicatoren causaal, strategieën zien
+  alleen een `MarketView`. Tests: `test_no_lookahead.py`, `test_features.py`,
+  `test_strategy_lookahead.py`.
+- **Entry op de volgende open**, stop gaat voor target als een candle beide raakt, kosten
+  meegerekend, 1% risico per trade (`test_backtest.py`).
+- **Hold-out maximaal één keer** per strategie (`research/holdout_log.json`).
+- **Rejected handelt nooit**, ook niet op paper.
+- **Idempotent**: dubbele runs geven geen dubbele trades of meldingen (`test_paper.py`).
+- **Geen stille fallback** naar een andere databron. Mist Dukascopy de laatste candle,
+  dan volgt een SYSTEEM-melding en wordt de run overgeslagen.
 
 ## Tijdconventies
 
-- Alles in **UTC**. De index van een candle is zijn openingstijd; `close_time` is het
-  sluitmoment.
-- **Daily candle: 17:00 – 17:00 New York-tijd** (goud-conventie, sluiting = einde
-  handelsdag). In UTC is dat 21:00 (zomertijd) of 22:00 (wintertijd). De handel van
-  zondagavond hoort bij de maandag-candle.
-- **4h-candles** starten om 17, 21, 01, 05, 09 en 13 uur New York-tijd, zodat er
-  precies zes in een daily candle passen. (TradingView kan per broker anders uitlijnen;
-  daardoor kunnen 4h-candles daar iets afwijken.)
-- Data = Dukascopy **bid**-prijzen (instelbaar via `offer_side`).
-
-## Geen lookahead
-
-`zones_as_of(candles_1h, t, cfg)` berekent de zones zoals ze op moment `t` bekend
-waren: alleen gesloten candles (een lopende 4h/daily telt niet mee), alleen bevestigde
-pivots, ATR en recency op `t`. `tests/test_no_lookahead.py` bewijst dat het resultaat
-niet verandert als je alle data na `t` aanpast, en dat het wél verandert als je data
-vóór `t` aanpast.
-
-## Open punt (beslissen in fase 5)
-
-XAUUSD **spot** (Dukascopy, de meeste CFD-brokers) en **GC=F futures** (yfinance,
-COMEX) hebben verschillende koersniveaus: futures bevatten een rente-/opslagcomponent
-(contango) die per contract en looptijd varieert. Zones uit de ene bron mogen dus niet
-zomaar op de andere worden gebruikt.
+- Alles intern in **UTC**; meldingen en dashboard in **Europe/Amsterdam**.
+- De index van een candle is de openingstijd; `close_time` is het sluitmoment.
+- Daily candle: 17:00–17:00 New York-tijd. 4h-candles starten om 17/21/01/05/09/13 NY.
+- Data: Dukascopy **bid**, spot. Gebruik zones op een **spot**-chart (bijv.
+  `OANDA:XAUUSD`), niet op futures (GC1!): die hebben een ander koersniveau.
