@@ -1,0 +1,334 @@
+{
+ "research": [
+  {
+   "ticker": "SPY",
+   "first": "1993-01-29",
+   "last": "2020-12-31",
+   "days": 7033,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 0,
+   "big_moves": [],
+   "ratio_jumps": 113,
+   "ratio_jumps_without_event": 0,
+   "dividends": 113,
+   "capital_gains": 0,
+   "splits": 0
+  },
+  {
+   "ticker": "EFA",
+   "first": "2001-08-27",
+   "last": "2020-12-31",
+   "days": 4868,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 1,
+   "big_moves": [
+    "2008-10-13 +15.9%"
+   ],
+   "ratio_jumps": 35,
+   "ratio_jumps_without_event": 0,
+   "dividends": 35,
+   "capital_gains": 0,
+   "splits": 1
+  },
+  {
+   "ticker": "EEM",
+   "first": "2003-04-14",
+   "last": "2020-12-31",
+   "days": 4462,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 3,
+   "big_moves": [
+    "2008-10-13 +22.8%",
+    "2008-10-15 -16.2%",
+    "2008-10-28 +20.9%"
+   ],
+   "ratio_jumps": 35,
+   "ratio_jumps_without_event": 0,
+   "dividends": 35,
+   "capital_gains": 0,
+   "splits": 2
+  },
+  {
+   "ticker": "TLT",
+   "first": "2002-07-30",
+   "last": "2020-12-31",
+   "days": 4640,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 0,
+   "big_moves": [],
+   "ratio_jumps": 220,
+   "ratio_jumps_without_event": 0,
+   "dividends": 220,
+   "capital_gains": 0,
+   "splits": 0
+  },
+  {
+   "ticker": "IEF",
+   "first": "2002-07-30",
+   "last": "2020-12-31",
+   "days": 4640,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 0,
+   "big_moves": [],
+   "ratio_jumps": 222,
+   "ratio_jumps_without_event": 0,
+   "dividends": 222,
+   "capital_gains": 0,
+   "splits": 0
+  },
+  {
+   "ticker": "LQD",
+   "first": "2002-07-30",
+   "last": "2020-12-31",
+   "days": 4640,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 0,
+   "big_moves": [],
+   "ratio_jumps": 221,
+   "ratio_jumps_without_event": 0,
+   "dividends": 221,
+   "capital_gains": 0,
+   "splits": 0
+  },
+  {
+   "ticker": "VNQ",
+   "first": "2004-09-29",
+   "last": "2020-12-31",
+   "days": 4094,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 5,
+   "big_moves": [
+    "2008-10-28 +15.6%",
+    "2008-11-24 +17.0%",
+    "2008-12-01 -19.5%",
+    "2009-03-23 +16.2%",
+    "2020-03-16 -17.7%"
+   ],
+   "ratio_jumps": 65,
+   "ratio_jumps_without_event": 0,
+   "dividends": 65,
+   "capital_gains": 0,
+   "splits": 0
+  },
+  {
+   "ticker": "GLD",
+   "first": "2004-11-18",
+   "last": "2020-12-31",
+   "days": 4058,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 0,
+   "big_moves": [],
+   "ratio_jumps": 0,
+   "ratio_jumps_without_event": 0,
+   "dividends": 0,
+   "capital_gains": 0,
+   "splits": 0
+  },
+  {
+   "ticker": "DBC",
+   "first": "2006-02-06",
+   "last": "2020-12-31",
+   "days": 3753,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0,
+   "nan_or_zero": 0,
+   "days_abs_return_gt_15pct": 0,
+   "big_moves": [],
+   "ratio_jumps": 5,
+   "ratio_jumps_without_event": 0,
+   "dividends": 5,
+   "capital_gains": 0,
+   "splits": 0
+  }
+ ],
+ "full_history_availability": [
+  {
+   "ticker": "SPY",
+   "first": "1993-01-29",
+   "last": "2026-10-09",
+   "days": 8482,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "EFA",
+   "first": "2001-08-27",
+   "last": "2026-10-09",
+   "days": 6317,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "EEM",
+   "first": "2003-04-14",
+   "last": "2026-10-09",
+   "days": 5911,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "TLT",
+   "first": "2002-07-30",
+   "last": "2026-10-09",
+   "days": 6089,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "IEF",
+   "first": "2002-07-30",
+   "last": "2026-10-09",
+   "days": 6089,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "LQD",
+   "first": "2002-07-30",
+   "last": "2026-10-09",
+   "days": 6089,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "VNQ",
+   "first": "2004-09-29",
+   "last": "2026-10-09",
+   "days": 5543,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "GLD",
+   "first": "2004-11-18",
+   "last": "2026-10-09",
+   "days": 5507,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "DBC",
+   "first": "2006-02-06",
+   "last": "2026-10-09",
+   "days": 5202,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  }
+ ],
+ "proxies_until_2005": [
+  {
+   "ticker": "VFINX",
+   "first": "1980-01-02",
+   "last": "2004-12-31",
+   "days": 6312,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 3307
+  },
+  {
+   "ticker": "VGTSX",
+   "first": "1996-04-29",
+   "last": "2004-12-31",
+   "days": 2185,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "VEIEX",
+   "first": "1994-05-04",
+   "last": "2004-12-31",
+   "days": 2687,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "VUSTX",
+   "first": "1986-05-19",
+   "last": "2004-12-31",
+   "days": 4700,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 1695
+  },
+  {
+   "ticker": "VFITX",
+   "first": "1991-10-28",
+   "last": "2004-12-31",
+   "days": 3323,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 318
+  },
+  {
+   "ticker": "VFICX",
+   "first": "1993-10-29",
+   "last": "2004-12-31",
+   "days": 2815,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  },
+  {
+   "ticker": "VGSIX",
+   "first": "1996-05-13",
+   "last": "2004-12-31",
+   "days": 2175,
+   "missing_days": 0,
+   "missing_examples": [],
+   "extra_days": 0
+  }
+ ],
+ "fred": {
+  "TB3MS": {
+   "first": "1934-01-01",
+   "last": "2026-09-01",
+   "n": 1113
+  },
+  "DEXUSEU": {
+   "first": "1999-01-04",
+   "last": "2026-10-02",
+   "n": 6960
+  },
+  "IR3TIB01EZM156N": {
+   "first": "1994-01-01",
+   "last": "2026-01-01",
+   "n": 385
+  }
+ }
+}

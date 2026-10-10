@@ -1,0 +1,2 @@
+# Ronde 3 (ETF-onderzoek): extra bovenop ../requirements.txt. Niet nodig voor de uurlijkse workflow.
+yfinance==1.7.0

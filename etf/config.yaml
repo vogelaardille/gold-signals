@@ -1,0 +1,89 @@
+# Ronde 3: lage-frequentie strategieën op een gespreid ETF-universum (alleen onderzoek).
+# Opzet en motivatie: research/round3/PLAN3.md. Wijzig hier niets na het zien van
+# resultaten zonder het in PLAN3.md §11 te noteren.
+
+data:
+  cache_dir: data/cache/etf          # niet in git
+  # yfinance: 'Adj Close' = slotkoers gecorrigeerd voor dividend en splitsing (totaalrendement)
+  price_column: "Adj Close"
+  fred_cash: TB3MS                   # 3-maands T-bill, maandgemiddelde, % per jaar
+  fred_eurusd: DEXUSEU               # USD per EUR, dagelijks
+  fred_eur_cash: IR3TIB01EZM156N     # 3-maands interbancaire rente eurozone, % per jaar
+  calendar_ticker: SPY               # handelsdagen (NYSE) = dagen waarop SPY noteert
+
+# Universum. Volgorde = vaste volgorde in tabellen en grafieken.
+universe: [SPY, EFA, EEM, TLT, IEF, LQD, VNQ, GLD, DBC]
+
+# Pre-sample P: long-history beleggingsfondsen als proxy (null = geen proxy, asset valt weg).
+proxies:
+  SPY: VFINX    # Vanguard 500 Index
+  EFA: VGTSX    # Vanguard Total International Stock Index (bevat ook opkomende markten)
+  EEM: VEIEX    # Vanguard Emerging Markets Stock Index
+  TLT: VUSTX    # Vanguard Long-Term Treasury
+  IEF: VFITX    # Vanguard Intermediate-Term Treasury
+  LQD: VFICX    # Vanguard Intermediate-Term Investment-Grade
+  VNQ: VGSIX    # Vanguard REIT Index
+  GLD: null
+  DBC: null
+
+periods:
+  research_start: "2005-01-01"   # eerste maand met rendement in het research-blok
+  research_end: "2021-01-01"     # exclusief: research t/m 2020-12
+  h3_start: "2021-01-01"
+  h3_end: "2026-10-01"           # exclusief: t/m 2026-09 (laatste volledige maand bij het vastleggen)
+  p_start: "1996-01-01"
+  p_end: "2005-01-01"            # exclusief: t/m 2004-12
+  subperiods:                    # stabiliteit binnen research (vast vooraf)
+    - ["2005-01-01", "2010-01-01"]
+    - ["2010-01-01", "2015-01-01"]
+    - ["2015-01-01", "2021-01-01"]
+  crisis_years: [2008, 2020]     # in research; 2022 ligt in H3, 2000-2002 in P
+
+# Een asset doet mee vanaf de maand waarin hij 13 maandslotkoersen heeft (genoeg voor
+# elke regel in het grid: 12-maands gemiddelde en 12-maands rendement).
+min_month_ends: 13
+
+families:
+  F1_trend:
+    sma_months: [6, 8, 10, 12]
+    primary: {sma_months: 10}
+  F2_dual_momentum:
+    top_k: [2, 3, 4]
+    lookback_months: [6, 9, 12]
+    primary: {top_k: 3, lookback_months: 12}
+  F3_vol_target:
+    bases: [equal_weight, sixty_forty]
+    target_vol: [0.08, 0.10, 0.12]
+    window_days: [20, 60]
+    max_exposure: 1.0
+    primary: {target_vol: 0.10, window_days: 20}
+
+sixty_forty: {SPY: 0.6, IEF: 0.4}
+
+costs:
+  default: 0.0010              # 0,10% van het verhandelde bedrag
+  sensitivity: [0.0, 0.0010, 0.0030]
+
+bootstrap:
+  n: 2000
+  mean_block_months: 12
+  seed: 2026
+
+random_timing:
+  n: 1000
+  min_shift_months: 12          # geen verschuiving van < 12 maanden (te dicht bij de echte timing)
+  seed: 3
+
+status:
+  min_prob_improvement: 0.80    # aandeel bootstrap-trekkingen met een verbetering
+  max_ci_width_sharpe: 1.0      # 95%-interval van het Sharpe-verschil niet breder dan dit
+  max_ci_width_mdd_pp: 25.0     # 95%-interval van het MDD-verschil (procentpunt) niet breder
+  min_subperiods_improved: 2    # van de 3 subperiodes
+  plateau_neighbour_share: 0.66 # aandeel directe buren in het grid dat ook verbetert
+  plateau_grid_share: 0.5       # aandeel van het hele grid (per basis bij F3)
+  reality_check_alpha: 0.05
+  similar_cagr_pp: 1.0          # "vergelijkbaar rendement": CAGR hooguit 1 procentpunt lager
+
+too_good:                       # "te mooi"-protocol: eerst proberen kapot te maken
+  sharpe_gain: 0.40
+  max_dd_pct: 10.0
