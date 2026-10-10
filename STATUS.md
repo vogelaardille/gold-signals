@@ -15,16 +15,26 @@ _Bijgewerkt: 2026-10-10_
     comments): de hold-out-vingerafdruk is gebaseerd op de broncode; wijzigen = hold-out verbrand.
 - **C – Paper trading**: `goldsignals/paper/` (state CSV/JSON, idempotent, getest).
 - **E – Dashboard**: `goldsignals/dashboard/build.py` (5 pagina's, donker, mobiel getest op breedte).
-- **F (code)**: workflow `.github/workflows/hourly.yml`, `scripts/secret_scan.py`.
+- **D – Meldingen**: Telegram werkt (testberichten bevestigd op 10-10). Chat-id in `.env` en GitHub Secrets.
+- **F – Automatisering**: openbaar repo https://github.com/vogelaardille/gold-signals, workflow
+  elk uur (`5 * * * *`), state-branch `state`, GitHub Pages
+  https://vogelaardille.github.io/gold-signals/, secret-scan vóór elke publicatie.
+  Eerste runs op 10-10 geslaagd (handmatig met force; idempotentie live gecontroleerd).
 
 ## Loopt
-- D en F: wacht op de gebruiker (Telegram chat-id; daarna testbericht; daarna repo aanmaken + push).
+- Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe
+  candle: zondag 11-10 rond 23:05 UTC.
 
 ## Open
 - Dukascopy-latency live meten: kon niet op 10-10 (zaterdag, markt dicht). De run logt de
   vertraging per uur in `state/runs.csv` (`latency_min`) en op het dashboard (Nu → Laatste run).
 - Feestdagen: geven een SYSTEEM-melding "candle ontbreekt" (max 1 per 6 uur).
 
+- GitHub waarschuwt dat actions op Node 20 verouderd zijn (ze draaien nu geforceerd op Node 24).
+  Werkt; later de actions naar nieuwere hoofdversies zetten.
+- Tests draaien niet in de workflow (alleen lokaal: `.venv/bin/python -m pytest -q`).
+
 ## Wat jij nog moet doen
-1. Stuur je bot **@dille_gold_signals_bot** in Telegram een bericht (bijv. "hoi").
-2. Daarna kan het chat-id worden opgehaald en een testbericht verstuurd.
+- Na zondagavond/maandag: kijk op het dashboard (Nu → "data-vertraging") en in
+  `state/runs.csv` hoe snel Dukascopy de candle levert; zie je vaak "data-fout", meld het.
+- Controleer af en toe of de meldingen kloppen met de chart (TradingView, spot-chart).
