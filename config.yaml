@@ -232,3 +232,51 @@ strategies:
 # Dashboard (GitHub Pages)
 dashboard:
   chart_max_zones: 10        # sterkste zones in beeld per chart
+
+# ---------------------------------------------------------------------------
+# Ronde 2 (research/round2/PLAN2.md). Raakt de live paper trading NIET.
+# ---------------------------------------------------------------------------
+round2:
+  periods:
+    warmup_start: "2004-01-01"
+    research_start: "2006-01-01"
+    holdout_start: "2019-01-01"    # H2: nooit geopend
+    holdout_end: "2020-10-01"
+    known_end: "2025-10-01"        # K: 2020-10 .. 2025-10 (ronde 1, gezien)
+  walkforward: {train_years: 4, test_years: 1, first_test_year: 2010, last_test_year: 2018}
+  costs: {spread_usd: 0.40, slippage_usd: 0.10, multipliers: [1, 2, 3]}
+  min_train_trades: {slow: 8, fast: 30}
+  min_oos_trades: {slow: 30, fast: 100}
+  bootstrap_n: 2000
+  random_replicates: 200
+  seed: 2026
+  dsr_threshold: 0.95
+  round1_trials: 671
+  burned_holdout_openings: 1
+  macro_lag_days: {DFII10: 3, DTWEXBGS: 10}
+  families:
+    F1:   # daily trendvolgend, long en short
+      entry: [donchian50, donchian100, tsmom3, tsmom6, tsmom12]
+      trail_atr: [3, 4, 5]
+      atr_period: 20
+    F2:   # volatiliteitscompressie -> breakout
+      timeframe: [4h, 1d]
+      squeeze_pct: [10, 20]
+      exit: [target_2R, trail_3atr]
+      stop_atr: 2.0
+      breakout_bars: 20
+      squeeze_lookback_bars: 5
+    F3:   # mean reversion in rustige regimes
+      timeframe: [15m, 1h]
+      regime: [adx, atr_pct]
+      band_z: [2.0, 2.5]
+      stop_atr: [1.5, 2.5]
+      adx_max: 20
+      atr_pct_max: 33
+      time_stop_bars: 40
+    F4:   # macrofilter op F1, alleen long
+      filter: [geen, reele_rente, dollar]
+      change_days: 20
+  zone15:
+    start: "2007-01-01"
+    null_replicates: 200
