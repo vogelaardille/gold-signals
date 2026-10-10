@@ -129,3 +129,59 @@ research:
   rsi_short_min: 60
   rejection_wick_frac: 0.5
   output_dir: research
+
+# Fictief account (paper trading en backtest). NOOIT echt geld, geen broker.
+account:
+  start_equity_eur: 10000
+  risk_pct: 1.0              # risico per trade, % van de equity bij entry
+  eurusd: 1.10               # alleen om het aantal ounces te tonen; P/L in euro = R x risico
+  max_open_per_strategy: 1
+
+# Walk-forward binnen de research-periode
+walkforward:
+  train_months: 12
+  test_months: 3
+  step_months: 3
+
+optuna:
+  trials_per_window: 20      # max aantal varianten per venster (dubbele tellen niet)
+  seed: 7
+  min_train_trades: 15       # minder trades in het train-venster = ongeldige variant
+
+validation:
+  min_trades_research: 100   # walk-forward test-trades samen
+  min_trades_holdout: 30
+  dsr_threshold: 0.95        # deflated Sharpe: >= 95% zeker beter dan de beste toevalsvariant
+
+# Paper trading (elk uur). State staat op de git-branch 'state' (map state/).
+paper:
+  state_dir: state
+  max_catchup_candles: 72    # na een storing max zoveel gemiste candles naspelen
+  data_retries: 3            # pogingen als de laatste candle nog niet bij Dukascopy staat
+  data_wait_seconds: 60
+  late_after_hours: 2        # signaal ouder dan dit: melding krijgt 'vertraagd'
+  deviation_min_trades: 10   # waarschuwing live vs backtest pas vanaf zoveel live trades
+  deviation_z: 2.0           # ... en als live > 2 standaardfouten slechter is
+
+# Meldingen (Telegram). Token en chat-id NIET hier: alleen .env / GitHub Secrets.
+notify:
+  timezone: Europe/Amsterdam
+  dashboard_url: "https://vogelaardille.github.io/gold-signals/"
+  zone_alert:
+    enabled: true
+    method: A
+    max_distance_atr: 0.5    # koers binnen 0.5 x ATR(1h) van de zone
+    min_score: 5.0           # alleen zones met score >= drempel
+    cooldown_hours: 12       # max 1 melding per zone per 12 uur
+  signal:
+    enabled: true
+    chart: true              # PNG-chart meesturen
+  trade_update:
+    enabled: true
+  system:
+    enabled: true
+    cooldown_hours: 6
+  weekly:
+    enabled: true
+    weekday: 6               # 6 = zondag
+    hour_local: 19           # vanaf 19:00 Amsterdam-tijd

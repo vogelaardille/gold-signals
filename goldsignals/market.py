@@ -59,6 +59,18 @@ class Market:
         """Zones op het sluitmoment van candle i."""
         return self.zones_at_time(method, self.close_time[i])
 
+    def array(self, name: str) -> np.ndarray:
+        """Kolom van candles of features als numpy-array (gecachet, voor snelheid)."""
+        cache = self.__dict__.setdefault("_arrays", {})
+        if name not in cache:
+            src = self.candles if name in self.candles.columns else self.features
+            cache[name] = src[name].to_numpy()
+        return cache[name]
+
+    def index_of_close(self, t: pd.Timestamp) -> int:
+        """Index van de candle die op t sloot."""
+        return int(self.close_time.get_loc(t))
+
     def period_mask(self, cfg: dict, name: str) -> np.ndarray:
         """True voor candles waarvan het SLUITmoment in de periode valt."""
         start, end = period_bounds(cfg, name)

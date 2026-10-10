@@ -62,8 +62,8 @@ doorgebroken op de slotkoers; resistance gespiegeld).
 ## 3. Nulmodel: willekeurige niveaus
 
 Per replicatie en per kalendermaand wordt de **hele zone-set verschoven** met een vaste
-offset: grootte uniform tussen 1 en 4 x daily ATR (mediaan van die maand, bekend aan
-het begin van de maand), teken willekeurig. Breedte, aantal, onderlinge afstand en
+offset: grootte uniform tussen 1 en 4 x daily ATR (de daily ATR aan het begin van de
+maand), teken willekeurig. Breedte, aantal, onderlinge afstand en
 eigenschappen (timeframe, confluence, aanrakingen) blijven gelijk, maar de niveaus
 liggen niet meer op echte pivots. Daarna exact dezelfde event- en uitkomstberekening.
 200 replicaties (50 voor de opsplitsingen in vraag 2 en 6). Seed vast (`config.yaml`).
