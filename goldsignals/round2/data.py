@@ -82,11 +82,29 @@ def download(tf: str, first_year: int, end: pd.Timestamp, verbose=True) -> pd.Da
     return out
 
 
-def load(tf: str) -> pd.DataFrame:
+def in_session(index: pd.DatetimeIndex) -> np.ndarray:
+    """Gevectoriseerde versie van market_hours.is_trading_hour (op het uur van de candle)."""
+    ny = index.tz_convert("America/New_York")
+    wd, h = ny.weekday, ny.hour
+    closed = (h == 17) | (wd == 5) | ((wd == 4) & (h >= 17)) | ((wd == 6) & (h < 18))
+    return ~np.asarray(closed)
+
+
+def load(tf: str, until: pd.Timestamp = None, session_only: bool = True) -> pd.DataFrame:
+    """Candles uit de cache. session_only: candles buiten de huidige goud-sessie weglaten
+    (vóór 2013 leverde de feed ook candles in de dagpauze en op zondagmiddag; zie PLAN2 §1).
+    until: alleen candles die vóór dit moment gesloten zijn."""
     path = cache_path(tf)
     if not path.exists():
         raise FileNotFoundError(f"{path} ontbreekt; draai eerst goldsignals.round2.fetch")
-    return pd.read_parquet(path)
+    c = pd.read_parquet(path)
+    c = c[c.index >= pd.Timestamp("2004-01-01", tz="UTC")]
+    if session_only:
+        c = c[in_session(c.index)]
+    if until is not None:
+        dur = pd.Timedelta(hours=1) if tf == "1h" else pd.Timedelta(minutes=15)
+        c = c[c.index + dur <= until]
+    return c
 
 
 def quality_report(c: pd.DataFrame, tf: str) -> pd.DataFrame:

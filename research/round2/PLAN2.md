@@ -193,4 +193,15 @@ Wat gecontroleerd is, staat in het rapport.
 
 ## 10. Wijzigingslog
 
-_(nog geen wijzigingen)_
+- 2026-10-10, **ná** de walk-forward-resultaten van F1–F4 (alle rejected), **toevoeging,
+  geen wijziging**: een verkennende analyse per variant van F1, F2 en F4 over alle
+  test-jaren (2010–2018, zonder selectie), elk vergeleken met 200 random-entry-replicaties
+  met exact dezelfde exits, plus voor F4 het verschil met en zonder macrofilter. Reden: bij
+  F1 zijn 13/15 varianten positief, terwijl random entries met dezelfde trailing stop ook
+  +0,13 R halen. De vraag "zit het in de entry of in de exit?" is de kern. Dit verandert
+  geen status en telt niet als nieuwe trials (er wordt niets gekozen).
+- 2026-10-10, **ná** de resultaten, verduidelijking zonder effect op de status: "F2-daily"
+  in §8 is uitgevoerd als "alle gekozen varianten zijn daily". In de walk-forward koos F2
+  in 2017–2018 een 4h-variant, dus geldt de grens van 100 trades (64 gehaald). Deze lezing
+  stond al in de code vóór de run. Met de mildere lezing (≥ 30) zou F2 "candidate (traag)"
+  zijn, maar nooit validated (DSR 0,00; 78e percentiel van random).
