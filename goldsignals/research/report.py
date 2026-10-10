@@ -206,7 +206,8 @@ img{max-width:100%;height:auto;border-radius:8px;background:var(--surface)}
 table{border-collapse:collapse;font-size:.82rem;font-variant-numeric:tabular-nums;min-width:100%}
 th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
 th{color:var(--ink2);background:var(--surface);font-weight:600}
-code{background:var(--surface);padding:1px 4px;border-radius:4px}
+code{background:var(--surface);padding:1px 4px;border-radius:4px;overflow-wrap:anywhere;word-break:break-word}
+p,li{overflow-wrap:anywhere}
 blockquote{margin:1rem 0;padding:.5rem 1rem;border-left:3px solid var(--accent);background:var(--surface);color:var(--ink2)}
 em{color:var(--ink2)}
 """

@@ -92,7 +92,8 @@ def fields(res, z, ex, f2) -> dict:
                  z_bounce_null=f"{z['bounce_null']['null_mean'] * 100:.1f}%", z_bounce_pct=p(z["bounce_null"]["pct"]),
                  z_r=n(z["r"]["est"]), z_r_null=n(z["r_null"]["null_mean"]), z_r_pct=p(z["r_null"]["pct"]),
                  z_r_gross=n(z["r_gross"]), z_decision=z["decision"],
-                 z_years_b=f"{z['share_years_better_bounce'] * 100:.0f}%", z_years_r=f"{z['share_years_better_r'] * 100:.0f}%")
+                 z_years_b=f"{round(z['share_years_better_bounce'] * len(z['by_year']))} van de {len(z['by_year'])}",
+                 z_years_r=f"{round(z['share_years_better_r'] * len(z['by_year']))} van de {len(z['by_year'])}")
     k = "F2|timeframe=4h|squeeze_pct=20|exit=target_2R"
     if f2 and k in f2:
         s = f2[k]
