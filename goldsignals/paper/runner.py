@@ -168,7 +168,7 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
         state.meta["first_seen_candle"] = last_open.isoformat()
         # Data-vertraging: hoe lang na het sluiten hadden we de candle? Alleen zinvol voor
         # de candle die we nu verwachtten (niet in het weekend of na een gemiste run).
-        if last_open == expected_last_candle(now):
+        if last_open == expected_last_candle(now) and market_open_now(now):
             latency = (now - (last_open + pd.Timedelta(hours=1))).total_seconds() / 60
             state.meta["last_latency_min"] = round(latency, 1)
 
