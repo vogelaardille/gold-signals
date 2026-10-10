@@ -1,0 +1,69 @@
+# Alle instelbare parameters van gold-signals.
+# Timeframe-namen overal: "1d" (daily), "4h", "1h".
+
+data:
+  provider: dukascopy
+  instrument: "XAU/USD"
+  offer_side: bid            # bid of ask; TradingView-brokers tonen meestal bid
+  years: 5                   # hoeveel jaar terug, als start_date leeg is
+  start_date: null           # bv. "2021-01-01"; overschrijft 'years'
+  end_date: null             # null = tot nu
+  cache_dir: data/cache
+  # Goud-conventie: de daily candle sluit om 17:00 New York-tijd.
+  # De 4h-candles worden op dezelfde sessiestart uitgelijnd (17, 21, 01, 05, 09, 13 NY),
+  # zodat zes 4h-candles precies in een daily candle passen.
+  session_tz: America/New_York
+  session_close_hour: 17
+
+timeframes: ["1d", "4h", "1h"]
+
+zones:
+  atr_period: 14
+  # Fractal-venster: een swing high moet hoger zijn dan n candles links en rechts.
+  # Hij is dus pas n candles NA vorming bekend (bevestiging).
+  pivot_window:
+    1d: 3
+    4h: 5
+    1h: 5
+  # Alleen pivots uit de laatste N gesloten candles van die timeframe gebruiken.
+  lookback_bars:
+    1d: 1250    # ~5 jaar
+    4h: 1500    # ~1 jaar
+    1h: 1500    # ~3 maanden
+  min_touches: 2             # zone telt pas mee vanaf zoveel pivots
+  # Recency: een aanraking telt 1 als hij net gebeurd is, 0.5 na een halfwaardetijd.
+  half_life_days:
+    1d: 365
+    4h: 90
+    1h: 21
+
+  # Methode A: pivot-clustering
+  cluster:
+    tolerance_atr: 0.5       # k: pivots binnen k x ATR horen bij dezelfde zone
+    padding_atr: 0.1         # zone aan beide kanten iets oprekken
+
+  # Methode B: kernel density (KDE)
+  kde:
+    bandwidth_atr: 0.25      # bandbreedte van de kernel, in ATR van die timeframe
+    halfwidth_bw: 1.0        # zone = piek +/- halfwidth_bw x bandbreedte
+    min_prominence: 0.05     # piek moet minstens 5% van de hoogste piek uitsteken
+    grid_step_atr: 0.02      # resolutie van het prijsraster
+
+merge:
+  timeframe_weights:
+    1d: 3
+    4h: 2
+    1h: 1
+
+output:
+  dir: output
+  max_distance_pct: 10       # top-zones en Pine-export: alleen zones binnen 10% van de prijs
+  chart_timeframe: 4h
+  chart_months: 3
+  chart_max_zones: 15        # max aantal zones in de HTML-chart (sterkste eerst)
+  pine_top_n: 20
+  pine_method: A             # welke methode naar TradingView gaat (A of B)
+  colors:                    # kleur per timeframe (kleurenblind-veilig gevalideerd)
+    1d: "#2a78d6"
+    4h: "#eb6834"
+    1h: "#1baf7a"

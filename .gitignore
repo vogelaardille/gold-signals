@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/cache/
+output/
+.DS_Store
+
+# Secrets: nooit committen
+.env
+.env.*

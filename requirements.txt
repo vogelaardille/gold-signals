@@ -1,0 +1,9 @@
+# Python >= 3.10 vereist (dukascopy-python ondersteunt 3.9 niet)
+dukascopy-python==4.0.1
+pandas==3.0.6
+numpy==2.5.3
+scipy==1.18.1
+pyarrow==25.0.1
+plotly==7.1.0
+PyYAML==6.0.3
+pytest==9.1.1
