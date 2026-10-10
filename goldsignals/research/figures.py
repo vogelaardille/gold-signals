@@ -33,7 +33,7 @@ def null_hist(q1: dict, path):
         ax.set_title(title, loc="left")
         ax.text(q1[key], ax.get_ylim()[1] * 0.92, " echt " + fmt.format(q1[key]), color=INK, va="top")
         ax.set_yticks([])
-        ax.legend(loc="upper left", fontsize=8.5)
+        ax.legend(loc="upper right", fontsize=8.5)
     fig.tight_layout()
     fig.savefig(path, dpi=150)
     plt.close(fig)
@@ -55,7 +55,7 @@ def forest(q2: dict, labels: dict, path):
     ax.set_yticks(y)
     ax.set_yticklabels([f"{r[0]}  (n={r[4]})" for r in rows], fontsize=8.5, color=INK2)
     ax.set_xlabel("verschil gemiddelde R: echte zones min nulmodel")
-    ax.set_title("Voordeel van echte zones per eigenschap", loc="left")
+    fig.suptitle("Voordeel van echte zones per eigenschap", x=0.02, ha="left", fontweight="bold", fontsize=11)
     ax.grid(axis="y", visible=False)
     fig.tight_layout()
     fig.savefig(path, dpi=150)
@@ -83,8 +83,9 @@ def per_year(q5: dict, path):
         ax.set_xticklabels(d["year"].astype(str))
         ax.set_title(title, loc="left")
     axes[0].set_ylabel("gemiddelde R na kosten")
-    axes[1].legend(fontsize=8, loc="lower right")
-    fig.tight_layout()
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=3, fontsize=8.5)
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
     fig.savefig(path, dpi=150)
     plt.close(fig)
 
@@ -92,7 +93,7 @@ def per_year(q5: dict, path):
 def filters(q6: dict, path):
     _style()
     items = list(q6.values())
-    fig, ax = plt.subplots(figsize=(6.4, 2.6))
+    fig, ax = plt.subplots(figsize=(6.4, 3.0))
     y = np.arange(len(items))[::-1]
     for yy, it in zip(y, items):
         d = it["diff"]
@@ -106,9 +107,9 @@ def filters(q6: dict, path):
     ax.set_yticklabels([it["label"] for it in items], color=INK2)
     ax.set_xlabel("gemiddelde R met filter min zonder filter")
     ax.set_title("Wat voegt een bevestiging toe?", loc="left")
-    ax.legend(fontsize=8, loc="lower right")
+    fig.legend(*ax.get_legend_handles_labels(), loc="lower center", ncol=2, fontsize=8.5)
     ax.grid(axis="y", visible=False)
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.1, 1, 1))
     fig.savefig(path, dpi=150)
     plt.close(fig)
 
@@ -118,13 +119,22 @@ def example_chart(market, ev, cfg, path):
     _style()
     i = int(ev["i"])
     c = market.candles.iloc[i - 30:i + 26]
-    fig, ax = plt.subplots(figsize=(6.4, 3.6))
+    fig, ax = plt.subplots(figsize=(6.8, 3.8))
     x = np.arange(len(c))
     up = c["close"] >= c["open"]
     ax.vlines(x, c["low"], c["high"], color=MUTED, lw=1)
     ax.bar(x[up], (c["close"] - c["open"])[up], bottom=c["open"][up], color=INK2, width=0.6)
     ax.bar(x[~up], (c["open"] - c["close"])[~up], bottom=c["close"][~up], color="#5a5955", width=0.6)
     ax.axhspan(ev["zlow"], ev["zhigh"], color=TF_COLORS.get(ev["timeframe"], BLUE), alpha=0.3, lw=0)
+    atr, zl, zh = ev["atr_1h"], ev["zlow"], ev["zhigh"]
+    entry = market.candles["open"].iloc[i + 1]
+    stop = zl - 0.25 * atr
+    levels = [(zh + atr, "bounce-niveau", INK2, ":", "bottom"), (zl - 0.5 * atr, "break-niveau", INK2, ":", "top"),
+              (stop, "stop", "#e66767", "--", "bottom"), (entry + 2 * (entry - stop), "target 1:2", "#0ca30c", "--", "bottom")]
+    for y, lab, col, ls, va in levels:
+        ax.axhline(y, color=col, lw=1, ls=ls)
+        ax.text(len(c) + 0.5, y, lab, color=col, va=va, fontsize=7.5)
+    ax.set_xlim(-1, len(c) + 9)
     k = 30
     ax.annotate("test", (k, c["low"].iloc[k]), xytext=(k - 8, c["low"].iloc[k] - 0.4 * (c["high"].max() - c["low"].min()) / 3),
                 color=INK, arrowprops=dict(arrowstyle="->", color=INK))

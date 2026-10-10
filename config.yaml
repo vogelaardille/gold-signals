@@ -152,6 +152,7 @@ validation:
   min_trades_research: 100   # walk-forward test-trades samen
   min_trades_holdout: 30
   dsr_threshold: 0.95        # deflated Sharpe: >= 95% zeker beter dan de beste toevalsvariant
+  random_baseline_prob: 0.25 # kans per candle voor de random-baseline bij de long-bias-toets
 
 # Paper trading (elk uur). State staat op de git-branch 'state' (map state/).
 paper:
@@ -185,3 +186,43 @@ notify:
     enabled: true
     weekday: 6               # 6 = zondag
     hour_local: 19           # vanaf 19:00 Amsterdam-tijd
+
+# Strategieën (plugins). class = module:Klasse. params = standaardwaarden.
+# space = de VOORAF vastgelegde, kleine parameterruimte voor Optuna (lijsten met opties).
+# baseline: true = alleen ter vergelijking, handelt nooit.
+strategies:
+  sr_bounce:
+    title: "S/R-bounce + RSI + daily-trend"
+    class: "goldsignals.strategies.sr_bounce:SRBounce"
+    params: {method: A, rsi_max: 40, stop_atr: 0.5, trend_filter: true, min_confluence: 1,
+             allow_short: true, min_rr: 2.0}
+    space:
+      rsi_max: [30, 40, 50, 100]          # 100 = RSI-filter uit
+      stop_atr: [0.25, 0.5, 1.0]
+      trend_filter: [true, false]
+      min_confluence: [1, 3, 5]
+      allow_short: [true, false]
+  breakout_retest:
+    title: "Breakout + retest"
+    class: "goldsignals.strategies.breakout_retest:BreakoutRetest"
+    params: {method: A, lookback: 48, break_atr: 0.5, stop_atr: 0.5, rr: 2.0, min_confluence: 1,
+             allow_short: true}
+    space:
+      lookback: [24, 48, 96]
+      stop_atr: [0.25, 0.5, 1.0]
+      rr: [1.5, 2.0, 3.0]
+      min_confluence: [1, 3, 5]
+  ema_pullback:
+    title: "EMA-trend pullback (benchmark zonder S/R)"
+    class: "goldsignals.strategies.ema_pullback:EmaPullback"
+    params: {stop_atr: 1.5, rr: 2.0, daily_filter: false, allow_short: true}
+    space:
+      stop_atr: [1.0, 1.5, 2.0]
+      rr: [1.5, 2.0, 3.0]
+      daily_filter: [true, false]
+      allow_short: [true, false]
+  random_entry:
+    title: "Willekeurige entries (baseline)"
+    class: "goldsignals.strategies.baselines:RandomEntry"
+    baseline: true
+    params: {prob: 0.03, stop_atr: 1.0, rr: 2.0, allow_short: true, seed: 1}

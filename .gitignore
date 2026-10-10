@@ -11,3 +11,5 @@ output/
 .env.*
 data/snapshots/
 research/cache/
+site/
+state/

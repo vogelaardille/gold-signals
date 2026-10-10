@@ -1,0 +1,101 @@
+# Elk uur (minuut 5): nieuwe candles, paper trading, Telegram-meldingen, dashboard.
+# Handmatig starten: tab Actions -> "Elk uur" -> Run workflow (of: gh workflow run hourly.yml).
+name: Elk uur
+
+on:
+  schedule:
+    - cron: "5 * * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Ook draaien als de markt dicht is"
+        type: boolean
+        default: false
+
+# Nooit twee runs tegelijk: een nieuwe run wacht tot de vorige klaar is.
+concurrency:
+  group: gold-signals-hourly
+  cancel-in-progress: false
+
+permissions:
+  contents: write     # state-branch bijwerken
+  pages: write        # dashboard publiceren
+  id-token: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: State-branch ophalen (map state/)
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Packages installeren
+        run: pip install -r requirements.txt
+
+      - name: Data-cache terugzetten
+        uses: actions/cache/restore@v4
+        with:
+          path: data/cache
+          key: data-${{ github.run_id }}
+          restore-keys: data-
+
+      - name: Run (paper trading + meldingen + dashboard)
+        id: run
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then
+            python -m goldsignals.paper.run --force
+          else
+            python -m goldsignals.paper.run
+          fi
+
+      - name: Data-cache bewaren
+        if: steps.run.outputs.changed == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: data/cache
+          key: data-${{ github.run_id }}
+
+      - name: Secret-scan (voor publicatie)
+        if: steps.run.outputs.changed == 'true' || steps.run.outputs.publish == 'true'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/secret_scan.py state site
+
+      - name: State committen
+        if: steps.run.outputs.changed == 'true'
+        working-directory: state
+        run: |
+          git config user.name "gold-signals-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -q -m "state: run $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -q origin HEAD:state
+
+      - name: Dashboard klaarzetten
+        if: steps.run.outputs.publish == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Dashboard publiceren
+        id: deploy
+        if: steps.run.outputs.publish == 'true'
+        uses: actions/deploy-pages@v4
