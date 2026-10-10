@@ -40,6 +40,8 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
   Research-code laadt data met `until = einde research`.
 - **Hold-out**: per strategie max. één keer, alleen via `backtest/holdout.py`
   (`research/holdout_log.json`). Strategie aanpassen na openen = hold-out verbrand.
+  De vingerafdruk is de broncode van de klasse + params: **`strategies/ema_pullback.py`
+  niet wijzigen** (hold-out op 2026-10-10 geopend).
 - **Status**: rejected handelt nooit; validated nooit zonder hold-out.
 - **Backtest/paper-regels**: signaal op 1h-close, entry op de volgende open, SL gaat voor
   TP binnen één candle, gat voorbij stop = exit op de open, kosten = spread + 2× slippage,
