@@ -101,7 +101,7 @@ nulmodel in dezelfde opsplitsing:
 | support vs. resistance | support / resistance |
 | t.o.v. daily-trend | mee / tegen. Trend = slot laatste gesloten daily > EMA50(daily) |
 | sessie (uur van candle i, UTC) | Azië 21-07 / Londen 07-12 / New York 12-21 |
-| volatiliteitsregime | ATR(1h)-percentiel t.o.v. de 365 dagen ervoor: laag <33 / midden / hoog >67 |
+| volatiliteitsregime | percentiel van ATR(1h)/koers t.o.v. de 365 dagen ervoor: laag <33 / midden / hoog >67 |
 
 **V3. Methode A vs. B.** Zelfde primaire meetwaarden en nulmodel voor B.
 
@@ -136,4 +136,7 @@ of expliciet gemarkeerd als zwak/onzeker.
 
 ## 8. Wijzigingslog (na het zien van resultaten)
 
-_(nog geen wijzigingen)_
+- 2026-10-10, **vóór** het bekijken van resultaten: volatiliteitsregime gebaseerd op
+  ATR/koers in plaats van ATR in dollars. Reden: bij een koers die van 1.700 naar 5.000
+  steeg is de dollar-ATR vooral 'hoog' omdat goud duurder is (44% van de uren in
+  'hoog', 26% in 'laag'; met ATR/koers: 40% / 27%, de volatiliteit steeg ook relatief). Dit is een verbetering van de meting, niet van de uitkomst.

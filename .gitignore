@@ -9,3 +9,5 @@ output/
 # Secrets: nooit committen
 .env
 .env.*
+data/snapshots/
+research/cache/
