@@ -134,6 +134,23 @@ nulmodel ligt **én** het verschil in minstens 3 van de 4 volledige jaren (2022-
 Strategie-hypotheses voor deel B worden alleen gebaseerd op effecten die hieraan voldoen,
 of expliciet gemarkeerd als zwak/onzeker.
 
+## 9. Deel B: strategieën (vastgelegd na deel A, vóór de eerste backtest)
+
+- Strategieën en hun parameterruimtes staan in `config.yaml` onder `strategies`. Alleen
+  deze ruimtes worden doorzocht (Optuna TPE, 20 trials per walk-forward-venster, seed 7,
+  doelwaarde = gemiddelde R na kosten in het train-venster, min. 15 trades).
+- sr_bounce volgt de opzet van de gebruiker, met twee opties uit deel A (zwak bewijs):
+  `fresh_only` (vraag 2) en `reject_candle` (vraag 6).
+- Statusregels: zie `goldsignals/backtest/validation.py` en de opdracht. "100 trades in de
+  research-periode" = 100 out-of-sample trades in de walk-forward test-vensters samen
+  (strenger dan alle trades in de periode).
+- Deflated Sharpe (per trade) met N = alle gelogde trials van alle strategieën; drempel 0,95.
+- Long-bias-toets: gemiddelde R minus gemiddelde R van willekeurige entries in dezelfde
+  richting (random_entry, zelfde OOS-periode, kans 0,25 per candle, stop 1 ATR, 1:2) > 0.
+- Kosten-gevoeligheid: dezelfde gekozen parameters bij 0x, 1x, 2x, 3x kosten.
+- Hold-out alleen voor strategieën die candidate zijn; één keer, met de parameters die
+  dezelfde procedure kiest op de laatste 12 maanden van de research-periode.
+
 ## 8. Wijzigingslog (na het zien van resultaten)
 
 - 2026-10-10, **vóór** het bekijken van resultaten: volatiliteitsregime gebaseerd op

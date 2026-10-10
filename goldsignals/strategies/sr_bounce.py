@@ -11,6 +11,12 @@ Long (short gespiegeld), beoordeeld op de slotkoers van een 1h-candle:
 6. Target = onderkant van de eerstvolgende zone van een HOGER timeframe (4h of daily)
    boven de koers. Geeft dat minder dan min_rr (1:2), dan geen trade: het volgende
    obstakel ligt te dichtbij.
+
+Twee opties die uit het onderzoek komen (research/report.md, vraag 2 en 6; zwak bewijs):
+7. fresh_only: alleen de eerste test, d.w.z. geen enkele candle in de fresh_bars
+   candles ervoor raakte de zone.
+8. reject_candle: de candle moet een afwijzingscandle zijn (slot terug buiten de zone,
+   lont in de zone-richting >= 50% van de range).
 """
 import numpy as np
 
@@ -71,6 +77,21 @@ class SRBounce(Strategy):
         atr = f["atr"]
         for d in directions:
             hit = touched_zones(z, prev_close, bar, d)
+            if p.get("reject_candle"):
+                rng = max(bar["high"] - bar["low"], 1e-9)
+                if d == 1:
+                    wick = (min(bar["open"], bar["close"]) - bar["low"]) / rng
+                    hit &= (bar["close"] > z["high"].to_numpy()) & (wick >= 0.5)
+                else:
+                    wick = (bar["high"] - max(bar["open"], bar["close"])) / rng
+                    hit &= (bar["close"] < z["low"].to_numpy()) & (wick >= 0.5)
+            if p.get("fresh_only") and hit.any():
+                n = p.get("fresh_bars", 120)
+                hi_prev, lo_prev = view.array("high", n + 1)[:-1], view.array("low", n + 1)[:-1]
+                for k in np.flatnonzero(hit):
+                    zl, zh = z["low"].iloc[k], z["high"].iloc[k]
+                    if ((lo_prev <= zh) & (hi_prev >= zl)).any():
+                        hit[k] = False
             if not hit.any():
                 continue
             zone = z[hit].sort_values("score", ascending=False).iloc[0]
@@ -85,7 +106,9 @@ class SRBounce(Strategy):
             why = (f"Koers raakte {kind}-zone {zone_text(zone)} en sloot {'erboven' if d == 1 else 'eronder'}. "
                    f"RSI {rsi:.0f}{'' if p['rsi_max'] >= 100 else (' (≤ ' if d == 1 else ' (≥ ') + str(p['rsi_max'] if d == 1 else 100 - p['rsi_max']) + ')'}"
                    f"{', daily-trend ' + ('omhoog' if d == 1 else 'omlaag') if p['trend_filter'] else ''}. "
-                   f"Target = volgende 4h/daily-zone ({target:.2f}).")
+                   f"{' Eerste test van de zone.' if p.get('fresh_only') else ''}"
+                   f"{' Afwijzingscandle (lange lont).' if p.get('reject_candle') else ''}"
+                   f" Target = volgende 4h/daily-zone ({target:.2f}).")
             return [Signal(self.name, view.t, d, float(stop), float(target), why, min_rr=p["min_rr"],
                            zone={k: zone[k] for k in ("low", "high", "timeframes", "score")})]
         return []
