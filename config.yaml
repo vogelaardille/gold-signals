@@ -6,7 +6,9 @@ data:
   instrument: "XAU/USD"
   offer_side: bid            # bid of ask; TradingView-brokers tonen meestal bid
   years: 5                   # hoeveel jaar terug, als start_date leeg is
-  start_date: null           # bv. "2021-01-01"; overschrijft 'years'
+  # Vaste startdatum (= begin warm-up), zodat ATR/EMA in backtest en live precies
+  # dezelfde historie hebben.
+  start_date: "2020-10-01"   # overschrijft 'years'
   end_date: null             # null = tot nu
   cache_dir: data/cache
   # Goud-conventie: de daily candle sluit om 17:00 New York-tijd.
@@ -67,3 +69,63 @@ output:
     1d: "#2a78d6"
     4h: "#eb6834"
     1h: "#1baf7a"
+
+# ---------------------------------------------------------------------------
+# Vanaf hier: onderzoek, backtest, paper trading (fase A-F)
+# ---------------------------------------------------------------------------
+
+# Vaste data-indeling (zie research/PLAN.md). NIET verschuiven als er nieuwe data komt.
+periods:
+  warmup_start: "2020-10-01"   # alleen historie, er wordt niets op gemeten
+  research_start: "2021-10-01"
+  holdout_start: "2025-10-01"  # = einde research (exclusief)
+  holdout_end: "2026-10-01"    # = begin forward/paper (exclusief)
+
+# Indicatoren (allemaal causaal: alleen verleden)
+features:
+  atr_period: 14
+  rsi_period: 14
+  ema_fast: 50               # 1h
+  ema_slow: 200              # 1h
+  daily_trend_ema: 50        # trend = slot laatste gesloten daily > EMA50(daily)
+  vol_lookback_days: 365     # volatiliteitsregime: ATR-percentiel t.o.v. dit venster
+  vol_low_pct: 33
+  vol_high_pct: 67
+
+# Zones per uur, eenmalig berekend via zones_as_of en opgeslagen
+snapshots:
+  dir: data/snapshots
+  methods: ["A", "B"]
+  workers: 8
+
+# Kosten per ounce (USD). Round trip = spread + 2 x slippage.
+costs:
+  spread_usd: 0.40
+  slippage_usd: 0.10
+  sensitivity_multipliers: [0, 1, 2, 3]
+
+research:
+  seed: 42
+  method: A                  # primaire zone-methode
+  horizon_bars: 24           # uitkomst over de volgende N 1h-candles
+  bounce_atr: 1.0            # bounce: >= 1 ATR weg van de zone
+  break_atr: 0.5             # break: slot >= 0.5 ATR voorbij de zone
+  setup_stop_atr: 0.25       # stop = verre zonekant -/+ 0.25 ATR
+  setup_rr: 2.0
+  setup_max_bars: 48
+  setup_min_risk_atr: 0.25
+  repeat_window_bars: 120    # 'herhaalde test' = event op overlappende zone in de 120 candles ervoor
+  retest_window_bars: 48     # V4: retest binnen 48 candles na een break
+  null_replicates: 200
+  null_replicates_splits: 50
+  null_offset_min_atr_1d: 1.0
+  null_offset_max_atr_1d: 4.0
+  bootstrap_n: 2000
+  sessions_utc:              # [start, eind) in UTC-uren
+    asia: [21, 7]
+    london: [7, 12]
+    newyork: [12, 21]
+  rsi_long_max: 40
+  rsi_short_min: 60
+  rejection_wick_frac: 0.5
+  output_dir: research
