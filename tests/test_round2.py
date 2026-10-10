@@ -133,3 +133,31 @@ def test_macro_value_only_after_publication_lag():
     assert np.isnan(chg[0])
     assert chg[1] == 1.0          # 01-05 22:00: laatste bekende = 01-02
     assert chg[2] == -1.0         # 01-07 22:00: 01-04 (+3 dagen = 01-07 00:00) is bekend
+
+
+# ---------------- F5: 15m-candle gebruikt de snapshot van het laatst gesloten uur ----------------
+
+def test_15m_bar_uses_last_closed_hour_snapshot():
+    from goldsignals.round2.zone15 import snapshot_for_bars
+    snaps = pd.DatetimeIndex(["2024-01-01 10:00", "2024-01-01 11:00", "2024-01-01 12:00"], tz="UTC").to_numpy()
+    opens = pd.DatetimeIndex(["2024-01-01 10:59", "2024-01-01 11:00", "2024-01-01 11:45",
+                              "2024-01-01 09:30"], tz="UTC").to_numpy()
+    k = snapshot_for_bars(snaps, opens)
+    # 10:59 -> snapshot 10:00; 11:00 -> uur 10-11 is net gesloten -> 11:00; 11:45 -> nog steeds 11:00
+    assert list(k) == [0, 1, 1, -1]
+
+
+def test_zone_table_rows_never_from_future_snapshot():
+    from goldsignals.round2.zone15 import build_zone_table
+    idx = pd.date_range("2024-01-01 10:00", periods=12, freq="15min", tz="UTC")
+    c15 = pd.DataFrame({"open": 1.0, "high": 1.0, "low": 1.0, "close": 1.0, "volume": 1.0}, index=idx)
+    snap = pd.DataFrame({"as_of": pd.DatetimeIndex(["2024-01-01 10:00", "2024-01-01 11:00", "2024-01-01 12:00"], tz="UTC"),
+                         "low": [1.0, 2.0, 3.0], "high": [1.5, 2.5, 3.5], "atr_1d": 1.0, "timeframe": "1d",
+                         "confluence": 3, "touches": 2, "first_touch": pd.Timestamp("2023-01-01", tz="UTC"),
+                         "last_touch": pd.Timestamp("2023-06-01", tz="UTC"), "score": 1.0})
+    z = build_zone_table(snap, c15, 0, 11)
+    bar_open = c15.index[z["i"].to_numpy()]
+    assert (pd.DatetimeIndex(z["as_of"]) <= bar_open).all()
+    early = bar_open < pd.Timestamp("2024-01-01 12:00", tz="UTC")
+    assert len(z) == 12 and set(z.loc[early, "low"]) == {1.0, 2.0}   # snapshot 12:00 nooit vóór 12:00
+    assert set(z.loc[~early, "low"]) == {3.0}

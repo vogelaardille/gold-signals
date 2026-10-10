@@ -21,6 +21,16 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
 - **F Automatisering**: `.github/workflows/hourly.yml` (cron `5 * * * *`), secret-scan
   `scripts/secret_scan.py`, GitHub Pages.
 
+## Ronde 2 (`goldsignals/round2/`, `research/round2/`)
+- Opzet: `research/round2/PLAN2.md` (vooraf gecommit). Lange historie: 1h vanaf 2004,
+  15m vanaf 2005, cache `data/cache/round2/` (live-cache van ronde 1 onaangeroerd).
+- Blokken: research R2 2006–2018, **hold-out H2 2019-01-01 – 2020-10-01 (0× geopend)**,
+  K 2020-10 – 2025-10 (gezien in ronde 1, niet gebruiken), H1 2025-10 – 2026-10 (verbrand).
+- Eigen engine (`round2/engine.py`, met trailing/tijdstop) en families F1–F4
+  (`round2/families.py`); zone-toets 15m in `round2/zone15.py`.
+- Trials tellen door: ronde 1 (671) + 1 (H1) + ronde 2 (`research/round2/results/trials.csv`).
+- Niets uit ronde 2 naar paper trading of `strategies.json` zonder akkoord van de gebruiker.
+
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.
 - Identifiers Engels; comments, uitleg en communicatie Nederlands. Leg **waarom** uit.
