@@ -212,8 +212,21 @@ em{color:var(--ink2)}
 """
 
 
+def fix_lists(md_text: str) -> str:
+    """Python-Markdown wil een lege regel vóór een lijst; GitHub niet. Voeg die toe."""
+    out, prev = [], ""
+    for line in md_text.splitlines():
+        is_item = bool(re.match(r"^\s*(- |\d+\. )", line))
+        prev_item = bool(re.match(r"^\s*(- |\d+\. )", prev)) or prev.startswith("  ")
+        if is_item and prev.strip() and not prev_item:
+            out.append("")
+        out.append(line)
+        prev = line
+    return "\n".join(out)
+
+
 def to_html(md_text: str, embed_images: bool = True) -> str:
-    body = markdown.markdown(md_text, extensions=["tables"])
+    body = markdown.markdown(fix_lists(md_text), extensions=["tables", "sane_lists"])
     body = body.replace("<table>", '<div class="table-wrap"><table>').replace("</table>", "</table></div>")
     if embed_images:
         def embed(m):

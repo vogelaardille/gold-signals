@@ -25,9 +25,12 @@ def side_nl(d: int) -> str:
 
 
 def zone_alert(z, price: float, dist_atr: float, t, cfg) -> str:
-    kind = "support" if z["mid"] < price else "resistance"
-    return (f"🟡 <b>ZONE-ALERT</b> · XAUUSD {price:.2f}\n"
-            f"Koers is {dist_atr:.1f} ATR van een {kind}-zone "
+    if z["low"] <= price <= z["high"]:
+        where = "Koers zit <b>in</b> de zone "
+    else:
+        kind = "support" if z["high"] < price else "resistance"
+        where = f"Koers is {dist_atr:.1f} ATR van een {kind}-zone "
+    return (f"🟡 <b>ZONE-ALERT</b> · XAUUSD {price:.2f}\n" + where +
             f"<b>{z['low']:.2f} – {z['high']:.2f}</b> ({z['timeframes']}, score {z['score']:.1f}, "
             f"{int(z['touches'])} aanrakingen).\n"
             f"<i>Alleen een heads-up, geen entry-advies.</i>\n"

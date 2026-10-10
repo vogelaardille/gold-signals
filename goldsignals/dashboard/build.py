@@ -93,7 +93,9 @@ def table(headers, rows) -> str:
 
 def fig_html(fig, div_id: str) -> str:
     fig.update_layout(template="plotly_dark", paper_bgcolor="#1a1a19", plot_bgcolor="#1a1a19",
-                      font=dict(color="#c3c2b7", size=12), margin=dict(l=48, r=12, t=36, b=36))
+                      font=dict(color="#c3c2b7", size=12))
+    if not fig.layout.margin.t:
+        fig.update_layout(margin=dict(l=48, r=12, t=36, b=36))
     return "<div class='plot'>" + fig.to_html(include_plotlyjs=False, full_html=False, div_id=div_id,
                                               config={"displaylogo": False, "responsive": True}) + "</div>"
 
@@ -157,14 +159,15 @@ def page_chart(candles, zones, state, cfg, updated) -> str:
                                        decreasing=dict(line=dict(color="#6b6a66", width=1), fillcolor="#3a3a37")))
         lo, hi = c["low"].min(), c["high"].max()
         pad = (hi - lo) * 0.04
-        vis = zones[(zones["high"] >= lo - pad) & (zones["low"] <= hi + pad)].sort_values("score", ascending=False).head(20)
+        vis = zones[(zones["high"] >= lo - pad) & (zones["low"] <= hi + pad)]
+        vis = vis.sort_values("score", ascending=False).head(cfg["dashboard"]["chart_max_zones"])
         shown = set()
         for _, z in vis.iterrows():
             tf_z = z["timeframe"]
             fig.add_trace(go.Scatter(
                 x=[x[0], x[-1], x[-1], x[0], x[0]], y=[z["low"], z["low"], z["high"], z["high"], z["low"]],
-                fill="toself", mode="lines", line=dict(width=0.5, color=TF_COLORS[tf_z]),
-                fillcolor=TF_COLORS[tf_z].replace("#", "rgba(") if False else None, opacity=0.35,
+                fill="toself", mode="lines", line=dict(width=0, color=TF_COLORS[tf_z]),
+                opacity=0.22,
                 legendgroup=tf_z, name=f"{TF_NAME[tf_z]}-zones", showlegend=tf_z not in shown,
                 hovertemplate=f"{z['low']:.2f} – {z['high']:.2f}<br>{z['timeframes']} · score {z['score']:.1f}"
                               f"<br>{int(z['touches'])} aanrakingen<extra></extra>"))
@@ -175,11 +178,15 @@ def page_chart(candles, zones, state, cfg, updated) -> str:
                                     (t["target"], "#0ca30c", "target")):
                     fig.add_hline(y=float(y), line=dict(color=col, width=1, dash="dash"),
                                   annotation_text=f"{lab} {float(y):.2f}", annotation_font_color=col)
-        fig.update_layout(height=520, title=f"XAUUSD {tf} · laatste {months} maand(en)",
-                          xaxis=dict(type="category", nticks=8, rangeslider=dict(visible=False)),
+        # Categorie-as (geen gaten voor weekenden); zelf een paar korte labels kiezen
+        ticks = list(range(0, len(x), max(1, len(x) // 4)))
+        local_idx = c.index.tz_convert("Europe/Amsterdam")
+        fig.update_layout(height=480, margin=dict(l=8, r=8, t=8, b=8),
+                          xaxis=dict(type="category", rangeslider=dict(visible=False), tickangle=0,
+                                     tickvals=[x[k] for k in ticks], ticktext=[local_idx[k].strftime("%d-%m") for k in ticks]),
                           yaxis=dict(range=[lo - pad, hi + pad], side="right"),
-                          legend=dict(orientation="h", y=1.02, x=0, yanchor="bottom"), dragmode="pan")
-        body += fig_html(fig, f"chart_{tf}")
+                          legend=dict(orientation="h", y=1.0, x=0, yanchor="bottom"), dragmode="pan")
+        body += f"<h2>XAUUSD {tf} · laatste {months} maand{'en' if months > 1 else ''}</h2>" + fig_html(fig, f"chart_{tf}")
     return page("Chart", "chart.html", body, updated, plotly=True)
 
 

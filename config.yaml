@@ -228,3 +228,7 @@ strategies:
     class: "goldsignals.strategies.baselines:RandomEntry"
     baseline: true
     params: {prob: 0.03, stop_atr: 1.0, rr: 2.0, allow_short: true, seed: 1}
+
+# Dashboard (GitHub Pages)
+dashboard:
+  chart_max_zones: 10        # sterkste zones in beeld per chart

@@ -163,13 +163,14 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
             return {"changed": True, "status": "data-fout"}
 
     last_open = candles.index[-1]
+    latency = None
     if state.meta.get("first_seen_candle") != last_open.isoformat():
-        # Hoe lang na het sluiten van de candle hadden we hem? (data-vertraging)
-        latency = (now - (last_open + pd.Timedelta(hours=1))).total_seconds() / 60
         state.meta["first_seen_candle"] = last_open.isoformat()
-        state.meta["last_latency_min"] = round(latency, 1)
-    else:
-        latency = None
+        # Data-vertraging: hoe lang na het sluiten hadden we de candle? Alleen zinvol voor
+        # de candle die we nu verwachtten (niet in het weekend of na een gemiste run).
+        if last_open == expected_last_candle(now):
+            latency = (now - (last_open + pd.Timedelta(hours=1))).total_seconds() / 60
+            state.meta["last_latency_min"] = round(latency, 1)
 
     # ---- welke candles zijn nieuw? ----
     last_done = state.meta.get("last_processed")
