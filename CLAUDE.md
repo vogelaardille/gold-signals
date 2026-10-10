@@ -30,6 +30,11 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
   (`round2/families.py`); zone-toets 15m in `round2/zone15.py`.
 - Trials tellen door: ronde 1 (671) + 1 (H1) + ronde 2 (`research/round2/results/trials.csv`).
 - Niets uit ronde 2 naar paper trading of `strategies.json` zonder akkoord van de gebruiker.
+- **Forward-test vol_squeeze_4h** (akkoord 2026-10-10): `research/round2/FORWARD.md`,
+  register `research/round2/forward_strategies.json` (status `forward`, label
+  "AANWIJZING, NIET BEWEZEN", `notify_signals: false`). Runner laadt hem alleen met akkoord
+  én kloppende vingerafdruk (`round2/forward.py: fingerprint()`). NOOIT de regels of de
+  code in de vingerafdruk aanpassen (`tests/test_forward.py` bewaakt dat).
 
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.

@@ -1,0 +1,21 @@
+{
+ "vol_squeeze_4h": {
+  "class": "goldsignals.strategies.vol_squeeze_4h:VolSqueeze4h",
+  "title": "Vol-compressie → breakout 4h (forward-test)",
+  "status": "forward",
+  "label": "AANWIJZING, NIET BEWEZEN",
+  "params": {},
+  "notify_signals": false,
+  "approved_by_user": "2026-10-10 (optie 2: alleen forward op paper, H2 dicht)",
+  "fingerprint": "93b69b0a83febada",
+  "rules": "research/round2/FORWARD.md",
+  "backtest": {
+   "n": 251,
+   "winrate": 42.62948207171315,
+   "avg_r": 0.21505365351605454,
+   "max_dd_pct": -8.736066495896267,
+   "std_r": 1.4169289480499856,
+   "bron": "ronde 2, verkennend, 2010-2018 (geen walk-forward-selectie)"
+  }
+ }
+}

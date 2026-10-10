@@ -42,9 +42,14 @@ _Bijgewerkt: 2026-10-10 (ronde 2 afgerond)_
   Werkt; later de actions naar nieuwere hoofdversies zetten.
 - Tests draaien niet in de workflow (alleen lokaal: `.venv/bin/python -m pytest -q`).
 
-## Wacht op jouw beslissing (ronde 2)
-- Wil je één bevestigingstoets van F2-4h (squeeze 20%, stop 2 ATR, target 2R) op hold-out H2,
-  of F2-4h alleen forward op paper volgen, of geen van beide? Zie report ronde 2, "Voorstel".
+- **Forward-test vol_squeeze_4h** (besluit gebruiker 2026-10-10: optie 2, H2 blijft dicht):
+  regels in `research/round2/FORWARD.md` (gecommit vóór activering), vingerafdruk code
+  `93b69b0a83febada`. Label **AANWIJZING, NIET BEWEZEN**. Geen Telegram-signalen (alleen
+  dashboard-log), wel trade-updates en weekoverzicht. Stopregel vanaf trade 40 (< −0,25 R),
+  evaluatie na 100 trades (`python -m goldsignals.round2.forward`), ~3,6 jaar.
+  Start: eerste nieuwe candle na activering (zondag 11-10 avond), zie `state/meta.json` → `forward_start`.
+  - **Niet wijzigen**: `goldsignals/strategies/vol_squeeze_4h.py` en de functies in de
+    vingerafdruk (`goldsignals/round2/forward.py`); anders stopt de strategie automatisch.
 
 ## Wat jij nog moet doen
 - Na zondagavond/maandag: kijk op het dashboard (Nu → "data-vertraging") en in

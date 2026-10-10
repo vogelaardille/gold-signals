@@ -107,3 +107,78 @@ def test_forced_mode_uses_same_exits(market):
         b = bars_4h(market.candles.iloc[:i + 1], t)
     s = VolSqueeze4h(forced={t: -1}).generate_signals(MarketView(market, i))
     assert len(s) == 1 and s[0].direction == -1 and s[0].meta["rr"] == 2.0
+
+
+# ---------------- koppeling met de live paper-runner ----------------
+
+import copy  # noqa: E402
+import json  # noqa: E402
+
+from goldsignals.paper import runner  # noqa: E402
+from goldsignals.paper.state import State  # noqa: E402
+from goldsignals.strategies.base import Strategy  # noqa: E402
+
+
+class AlwaysLosesLong(Strategy):
+    """Long op elke 2e candle met een piepkleine stop: verliest vrijwel altijd (-1R)."""
+    name = "fwd_test"
+    zone_method = None
+
+    def generate_signals(self, view):
+        if view.i % 2 == 0:
+            c = view.bar["close"]
+            return [Signal(self.name, view.t, 1, c - 0.01, c + 1000, "test")]
+        return []
+
+
+@pytest.fixture
+def fcfg(cfg):
+    c = copy.deepcopy(cfg)
+    c["strategies_override"] = {"fwd_test": {"status": "forward", "label": forward.LABEL, "notify_signals": False,
+                                             "instance": AlwaysLosesLong(), "backtest": {}}}
+    c["notify"]["zone_alert"]["enabled"] = False
+    c["notify"]["weekly"]["enabled"] = False
+    c["notify"]["signal"]["chart"] = False
+    return c
+
+
+def run_to(fcfg, d, candles, k):
+    part = candles.iloc[:k]
+    return runner.run(fcfg, d, now=part.index[-1] + pd.Timedelta(hours=1, minutes=5), send=False,
+                      candles=part, log=lambda *_: None)
+
+
+def test_forward_no_signal_messages_but_logged_and_labelled(fcfg, candles, tmp_path):
+    run_to(fcfg, tmp_path, candles, 3000)
+    run_to(fcfg, tmp_path, candles, 3040)
+    s = State(tmp_path)
+    assert not any(m["kind"] == "signal" for m in s.outbox)          # geen signaalmeldingen
+    assert len(s.meta["signal_log"]) > 0                              # wel gelogd
+    updates = [m["text"] for m in s.outbox if m["kind"] == "trade"]
+    assert updates and all(forward.LABEL in u for u in updates)       # label in elke trade-update
+    assert s.meta["forward_start"]["fwd_test"] == candles.index[2999].isoformat()
+
+
+def test_forward_stop_rule_blocks_new_trades(fcfg, candles, tmp_path):
+    run_to(fcfg, tmp_path, candles, 3000)
+    for k in range(3072, 3500, 72):
+        run_to(fcfg, tmp_path, candles, k)
+    s = State(tmp_path)
+    closed = s.closed_trades()
+    assert s.meta["forward_status"]["fwd_test"] == "gestopt"
+    assert len(closed) == forward.STOP_AFTER_TRADES                   # na trade 40 geen nieuwe trades
+    assert s.open_trades().empty and not s.pending
+    assert any("STOPREGEL" in m["text"] for m in s.outbox)
+
+
+def test_forward_requires_approval_and_matching_fingerprint(tmp_path, monkeypatch):
+    p = tmp_path / "fwd.json"
+    base = {"class": "goldsignals.strategies.vol_squeeze_4h:VolSqueeze4h", "params": {}, "status": "forward",
+            "label": forward.LABEL}
+    monkeypatch.setattr(runner, "FORWARD_FILE", str(p))
+    p.write_text(json.dumps({"a": {**base, "fingerprint": forward.fingerprint()}}))
+    assert runner.forward_strategies() == {}                          # geen akkoord
+    p.write_text(json.dumps({"a": {**base, "approved_by_user": "2026-10-10", "fingerprint": "0" * 16}}))
+    assert runner.forward_strategies() == {}                          # code gewijzigd
+    p.write_text(json.dumps({"a": {**base, "approved_by_user": "2026-10-10", "fingerprint": forward.fingerprint()}}))
+    assert list(runner.forward_strategies()) == ["a"]

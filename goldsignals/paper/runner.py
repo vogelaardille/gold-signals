@@ -36,6 +36,8 @@ from goldsignals.sr import zones_as_of
 from goldsignals.strategies.base import MarketView, Signal
 
 STRATEGIES_FILE = "research/results/strategies.json"
+# Forward-tests (ronde 2) met akkoord van de gebruiker, bijv. vol_squeeze_4h (FORWARD.md).
+FORWARD_FILE = "research/round2/forward_strategies.json"
 
 
 # ---------------------------------------------------------------------------
@@ -57,7 +59,46 @@ def active_strategies(cfg: dict) -> dict:
     for sid, s in info.items():
         if s.get("status") in ("candidate", "validated") and s.get("tradeable", True):
             out[sid] = {**s, "instance": load_class(s["class"])(s["params"])}
+    out.update(forward_strategies())
     return out
+
+
+def forward_strategies() -> dict:
+    """Forward-tests: alleen met expliciet akkoord van de gebruiker EN als de code nog exact
+    dezelfde is als vastgelegd in FORWARD.md (vingerafdruk). Anders handelt hij niet."""
+    p = project_path(FORWARD_FILE)
+    if not p.exists():
+        return {}
+    from goldsignals.round2.forward import fingerprint
+    out = {}
+    for sid, s in json.loads(p.read_text()).items():
+        if s.get("status") != "forward" or not s.get("approved_by_user"):
+            continue
+        if s.get("fingerprint") != fingerprint():
+            print(f"  LET OP: {sid} niet actief: code wijkt af van de vastgelegde vingerafdruk")
+            continue
+        out[sid] = {**s, "instance": load_class(s["class"])(s.get("params") or {})}
+    return out
+
+
+def forward_notice(sid: str, s: dict, state: State) -> str:
+    """Stopregel/evaluatie van een forward-test bijwerken; geeft een tekst als er iets verandert."""
+    if s.get("status") != "forward":
+        return ""
+    from goldsignals.round2.forward import EVALUATE_AT_TRADES, STOP_MEAN_R, forward_state
+    closed = state.closed_trades()
+    fs = forward_state(closed[closed["strategy"] == sid])
+    prev = state.meta.setdefault("forward_status", {}).get(sid, "actief")
+    state.meta["forward_status"][sid] = fs["status"]
+    if fs["status"] == prev:
+        return ""
+    if fs["status"] == "gestopt":
+        return (f"STOPREGEL: na {fs['at_trade']} trades gemiddeld {fs['mean_r_at_stop']:+.2f} R "
+                f"(< {STOP_MEAN_R}). De strategie opent geen nieuwe trades meer.")
+    if fs["status"] == "evaluatie":
+        return (f"EVALUATIEMOMENT: {EVALUATE_AT_TRADES} trades bereikt. Geen nieuwe trades tot de "
+                "evaluatie (FORWARD.md §5) is gedaan.")
+    return ""
 
 
 # ---------------------------------------------------------------------------
@@ -193,6 +234,10 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
     acc = cfg["account"]
     O, H, L, C = (market.array(k) for k in ("open", "high", "low", "close"))
 
+    fstart = state.meta.setdefault("forward_start", {})
+    for sid, s in strategies.items():
+        if s.get("status") == "forward" and sid not in fstart:
+            fstart[sid] = candles.index[new_idx[0]].isoformat()   # niets van hiervoor telt mee
     for i in new_idx:
         t_close = market.close_time[i]
         late = now - t_close > pd.Timedelta(hours=pcfg["late_after_hours"])
@@ -220,7 +265,8 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
                                  "risk_eur": risk_eur, "reason": sig.reason, "label": p.get("label")})
             elif ncfg["trade_update"]["enabled"]:
                 state.queue(f"trade|{tid}|niet_gevuld", "trade",
-                            msg.trade_update({"strategy": p["strategy"], "result": "niet_gevuld"}, cfg))
+                            msg.trade_update({"strategy": p["strategy"], "result": "niet_gevuld",
+                                              "label": p.get("label")}, cfg))
             changed = True
         state.pending = still_pending
 
@@ -237,10 +283,12 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
             eq_after = state.equity(row["strategy"], acc["start_equity_eur"]) + pnl
             state.update_trade(row["id"], status="closed", exit_time=t_close, exit=exit_px, result=result,
                                r=r, pnl_eur=pnl, equity_after=eq_after)
+            notice = forward_notice(row["strategy"], strategies.get(row["strategy"], {}), state)
             if ncfg["trade_update"]["enabled"]:
                 state.queue(f"trade|{row['id']}|{result}", "trade",
                             msg.trade_update({**row.to_dict(), "exit": exit_px, "result": result, "r": r,
-                                              "pnl_eur": pnl, "equity_after": eq_after, "exit_time": t_close}, cfg))
+                                              "pnl_eur": pnl, "equity_after": eq_after, "exit_time": t_close,
+                                              "notice": notice}, cfg))
             changed = True
 
         # c. nieuwe signalen
@@ -249,6 +297,8 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
             busy = len(state.open_trades(sid)) + sum(1 for p in state.pending if p["strategy"] == sid)
             if busy >= acc["max_open_per_strategy"]:
                 continue
+            if s.get("status") == "forward" and state.meta.get("forward_status", {}).get(sid, "actief") != "actief":
+                continue      # stopregel geraakt of evaluatiemoment bereikt
             sigs = s["instance"].generate_signals(view)
             if not sigs:
                 continue
@@ -258,7 +308,11 @@ def run(cfg: dict, state_dir: Path, now: pd.Timestamp = None, send: bool = True,
                                   "stop": sig.stop, "target": sig.target, "reason": sig.reason,
                                   "min_rr": sig.min_rr, "label": s.get("label", s["status"]),
                                   "stop_dist": sig.meta.get("stop_dist"), "rr": sig.meta.get("rr")})
-            if ncfg["signal"]["enabled"]:
+            log = state.meta.setdefault("signal_log", [])
+            log.append({"strategy": sid, "time": t_close.isoformat(), "direction": sig.direction,
+                        "close": float(C[i]), "label": s.get("label", s["status"]), "reason": sig.reason})
+            state.meta["signal_log"] = log[-300:]
+            if ncfg["signal"]["enabled"] and s.get("notify_signals", True):
                 eq = state.equity(sid, acc["start_equity_eur"])
                 risk_eur = eq * acc["risk_pct"] / 100
                 risk_oz = sig.direction * (C[i] - sig.stop)
@@ -328,7 +382,7 @@ def maybe_weekly(state: State, cfg, now, strategies, market) -> bool:
     per = []
     for sid, s in strategies.items():
         mine = closed[closed["strategy"] == sid]
-        per.append({"strategy": sid, "status": s["status"], "n": len(mine),
+        per.append({"strategy": sid, "status": s["status"], "label": s.get("label"), "n": len(mine),
                     "avg_r": float(mine["r"].astype(float).mean()) if len(mine) else 0.0,
                     "warning": deviation_warning(s, mine, cfg["paper"])})
     zones, price = [], state.meta.get("last_price", float("nan"))

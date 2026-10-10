@@ -18,7 +18,7 @@ import plotly.graph_objects as go
 from goldsignals.backtest.metrics import max_drawdown_pct
 from goldsignals.config import load_config, project_path
 from goldsignals.data.timeframes import resample
-from goldsignals.paper.runner import STRATEGIES_FILE, deviation_warning
+from goldsignals.paper.runner import FORWARD_FILE, STRATEGIES_FILE, deviation_warning
 from goldsignals.paper.state import State
 from goldsignals.sr import zones_as_of
 
@@ -103,8 +103,24 @@ def fig_html(fig, div_id: str) -> str:
 # ---------------------------------------------------------------------------
 
 def load_strategies() -> dict:
+    """Strategieën uit het leaderboard plus goedgekeurde forward-tests (ronde 2)."""
     p = project_path(STRATEGIES_FILE)
-    return json.loads(p.read_text()) if p.exists() else {}
+    out = json.loads(p.read_text()) if p.exists() else {}
+    f = project_path(FORWARD_FILE)
+    if f.exists():
+        out.update({k: v for k, v in json.loads(f.read_text()).items() if v.get("approved_by_user")})
+    return out
+
+
+def is_active(s: dict) -> bool:
+    return s.get("status") in ("candidate", "validated", "forward")
+
+
+def pill(s: dict) -> str:
+    st = s.get("status", "")
+    if st == "forward":
+        return f"<span class='pill candidate'>{escape(s.get('label', 'forward'))}</span>"
+    return f"<span class='pill {st}'>{st}</span>"
 
 
 def page_now(price, as_of, zones, state, strategies, cfg, updated) -> str:
@@ -121,7 +137,7 @@ def page_now(price, as_of, zones, state, strategies, cfg, updated) -> str:
               f"<span class='{cls(price - r['entry'] if r['direction'] == 1 else r['entry'] - price)}'>"
               f"{(price - r['entry']) * r['direction'] / abs(r['entry'] - r['stop']):+.2f}R</span>",
               fmt_time(r["entry_time"])] for _, r in open_t.iterrows()]
-    active = [k for k, v in strategies.items() if v.get("status") in ("candidate", "validated")]
+    active = [k for k, v in strategies.items() if is_active(v)]
     meta = state.meta if state else {}
     lat = meta.get("last_latency_min")
     cards = (f"<div class='cards'>"
@@ -130,7 +146,7 @@ def page_now(price, as_of, zones, state, strategies, cfg, updated) -> str:
              f"<div class='card'><div class='k'>Open paper trades</div><div class='v'>{len(open_t)}</div>"
              f"<div class='s'>{len(state.pending) if state else 0} wachtend op entry</div></div>"
              f"<div class='card'><div class='k'>Actieve strategieën</div><div class='v'>{len(active)}</div>"
-             f"<div class='s'>alleen candidate / validated</div></div>"
+             f"<div class='s'>candidate / validated / forward-test</div></div>"
              f"<div class='card'><div class='k'>Laatste run</div><div class='v' style='font-size:1rem'>"
              f"{fmt_time(meta.get('last_run'))}</div><div class='s'>data-vertraging: "
              f"{'–' if lat is None else f'{lat:.0f} min'}</div></div></div>")
@@ -196,14 +212,14 @@ def page_paper(state, strategies, cfg, updated) -> str:
     body = "<h1>Paper trading</h1><p class='note'>Fictief geld: elke strategie start met € 10.000 en riskeert 1% per trade. Kosten (spread + slippage) zijn meegerekend.</p>"
     rows, fig = [], go.Figure()
     for sid, s in strategies.items():
-        if s.get("status") not in ("candidate", "validated") and not (len(closed) and (closed["strategy"] == sid).any()):
+        if not is_active(s) and not (len(closed) and (closed["strategy"] == sid).any()):
             continue
         mine = closed[closed["strategy"] == sid].sort_values("exit_time") if len(closed) else closed
         r = mine["r"].astype(float) if len(mine) else pd.Series(dtype=float)
         eq = pd.Series(np.r_[acc["start_equity_eur"], acc["start_equity_eur"] + mine["pnl_eur"].astype(float).cumsum()]) if len(mine) else pd.Series([acc["start_equity_eur"]])
         warn = deviation_warning(s, mine, cfg["paper"]) if len(mine) else ""
         bt = s.get("backtest", {})
-        rows.append([escape(sid), f"<span class='pill {s['status']}'>{s['status']}</span>", len(mine),
+        rows.append([escape(sid), pill(s), len(mine),
                      f"{(r > 0).mean() * 100:.0f}%" if len(r) else "–",
                      f"<span class='{cls(r.mean() if len(r) else 0)}'>{r.mean():+.2f}R</span>" if len(r) else "–",
                      f"€ {eq.iloc[-1]:,.0f}", f"{max_drawdown_pct(eq):.1f}%",
@@ -230,6 +246,16 @@ def page_paper(state, strategies, cfg, updated) -> str:
                           f"€ {float(t['pnl_eur']):+.0f}" if pd.notna(t["pnl_eur"]) else ""])
     body += "<h2>Trades</h2>" + table(["entry", "strategie", "richting", "entry", "stop", "target", "status",
                                        "uitkomst", "R", "€"], trows)
+    slog = (state.meta.get("signal_log", []) if state else [])[::-1][:100]
+    srows = [[fmt_time(x["time"]), escape(x["strategy"]), "long" if x["direction"] == 1 else "short",
+              f"{x['close']:.2f}", escape(str(x.get("label", "")))] for x in slog]
+    body += ("<h2>Gelogde signalen</h2><p class='note'>Alle signalen, ook die niet via Telegram gaan "
+             "(de forward-test vol_squeeze_4h stuurt bewust geen signaalmeldingen: AANWIJZING, NIET BEWEZEN). "
+             "Niet bedoeld om op te handelen.</p>" + table(["slot candle", "strategie", "richting", "koers", "label"], srows))
+    fs = state.meta.get("forward_status", {}) if state else {}
+    if fs:
+        body += ("<p class='note'>Forward-test: " + ", ".join(f"{escape(k)}: {escape(v)}" for k, v in fs.items()) +
+                 ". Stopregel en evaluatie: <a href='https://github.com/vogelaardille/gold-signals/blob/main/research/round2/FORWARD.md'>FORWARD.md</a>.</p>")
     return page("Paper trading", "paper.html", body, updated, plotly=bool(fig.data))
 
 

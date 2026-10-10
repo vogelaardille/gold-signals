@@ -107,7 +107,9 @@ De eerste keer worden de zone-snapshots berekend (~25 min op 8 cores). Daarna st
 - **Entry op de volgende open**, stop gaat voor target als een candle beide raakt, kosten
   meegerekend, 1% risico per trade (`test_backtest.py`).
 - **Hold-out maximaal één keer** per strategie (`research/holdout_log.json`).
-- **Rejected handelt nooit**, ook niet op paper.
+- **Rejected handelt nooit**, ook niet op paper. Uitzondering met expliciet akkoord van de
+  gebruiker: forward-tests (status `forward`, label "AANWIJZING, NIET BEWEZEN"), zie
+  `research/round2/FORWARD.md`.
 - **Idempotent**: dubbele runs geven geen dubbele trades of meldingen (`test_paper.py`).
 - **Geen stille fallback** naar een andere databron. Mist Dukascopy de laatste candle,
   dan volgt een SYSTEEM-melding en wordt de run overgeslagen.

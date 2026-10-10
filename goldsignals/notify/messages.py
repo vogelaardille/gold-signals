@@ -59,14 +59,17 @@ def trade_update(tr: dict, cfg) -> str:
     icon = {"tp": "✅", "sl": "❌", "tijd": "⏱️"}.get(tr["result"], "ℹ️")
     what = {"tp": "TARGET geraakt", "sl": "STOPLOSS geraakt", "tijd": "gesloten (max. duur)",
             "niet_gevuld": "signaal niet gevuld (koers al voorbij stop/target)"}.get(tr["result"], tr["result"])
+    label = tr.get("label")
+    label_line = f"Label: <b>{escape(str(label))}</b>\n" if isinstance(label, str) and label else ""
+    notice = f"\n\n⚠️ {escape(tr['notice'])}" if tr.get("notice") else ""
     if tr["result"] == "niet_gevuld":
-        return f"{icon} <b>TRADE-UPDATE</b> · {escape(tr['strategy'])}\n{what}." + footer(cfg)
-    return (f"{icon} <b>TRADE-UPDATE</b> · {escape(tr['strategy'])}\n"
+        return f"{icon} <b>TRADE-UPDATE</b> · {escape(tr['strategy'])}\n{label_line}{what}." + footer(cfg)
+    return (f"{icon} <b>TRADE-UPDATE</b> · {escape(tr['strategy'])}\n" + label_line +
             f"{side_nl(int(tr['direction']))} {what}.\n"
             f"Entry {tr['entry']:.2f} → exit {tr['exit']:.2f}\n"
             f"Resultaat: <b>{tr['r']:+.2f}R</b> = € {tr['pnl_eur']:+.0f} (paper)\n"
             f"Paper-equity strategie: € {tr['equity_after']:,.0f}\n"
-            f"{local(tr['exit_time'], cfg)}" + footer(cfg))
+            f"{local(tr['exit_time'], cfg)}" + notice + footer(cfg))
 
 
 def system(text: str, cfg) -> str:
@@ -79,7 +82,7 @@ def weekly(summary: dict, cfg) -> str:
              f"(€ {summary['pnl_eur']:+.0f})",
              f"Open trades: {summary['n_open']}"]
     for s in summary["per_strategy"]:
-        lines.append(f"• {escape(s['strategy'])} ({s['status']}): {s['n']} trades totaal, "
+        lines.append(f"• {escape(s['strategy'])} ({escape(s.get('label') or s['status'])}): {s['n']} trades totaal, "
                      f"gem. {s['avg_r']:+.2f}R" + (f" ⚠️ {escape(s['warning'])}" if s.get("warning") else ""))
     if not summary["per_strategy"]:
         lines.append("Geen strategieën actief (geen candidate/validated).")
