@@ -36,6 +36,16 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
   én kloppende vingerafdruk (`round2/forward.py: fingerprint()`). NOOIT de regels of de
   code in de vingerafdruk aanpassen (`tests/test_forward.py` bewaakt dat).
 
+## Ronde 3 (`etf/`, `research/round3/`): ETF-universum, geen goud
+- Alleen onderzoek: niets naar live workflow, Telegram of paper trading. Parameters in `etf/config.yaml`.
+- Opzet `research/round3/PLAN3.md` (vooraf gecommit, wijzigingen in §11). Data: yfinance Adj Close
+  (cache `data/cache/etf/`, extra pakket in `etf/requirements.txt`, niet in de workflow), FRED TB3MS.
+- Blokken: research 2005-01 – 2020-12; **H3 2021-01 – 2026-09** en **P 1996–2004** (fondsen) zijn
+  elk 1× geopend, alleen voor `F3_sixty_forty_v10_w20` (`research/round3/holdout_log.json`).
+  Research-code laadt data altijd met `until = research_end`; openen alleen via `etf/open_holdout.py`.
+- Commando's: `python -m etf.data` (download+kwaliteit), `python -m etf.run` (research),
+  `python -m etf.report` (rapport + figuren). Tests: `tests/test_etf.py`.
+
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.
 - Identifiers Engels; comments, uitleg en communicatie Nederlands. Leg **waarom** uit.

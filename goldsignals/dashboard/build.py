@@ -287,9 +287,9 @@ def page_strategies(updated) -> str:
     return page("Strategieën", "strategies.html", body, updated)
 
 
-def page_research(updated, src_rel: str = "research/report.html", other: tuple = None) -> str:
-    """Een onderzoeksrapport met de dashboard-navigatie erboven. other = (href, tekst) van
-    een link naar het andere rapport (ronde 1 <-> ronde 2)."""
+def page_research(updated, src_rel: str = "research/report.html", other=None) -> str:
+    """Een onderzoeksrapport met de dashboard-navigatie erboven. other = (href, tekst) of een
+    lijst daarvan: links naar de andere rapporten (ronde 1, 2, 3)."""
     src = project_path(src_rel)
     if not src.exists():
         return page("Onderzoek", "research.html", "<h1>Onderzoek</h1><p>Nog geen rapport.</p>", updated)
@@ -297,10 +297,11 @@ def page_research(updated, src_rel: str = "research/report.html", other: tuple =
     nav = "".join(f'<a href="{href}" class="{"on" if href == "research.html" else ""}">{name}</a>' for href, name in PAGES)
     bar = (f"<header style='position:sticky;top:0;z-index:10;background:#0d0d0d;border-bottom:1px solid #2c2c2a'>"
            f"<nav style='display:flex;gap:4px;overflow-x:auto;padding:8px 12px'>{nav}</nav></header>")
-    if other:
-        bar += (f"<div style='max-width:860px;margin:12px auto 0;padding:0 16px'><a href='{other[0]}' "
+    links = [other] if isinstance(other, tuple) else (other or [])
+    for href, label in links:
+        bar += (f"<div style='max-width:860px;margin:12px auto 0;padding:0 16px'><a href='{href}' "
                 f"style='display:block;padding:10px 14px;border:1px solid #2c2c2a;border-radius:12px;"
-                f"background:#1a1a19;color:#3987e5;text-decoration:none'>{other[1]} →</a></div>")
+                f"background:#1a1a19;color:#3987e5;text-decoration:none'>{label} →</a></div>")
     style = ("<style>nav a{flex:0 0 auto;padding:8px 12px;border-radius:999px;color:#c3c2b7;text-decoration:none;font-size:14px}"
              "nav a.on{background:#232321;color:#f0efec;font-weight:600}</style>")
     return html.replace("<body>", "<body>" + bar, 1).replace("</head>", style + "</head>", 1)
@@ -324,11 +325,17 @@ def build_site(cfg: dict, state_dir: Path = None, out_dir: Path = None, candles:
         "paper.html": page_paper(state, strategies, cfg, updated),
         "strategies.html": page_strategies(updated),
         "research.html": page_research(updated, "research/report.html",
-                                       ("research2.html", "Ronde 2: trend, compressie, mean reversion, macro, zones op 15m")),
+                                       [("research2.html", "Ronde 2: trend, compressie, mean reversion, macro, zones op 15m"),
+                                        ("research3.html", "Ronde 3: trend, momentum en volatiliteit op een ETF-portefeuille")]),
     }
     if project_path("research/round2/report.html").exists():
         files["research2.html"] = page_research(updated, "research/round2/report.html",
-                                                ("research.html", "Terug naar ronde 1 (S/R-zones en strategieën)"))
+                                                [("research.html", "Terug naar ronde 1 (S/R-zones en strategieën)"),
+                                                 ("research3.html", "Ronde 3: ETF-portefeuille")])
+    if project_path("research/round3/report.html").exists():
+        files["research3.html"] = page_research(updated, "research/round3/report.html",
+                                                [("research.html", "Ronde 1 (S/R-zones goud)"),
+                                                 ("research2.html", "Ronde 2 (strategieën goud)")])
     for name, html in files.items():
         (out / name).write_text(html, encoding="utf-8")
     lb = project_path("research/results/leaderboard.csv")

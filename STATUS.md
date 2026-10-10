@@ -1,6 +1,6 @@
 # STATUS
 
-_Bijgewerkt: 2026-10-10 (ronde 2 afgerond)_
+_Bijgewerkt: 2026-10-10 (ronde 3 afgerond)_
 
 ## Klaar
 - **Fase 1**: data (Dukascopy, cache), zones A/B, `zones_as_of`, charts, Pine-export.
@@ -29,6 +29,19 @@ _Bijgewerkt: 2026-10-10 (ronde 2 afgerond)_
     significant na correctie. **Hold-out H2 (2019-01 – 2020-09) is NIET geopend (0×).**
   - Niets uit ronde 2 is naar paper trading gegaan.
 
+- **Ronde 3 (onderzoek, ETF's, geen goud)**: `research/round3/PLAN3.md` (vooraf gecommit),
+  `research/round3/report.md/.html` (dashboard: Onderzoek → Ronde 3). Code in `etf/`, 25 trials.
+  - F1 trendfilter (N=10): **rejected**. De daling zakte van −30,7% naar −8,4%, maar het voordeel
+    komt vrijwel alleen uit 2008 (niet stabiel over subperiodes).
+  - F2 dual momentum: **rejected** (slechter dan gelijk gewicht).
+  - F3 vol-target op gelijk gewicht: **rejected** (te onzeker).
+  - F3 vol-target op 60/40 (10%, 20 dagen): **candidate, niet validated**. Research Sharpe +0,12,
+    MDD −19% tegen −29%; H3 klein positief (+0,03); P (1996–2004) negatief (−0,10); Reality Check
+    p = 0,57. In EUR verdwijnt het voordeel grotendeels.
+  - **H3 en P elk 1× geopend, alleen voor F3-60/40** (`research/round3/holdout_log.json`). Niet
+    meer aan die regel sleutelen.
+  - Niets uit ronde 3 gaat naar paper trading of Telegram.
+
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe
   candle: zondag 11-10 rond 23:05 UTC.
@@ -40,7 +53,9 @@ _Bijgewerkt: 2026-10-10 (ronde 2 afgerond)_
 
 - GitHub waarschuwt dat actions op Node 20 verouderd zijn (ze draaien nu geforceerd op Node 24).
   Werkt; later de actions naar nieuwere hoofdversies zetten.
-- Tests draaien niet in de workflow (alleen lokaal: `.venv/bin/python -m pytest -q`).
+- Tests draaien niet in de workflow (alleen lokaal: `.venv/bin/python -m pytest -q`, 106 tests).
+- `tests/test_paper.py::test_rejected_strategy_never_trades` faalde sinds de activering van de
+  forward-test (las het echte forward-register); op 10-10 gerepareerd door de test af te schermen.
 
 - **Forward-test vol_squeeze_4h** (besluit gebruiker 2026-10-10: optie 2, H2 blijft dicht):
   regels in `research/round2/FORWARD.md` (gecommit vóór activering), vingerafdruk code

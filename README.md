@@ -4,7 +4,7 @@ Onderzoek, backtest en **paper trading** (fictief geld) op goud (XAUUSD), met
 Telegram-meldingen en een dashboard. Geen echt geld, geen broker, geen trading-API.
 
 - Dashboard: <https://vogelaardille.github.io/gold-signals/>
-- Onderzoek: [`research/report.md`](research/report.md) (ook op het dashboard, tab *Onderzoek*)
+- Onderzoek: [`research/report.md`](research/report.md) (ook op het dashboard, tab *Onderzoek*); ronde 2 en 3 in `research/round2/` en `research/round3/`
 - Huidige stand en open punten: [`STATUS.md`](STATUS.md)
 
 ## Hoe het in elkaar zit
@@ -21,6 +21,7 @@ Telegram-meldingen en een dashboard. Geen echt geld, geen broker, geen trading-A
 | `goldsignals/paper/` | uurlijkse paper-trading-run, state (CSV/JSON) |
 | `goldsignals/notify/` | Telegram, teksten van de meldingen, signaal-chart |
 | `goldsignals/dashboard/` | statische site (GitHub Pages) |
+| `etf/` | ronde 3: onderzoek naar trend/momentum/volatiliteit op 9 ETF's (los van goud, alleen onderzoek) |
 | `scripts/secret_scan.py` | scan op tokens/e-mail/lokale paden vóór publicatie |
 | `.github/workflows/hourly.yml` | elk uur om minuut 5 |
 
@@ -55,6 +56,8 @@ TELEGRAM_CHAT_ID=...
 .venv/bin/python -m goldsignals.paper.run --no-send # één paper-run lokaal, zonder Telegram
 .venv/bin/python -m goldsignals.dashboard.build     # dashboard in site/
 .venv/bin/python scripts/secret_scan.py             # secret-scan
+.venv/bin/pip install -r etf/requirements.txt       # ronde 3: yfinance
+.venv/bin/python -m etf.data && .venv/bin/python -m etf.run && .venv/bin/python -m etf.report   # ronde 3
 ```
 
 De eerste keer worden de zone-snapshots berekend (~25 min op 8 cores). Daarna staan ze in
