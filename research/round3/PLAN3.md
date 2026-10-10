@@ -366,4 +366,13 @@ configuraties. Wat er gecontroleerd is, staat in het rapport.
 
 ## 11. Wijzigingslog
 
-_(nog geen wijzigingen)_
+- 2026-10-10, **ná** de research-resultaten, **toevoegingen zonder effect op de status**
+  (er wordt niets gekozen en niets telt als trial):
+  1. *Leave-one-year-out* (§10, punt 4) draait nu voor alle vier primaire configuraties,
+     niet alleen bij "te mooi". Reden: F3-60/40 is candidate, en we willen weten of één jaar
+     (2008) alles draagt.
+  2. *Per asset voor F3*: dezelfde F3-regel (doel 10%, W = 20) op elke asset afzonderlijk,
+     vergeleken met buy-and-hold van die asset. Reden: de opdracht vraagt of één asset alles
+     draagt, en bij 60/40 kan leave-one-asset-out niet (2 assets).
+  - De statusregels (§9) en alle andere definities zijn ongewijzigd. De status van de vier
+    primaire configuraties is bepaald en vastgelegd (commit) vóórdat H3 of P geopend wordt.

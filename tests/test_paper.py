@@ -122,9 +122,10 @@ def test_rejected_strategy_never_trades(cfg, candles, tmp_path):
     import json
     p = tmp_path / "strategies.json"
     p.write_text(json.dumps({"x": {"status": "rejected", "class": "tests.test_paper:EveryNBars", "params": {"n": 1}}}))
-    orig = runner.STRATEGIES_FILE
+    orig, orig_fwd = runner.STRATEGIES_FILE, runner.FORWARD_FILE
     runner.STRATEGIES_FILE = str(p)
+    runner.FORWARD_FILE = str(tmp_path / "geen_forward.json")   # echte forward-tests hier buiten beschouwing
     try:
         assert runner.active_strategies(c) == {}
     finally:
-        runner.STRATEGIES_FILE = orig
+        runner.STRATEGIES_FILE, runner.FORWARD_FILE = orig, orig_fwd
