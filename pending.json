@@ -1,14 +1,1 @@
-[
- {
-  "direction": 1,
-  "label": "AANWIJZING, NIET BEWEZEN",
-  "min_rr": 0.0,
-  "reason": "Rustige markt (bandbreedte in laagste 20% van het jaar), daarna een slot boven het hoogste punt van de vorige 20 4h-candles. AANWIJZING, NIET BEWEZEN.",
-  "rr": 2.0,
-  "signal_time": "2026-10-12T01:00:00+00:00",
-  "stop": 4153.099924236326,
-  "stop_dist": 55.565075763674116,
-  "strategy": "vol_squeeze_4h",
-  "target": 4319.795151527348
- }
-]
+[]

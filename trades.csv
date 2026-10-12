@@ -1,1 +1,2 @@
 id,strategy,status,signal_time,direction,entry_time,entry,stop,target,rr,units_oz,risk_eur,exit_time,exit,result,r,pnl_eur,equity_after,reason,label
+vol_squeeze_4h|2026-10-12T01:00:00+00:00,vol_squeeze_4h,open,2026-10-12 01:00:00+00:00,1,2026-10-12 01:00:00+00:00,4208.545,4152.979924236326,4319.675151527348,2.0,1.9585124475367461,100.0,,,,,,,"Rustige markt (bandbreedte in laagste 20% van het jaar), daarna een slot boven het hoogste punt van de vorige 20 4h-candles. AANWIJZING, NIET BEWEZEN.","AANWIJZING, NIET BEWEZEN"
