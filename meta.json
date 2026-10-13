@@ -1,15 +1,15 @@
 {
- "first_seen_candle": "2026-10-13T12:00:00+00:00",
+ "first_seen_candle": "2026-10-13T13:00:00+00:00",
  "forward_start": {
   "vol_squeeze_4h": "2026-10-11T22:00:00+00:00"
  },
  "forward_status": {
   "vol_squeeze_4h": "actief"
  },
- "last_latency_min": 22.2,
- "last_price": 4179.375,
- "last_processed": "2026-10-13T12:00:00+00:00",
- "last_run": "2026-10-13T13:22:09.953383+00:00",
+ "last_latency_min": 18.1,
+ "last_price": 4168.915,
+ "last_processed": "2026-10-13T13:00:00+00:00",
+ "last_run": "2026-10-13T14:18:08.927888+00:00",
  "signal_log": [
   {
    "close": 4208.665,
