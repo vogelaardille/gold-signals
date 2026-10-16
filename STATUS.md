@@ -51,8 +51,17 @@ _Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
 - Klaar: `fx/data.py` + `fx/config.yaml`, download (cache `data/cache/fx/`), kwaliteit
   `research/round4/data_quality.md`. Tijdstempels OK; USD/JPY 2010 valt weg (bron mist jan–sep);
   weekendcandles en ask<bid-uren worden bij het laden weggefilterd (PLAN4 §11).
-- Volgende stap: engine (fills op bid/ask), families F1–F3, nulmodellen, `tests/test_fx.py`
-  uitbreiden, research-run. Daarna pas eventueel H4 (alleen voor candidates).
+- Engine (`fx/engine.py`, fills op bid/ask), families (`fx/families.py`), statistiek
+  (`fx/stats.py`), research-run (`python -m fx.run`, ~45 s) → `research/round4/research_results.md`.
+- **Research-uitkomsten (R4 2005–2019, 32 trials):**
+  - **F1-EU** (long USD 08–14 Frankfurt + short USD 16:00 Londen → 16:00 NY, EUR/USD):
+    **candidate**. +1,32 bp/trade netto (bruto 2,13), Sharpe 1,00, 7.804 trades, alle 3
+    subperiodes > 0, ook bij 3× slippage (+1,00) en retail (+0,53); Reality Check p < 0,001.
+  - F1-TK (Tokio op USD/JPY): rejected, bruto wel (+1,45) maar netto weg bij 3× slippage (oordeel b).
+  - F2 ronde getallen (bounce/breakout) en F3 London breakout: **rejected**, netto negatief, niet
+    beter dan het nulmodel. Bounce op echte ronde getallen is zelfs slechter dan op verschoven niveaus.
+- **H4 nog 0× geopend.** Bewaker `fx/holdout.py`, openen met `python -m fx.open_holdout F1-EU`
+  (eenmalig; wacht op akkoord gebruiker).
 
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe

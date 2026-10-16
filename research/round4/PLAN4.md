@@ -346,3 +346,23 @@ is, staat in het rapport.
      - Gevolg: per paar ~9.600–11.500 uren minder in warm-up + research, vrijwel allemaal
        weekend. In H4 vervalt niets.
   - Details: `research/round4/data_quality.md`.
+- 2026-10-16, **bij het bouwen van de engine, vóór het zien van uitkomsten**. Uitwerking van
+  §4–§6, geen nieuwe keuzes:
+  1. *ATR(14)* = eenvoudig gemiddelde van de true range (mid) over de laatste 14 bars, t/m
+     de signaalbar.
+  2. *Vers niveau (F2)* is geïmplementeerd als: het niveau ligt boven het hoogste high (of
+     onder het laagste low) van de 24 bars vóór de signaalbar. Bij aansluitende 1h-candles is
+     dat hetzelfde als "niet geraakt". Alleen over een weekendgat kan het iets verschillen.
+  3. *F3-nulmodel:* een willekeurige **signaal**bar binnen 07:00–10:00 Londen, met entry op
+     de volgende open. Dat is precies hoe de echte entry werkt (signaal 07–10, entry 08–11).
+     De stopafstand is de afstand van de mid-open van de echte entrybar tot de echte stop.
+  4. *Dagreeks en bootstrap:* één gezamenlijke reeks van handelsdagen (ma–vr, 2005–2019) voor
+     alle trials, zodat de bootstrap gepaard is. Dagen zonder trade tellen als 0, ook USD/JPY
+     in 2010. Het 95%-interval per trade is benaderd als het interval van het daggemiddelde
+     gedeeld door het gemiddelde aantal trades per dag.
+  5. *Bugfix (vóór elke uitkomst):* de eerste research-run stopte met een fout (F1 had 0
+     trades) voordat er een resultaat geprint was. Oorzaak: de cache heeft tijden in
+     milliseconden en de berekende venstertijden in microseconden; de vergelijking via ruwe
+     getallen (`asi8`) negeerde dat. Opgelost met pandas' `searchsorted`, met een
+     regressietest (`test_time_units_ms_index_still_finds_windows_and_force_exit`).
+     Definities zijn ongewijzigd.

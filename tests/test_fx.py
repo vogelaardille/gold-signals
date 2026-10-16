@@ -1,7 +1,25 @@
 """Ronde 4 (fx/): offline tests met synthetische data."""
+import numpy as np
 import pandas as pd
 
-from fx import data
+from fx import data, engine, families
+
+
+def _bars(times, mid, spread=0.0002, rng_width=0.0005):
+    """Synthetische candles: mid-pad met vaste spread en range."""
+    mid = np.asarray(mid, dtype=float)
+    df = pd.DataFrame(index=pd.DatetimeIndex(times))
+    for side, sgn in (("bid", -1), ("ask", 1)):
+        o = mid + sgn * spread / 2
+        df[f"{side}_open"], df[f"{side}_close"] = o, o
+        df[f"{side}_high"], df[f"{side}_low"] = o + rng_width, o - rng_width
+    for f in ("open", "high", "low", "close"):
+        df[f] = (df[f"bid_{f}"] + df[f"ask_{f}"]) / 2
+    return df
+
+
+def _week(start="2019-07-08 00:00"):  # ma 8 juli 2019 (zomertijd)
+    return pd.date_range(start, periods=24 * 5 - 3, freq="h", tz="UTC")
 
 
 def _cfg(tmp_path):
@@ -61,3 +79,114 @@ def test_research_data_has_nothing_from_holdout():
 def test_first_fridays_are_fridays():
     days = data.first_fridays(pd.Timestamp("2019-01-01", tz="UTC"), pd.Timestamp("2019-12-31", tz="UTC"))
     assert len(days) == 12 and all(d.weekday() == 4 and d.day <= 7 for d in days)
+
+
+# ---------------------------------------------------------------------------
+# Engine
+# ---------------------------------------------------------------------------
+
+def test_long_buys_ask_sells_bid_with_slippage():
+    t = _week()
+    px = engine.prices(_bars(t, np.full(len(t), 1.1000)))
+    tr = engine.simulate(px, [2], [1], pip=0.0001, slip_pips=0.1, base_is_usd=False, exit_idx=[5])
+    assert abs(tr.entry_px[0] - (1.1001 + 0.00001)) < 1e-12
+    assert abs(tr.exit_px[0] - (1.0999 - 0.00001)) < 1e-12
+    # vlakke markt: netto = −(spread + 2× slippage), bruto = 0
+    assert abs(tr.net_bp[0] - (1.09989 / 1.10011 - 1) * 1e4) < 1e-9
+    assert abs(tr.gross_bp[0]) < 1e-9
+
+
+def test_usd_base_return_uses_exit_rate():
+    r = engine.returns_bp(True, np.array([1]), np.array([100.0]), np.array([101.0]))
+    assert abs(r[0] - (1 - 100 / 101) * 1e4) < 1e-9
+
+
+def test_stop_before_target_in_same_bar_and_gap_through_stop():
+    t = _week()
+    df = _bars(t, np.full(len(t), 1.1000), rng_width=0.0001)
+    df.iloc[4, df.columns.get_loc("bid_low")] = 1.0900   # raakt stop
+    df.iloc[4, df.columns.get_loc("bid_high")] = 1.1100  # raakt ook target
+    tr = engine.simulate(engine.prices(df), [2], [1], 0.0001, 0.0, False,
+                         exit_idx=[10], stop_dist=[0.0050], target_r=1)
+    assert tr.reason[0] == "stop" and tr.exit_time[0] == t[4]
+    df2 = _bars(t, np.r_[np.full(5, 1.1000), np.full(len(t) - 5, 1.0800)], rng_width=0.0001)
+    tr2 = engine.simulate(engine.prices(df2), [2], [1], 0.0001, 0.0, False,
+                          exit_idx=[10], stop_dist=[0.0050])
+    assert tr2.reason[0] == "stop" and abs(tr2.exit_px[0] - df2.bid_open.iloc[5]) < 1e-12  # exit op de open
+
+
+def test_max_one_open_trade():
+    t = _week()
+    px = engine.prices(_bars(t, np.full(len(t), 1.1000)))
+    tr = engine.simulate(px, [2, 3, 6], [1, 1, 1], 0.0001, 0.0, False, exit_idx=[6, 7, 8])
+    assert list(tr.entry_time) == [t[2], t[6]]
+
+
+def test_force_exit_at_16_ny():
+    t = _week()
+    px = engine.prices(_bars(t, np.full(len(t), 1.1000)))
+    tr = engine.simulate(px, [2], [1], 0.0001, 0.0, False, force_ny_hour=16)
+    assert tr.exit_time[0].tz_convert("America/New_York").hour == 16
+
+
+# ---------------------------------------------------------------------------
+# F1-vensters (zomertijd) en lookahead van F2/F3
+# ---------------------------------------------------------------------------
+
+def test_f1_windows_follow_local_time():
+    cfg = data.load_config()
+    for start, entry_utc in (("2019-07-08 00:00", 6), ("2019-01-07 00:00", 7)):
+        t = _week(start)
+        ei, xi = families.f1_windows(t, cfg["f1"]["legs"]["E_pre"])
+        assert (t[ei].hour == entry_utc).all() and (t[xi].hour == entry_utc + 6).all()
+    t = _week()
+    ei, xi = families.f1_windows(t, cfg["f1"]["legs"]["T_pre"])
+    assert (t[xi].hour == 1).all()  # 10:00 Tokio = 01:00 UTC, het hele jaar
+    assert (t[ei].tz_convert("America/New_York").hour == 18).all()
+
+
+def _random_walk(n, seed=1):
+    rng = np.random.default_rng(seed)
+    return 1.1 + np.cumsum(rng.normal(0, 0.0015, n))
+
+
+def test_f2_f3_signals_do_not_use_future_bars():
+    cfg = data.load_config()
+    t = pd.date_range("2019-07-08", periods=24 * 7 * 8, freq="h", tz="UTC")
+    t = t[data.in_fx_session(t)]
+    mid = _random_walk(len(t))
+    cut = len(t) // 2
+    mid2 = mid.copy()
+    mid2[cut + 1:] += np.random.default_rng(9).normal(0, 0.01, len(t) - cut - 1)
+    px, px2 = engine.prices(_bars(t, mid)), engine.prices(_bars(t, mid2))
+    for variant in ("bounce", "breakout"):
+        s1, d1 = families.f2_signals(px, 0.002, 0.0, variant, 24)
+        s2, d2 = families.f2_signals(px2, 0.002, 0.0, variant, 24)
+        assert (s1 <= cut).sum() > 0  # anders toetst de test niets
+        assert list(s1[s1 <= cut]) == list(s2[s2 <= cut]) and list(d1[s1 <= cut]) == list(d2[s2 <= cut])
+    a1, a2 = families.f3_setups(px, cfg)[0], families.f3_setups(px2, cfg)[0]
+    assert (a1.i <= cut).sum() > 0
+    assert a1[a1.i <= cut].equals(a2[a2.i <= cut])
+
+
+def test_time_units_ms_index_still_finds_windows_and_force_exit():
+    # de parquet-cache geeft tijden in milliseconden; berekende tijden zijn in microseconden
+    t = _week().as_unit("ms")
+    cfg = data.load_config()
+    ei, xi = families.f1_windows(t, cfg["f1"]["legs"]["E_pre"])
+    assert len(ei) == 5 and (t[xi].hour == 12).all()
+    px = engine.prices(_bars(t, np.full(len(t), 1.1)))
+    tr = engine.simulate(px, [2], [1], 0.0001, 0.0, False, force_ny_hour=16)
+    assert tr.exit_time[0].tz_convert("America/New_York").hour == 16
+
+
+def test_h4_guard_only_candidates_and_only_once(tmp_path, monkeypatch):
+    import pytest
+    from fx import holdout
+    monkeypatch.setattr(holdout, "LOG", tmp_path / "holdout_log.json")
+    with pytest.raises(PermissionError):
+        holdout.open_h4("F2-B", "rejected")
+    holdout.open_h4("F1-EU", "candidate")
+    with pytest.raises(PermissionError):
+        holdout.open_h4("F1-EU", "candidate")
+    assert holdout.times_opened("F1-EU") == 1
