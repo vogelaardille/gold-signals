@@ -1,0 +1,25 @@
+{
+ "EUR/USD": {
+  "research_first": "2003-06-01 19:00:00+00:00",
+  "research_last": "2019-12-31 21:00:00+00:00",
+  "timestamp_ok_research": true,
+  "timestamp_ok_h4": true,
+  "excluded_years": []
+ },
+ "GBP/USD": {
+  "research_first": "2003-06-01 20:00:00+00:00",
+  "research_last": "2019-12-31 21:00:00+00:00",
+  "timestamp_ok_research": true,
+  "timestamp_ok_h4": true,
+  "excluded_years": []
+ },
+ "USD/JPY": {
+  "research_first": "2003-06-01 20:00:00+00:00",
+  "research_last": "2019-12-31 21:00:00+00:00",
+  "timestamp_ok_research": true,
+  "timestamp_ok_h4": true,
+  "excluded_years": [
+   2010
+  ]
+ }
+}

@@ -1,0 +1,83 @@
+# Ronde 4: daytrade-patronen in valuta (alleen onderzoek).
+# Opzet en motivatie: research/round4/PLAN4.md. Wijzig hier niets na het zien van
+# resultaten zonder het in PLAN4.md §11 te noteren.
+
+data:
+  cache_dir: data/cache/fx           # niet in git
+  first_year: 2003                   # Dukascopy 1h bid/ask vanaf 2003 (getest 2026-10-16)
+  max_missing_pct: 5                 # paar-jaar met meer ontbrekende handelsuren valt weg
+  excluded_years:                    # uit data_quality.md (regel hierboven), vóór elke backtest
+    USD/JPY: [2010]                  # Dukascopy 1h ontbreekt jan-sep 2010 (bron, niet de download)
+
+pairs:                               # instrument -> pipgrootte
+  EUR/USD: 0.0001
+  GBP/USD: 0.0001
+  USD/JPY: 0.01
+
+periods:
+  warmup_start: "2003-06-01"
+  research_start: "2005-01-01"
+  research_end: "2020-01-01"         # exclusief
+  h4_start: "2020-01-01"
+  h4_end: "2026-10-01"               # exclusief
+  subperiods:
+    - ["2005-01-01", "2010-01-01"]
+    - ["2010-01-01", "2015-01-01"]
+    - ["2015-01-01", "2020-01-01"]
+
+execution:
+  slippage_pips: 0.1                 # per kant, bovenop de echte bid/ask-spread
+  slippage_multipliers: [0, 1, 3]
+  retail_extra_pips: 0.5             # per kant, alleen beschrijvend
+  force_exit_ny_hour: 16             # uiterlijk sluiten op de open van de 16:00 NY-bar
+  no_entry_ny_hours: [14, 15, 16, 17]  # geen nieuwe entries 14:00-18:00 NY (behalve F1)
+
+# F1: vaste vensters (lokale kloktijd, open van de bar). usd: +1 = long USD, -1 = short USD.
+f1:
+  legs:
+    T_pre:  {usd: 1,  entry: [America/New_York, 18], exit: [Asia/Tokyo, 10]}
+    T_post: {usd: -1, entry: [Asia/Tokyo, 10],       exit: [Europe/Berlin, 8]}
+    E_pre:  {usd: 1,  entry: [Europe/Berlin, 8],     exit: [Europe/Berlin, 14]}
+    L_post: {usd: -1, entry: [Europe/London, 16],    exit: [America/New_York, 16]}
+  combos:
+    Tokyo: [T_pre, T_post]
+    Europe: [E_pre, L_post]
+  primary:
+    F1-EU: {pair: EUR/USD, combo: Europe}
+    F1-TK: {pair: USD/JPY, combo: Tokyo}
+
+f2:
+  level_step:                        # G voor "00"; "00+50" = G/2
+    EUR/USD: 0.0100
+    GBP/USD: 0.0100
+    USD/JPY: 1.00
+  levels: ["00", "00+50"]
+  variants: [bounce, breakout]
+  targets_r: [1, 2]
+  fresh_bars: 24
+  atr_period: 14
+  stop_atr: 1.0
+  null_replicates: 200
+  null_delta_00: [[0.1, 0.4], [0.6, 0.9]]
+  null_delta_0050: [[0.1, 0.9]]
+  primary:
+    F2-B: {level: "00", variant: bounce, target_r: 1}
+    F2-D: {level: "00", variant: breakout, target_r: 2}
+
+f3:
+  range_london_hours: [0, 6]         # bars 00:00 t/m 06:00 Londen (open)
+  signal_london_hours: [7, 10]       # eerste close door de range in bars 07:00 t/m 10:00
+  stops: [opposite, mid]
+  targets_r: [1, 2, null]            # null = alleen tijdsexit
+  null_replicates: 200
+  primary:
+    F3: {stop: opposite, target_r: 1}
+
+stats:
+  bootstrap_n: 2000
+  block_days: 20
+  seed: 2026
+  min_trades: 300
+  pct_positive: 0.80
+  null_percentile: 95
+  reality_check_p: 0.05

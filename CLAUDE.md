@@ -46,6 +46,16 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
 - Commando's: `python -m etf.data` (download+kwaliteit), `python -m etf.run` (research),
   `python -m etf.report` (rapport + figuren). Tests: `tests/test_etf.py`.
 
+## Ronde 4 (`fx/`, `research/round4/`): valuta-daytrades, geen goud
+- Alleen onderzoek: niets naar live workflow, Telegram of paper trading zonder akkoord.
+  Parameters in `fx/config.yaml`. Opzet `research/round4/PLAN4.md` (vooraf gecommit, wijzigingen in §11).
+- Data: Dukascopy 1h **bid én ask** (EUR/USD, GBP/USD, USD/JPY), cache `data/cache/fx/`. Kleiner dan
+  1h pas vanaf 2012 → alleen 1h. Tijden altijd tz-aware UTC aan `dukascopy_python` geven (naive = lokale tijd).
+- Blokken: warm-up 2003-06 – 2004, research 2005 – 2019, **H4 2020-01 – 2026-10 (0× geopend)**.
+  Research-code laadt via `fx.data.research_data()`; H4 alleen via `fx/open_holdout.py`.
+- Fills op bid/ask (echte spread) + slippage; nooit een positie over 17:00 NY.
+- Commando's: `python -m fx.data` (download + `research/round4/data_quality.md`). Tests: `tests/test_fx.py`.
+
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.
 - Identifiers Engels; comments, uitleg en communicatie Nederlands. Leg **waarom** uit.

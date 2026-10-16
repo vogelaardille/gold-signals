@@ -1,6 +1,6 @@
 # STATUS
 
-_Bijgewerkt: 2026-10-10 (ronde 3 afgerond)_
+_Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
 
 ## Klaar
 - **Fase 1**: data (Dukascopy, cache), zones A/B, `zones_as_of`, charts, Pine-export.
@@ -41,6 +41,18 @@ _Bijgewerkt: 2026-10-10 (ronde 3 afgerond)_
   - **H3 en P elk 1× geopend, alleen voor F3-60/40** (`research/round3/holdout_log.json`). Niet
     meer aan die regel sleutelen.
   - Niets uit ronde 3 gaat naar paper trading of Telegram.
+
+## Ronde 4 (onderzoek, valuta-daytrades, geen goud) – bezig
+- Literatuuronderzoek (2026-10-16) → drie families: F1 fix-reversal (Krohn e.a. 2024),
+  F2 ronde getallen (Osler 2003), F3 London breakout (controle). 32 trials.
+- `research/round4/PLAN4.md` **vooraf gecommit** (30efff6). Paren EUR/USD, GBP/USD, USD/JPY;
+  Dukascopy 1h bid+ask (15m pas vanaf 2012, dus alleen 1h). Research 2005–2019,
+  **hold-out H4 2020-01 – 2026-10 (0× geopend)**.
+- Klaar: `fx/data.py` + `fx/config.yaml`, download (cache `data/cache/fx/`), kwaliteit
+  `research/round4/data_quality.md`. Tijdstempels OK; USD/JPY 2010 valt weg (bron mist jan–sep);
+  weekendcandles en ask<bid-uren worden bij het laden weggefilterd (PLAN4 §11).
+- Volgende stap: engine (fills op bid/ask), families F1–F3, nulmodellen, `tests/test_fx.py`
+  uitbreiden, research-run. Daarna pas eventueel H4 (alleen voor candidates).
 
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe

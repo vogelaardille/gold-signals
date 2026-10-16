@@ -329,4 +329,20 @@ is, staat in het rapport.
 
 ## 11. Wijzigingslog
 
-(leeg)
+- 2026-10-16, **na de kwaliteitscontrole en vóór elke backtest** (er is geen rendement van
+  een strategie berekend). Uitwerking van §1, geen nieuwe keuze op basis van resultaten:
+  1. *Tijdstempels:* de controle op banenrapport-vrijdagen is voor alle drie de paren
+     geslaagd, in research én H4 (piek in de bar van 08:00 NY).
+  2. *USD/JPY 2010 valt weg* volgens de regel van §1 (> 5% ontbrekende handelsuren). Opnieuw
+     per maand gedownload: Dukascopy levert voor USD/JPY 1h geen data van januari t/m
+     september 2010. Dat ligt dus aan de bron, niet aan de download. Vastgelegd in
+     `fx/config.yaml` (`excluded_years`).
+  3. *Opschonen bij het laden* (`fx/data.py: load_pair`):
+     - candles buiten de handelssessie (zo 17:00 – vr 17:00 NY) vallen weg. In 2010–2014 vult
+       de feed weekenden met vlakke candles (~2.400 per jaar). Die zouden ATR en
+       barvensters (versheid van niveaus, F2) vertekenen.
+     - uren waarin ask < bid (voor open, high, low of close) vallen weg. Dat zijn er
+       hooguit enkele tientallen per paar.
+     - Gevolg: per paar ~9.600–11.500 uren minder in warm-up + research, vrijwel allemaal
+       weekend. In H4 vervalt niets.
+  - Details: `research/round4/data_quality.md`.
