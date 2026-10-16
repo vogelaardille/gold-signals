@@ -47,7 +47,7 @@ _Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
   F2 ronde getallen (Osler 2003), F3 London breakout (controle). 32 trials.
 - `research/round4/PLAN4.md` **vooraf gecommit** (30efff6). Paren EUR/USD, GBP/USD, USD/JPY;
   Dukascopy 1h bid+ask (15m pas vanaf 2012, dus alleen 1h). Research 2005–2019,
-  **hold-out H4 2020-01 – 2026-10 (0× geopend)**.
+  **hold-out H4 2020-01 – 2026-10** (later 1× geopend voor F1-EU, zie onder).
 - Klaar: `fx/data.py` + `fx/config.yaml`, download (cache `data/cache/fx/`), kwaliteit
   `research/round4/data_quality.md`. Tijdstempels OK; USD/JPY 2010 valt weg (bron mist jan–sep);
   weekendcandles en ask<bid-uren worden bij het laden weggefilterd (PLAN4 §11).
