@@ -81,6 +81,7 @@ _Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
 - C5 **0× geopend** (geen candidate).
 - K5 2020–2026 (beschrijvend, 6 paren): G1 −1,08 bp, G2 −1,00 bp netto (bruto ≈ 0). Ook in de periode
   waarin intraday momentum bekend werd, is het in spot-valuta niet te zien.
+- Rapporten ronde 4 en 5 (`python -m fx.report`) staan op het dashboard: Onderzoek → Ronde 4 / Ronde 5.
 
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe

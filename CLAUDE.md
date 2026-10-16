@@ -66,6 +66,7 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
   2005–2019 (bevestiging, max. 1× per candidate via `fx/open_c5.py`, log `research/round5/holdout_log.json`);
   K5 2020–2026 alleen beschrijvend (`fx/k5.py`).
 - Status: G1 en G2 **rejected**; C5 0× geopend.
+- Rapporten ronde 4 en 5: `python -m fx.report` → `research/round4|5/report.md/.html`; dashboard `research4.html`, `research5.html`.
 
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.

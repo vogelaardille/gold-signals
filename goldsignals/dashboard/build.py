@@ -326,16 +326,19 @@ def build_site(cfg: dict, state_dir: Path = None, out_dir: Path = None, candles:
         "strategies.html": page_strategies(updated),
         "research.html": page_research(updated, "research/report.html",
                                        [("research2.html", "Ronde 2: trend, compressie, mean reversion, macro, zones op 15m"),
-                                        ("research3.html", "Ronde 3: trend, momentum en volatiliteit op een ETF-portefeuille")]),
+                                        ("research3.html", "Ronde 3: trend, momentum en volatiliteit op een ETF-portefeuille"),
+                                        ("research4.html", "Ronde 4: daytrade-patronen in valuta (fixes, ronde getallen, London breakout)"),
+                                        ("research5.html", "Ronde 5: intraday momentum in valuta")]),
     }
-    if project_path("research/round2/report.html").exists():
-        files["research2.html"] = page_research(updated, "research/round2/report.html",
-                                                [("research.html", "Terug naar ronde 1 (S/R-zones en strategieën)"),
-                                                 ("research3.html", "Ronde 3: ETF-portefeuille")])
-    if project_path("research/round3/report.html").exists():
-        files["research3.html"] = page_research(updated, "research/round3/report.html",
-                                                [("research.html", "Ronde 1 (S/R-zones goud)"),
-                                                 ("research2.html", "Ronde 2 (strategieën goud)")])
+    rounds = {2: ("research/round2/report.html", "Ronde 2 (strategieën goud)"),
+              3: ("research/round3/report.html", "Ronde 3 (ETF-portefeuille)"),
+              4: ("research/round4/report.html", "Ronde 4 (valuta-daytrades)"),
+              5: ("research/round5/report.html", "Ronde 5 (intraday momentum valuta)")}
+    for n, (src, _) in rounds.items():
+        if project_path(src).exists():
+            links = [("research.html", "Ronde 1 (S/R-zones goud)")]
+            links += [(f"research{m}.html", label) for m, (_, label) in rounds.items() if m != n]
+            files[f"research{n}.html"] = page_research(updated, src, links)
     for name, html in files.items():
         (out / name).write_text(html, encoding="utf-8")
     lb = project_path("research/results/leaderboard.csv")
