@@ -1,0 +1,20 @@
+{
+ "AUD/USD": {
+  "first": "2003-08-03 17:00:00+00:00",
+  "timestamp_ok": true,
+  "peak_ny_hour": 8,
+  "excluded_years": []
+ },
+ "USD/CAD": {
+  "first": "2003-08-03 17:00:00+00:00",
+  "timestamp_ok": true,
+  "peak_ny_hour": 8,
+  "excluded_years": []
+ },
+ "USD/CHF": {
+  "first": "2003-05-04 20:00:00+00:00",
+  "timestamp_ok": true,
+  "peak_ny_hour": 8,
+  "excluded_years": []
+ }
+}

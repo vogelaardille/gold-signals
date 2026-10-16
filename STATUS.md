@@ -67,6 +67,19 @@ _Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
   Effect is na publicatie grotendeels verdwenen. Niet naar paper trading zonder apart FORWARD-plan
   en akkoord. **Niets meer aan F1-regels veranderen.**
 
+## Ronde 5 (onderzoek, intraday momentum in valuta)
+- `research/round5/PLAN5.md` **vooraf gecommit** (4b96950). Aanleiding: vraag naar strategieën die de
+  afgelopen 5 jaar goed werkten. Omdat de keuze op recente prestaties berust, is 2020–2026 geen
+  onafhankelijke toets: research 2005–2019 (EUR/USD, GBP/USD, USD/JPY), bevestiging C5 op AUD/USD,
+  USD/CAD, USD/CHF 2005–2019 (nooit intraday bekeken), 2020–2026 alleen beschrijvend (K5).
+- Code: `fx/momentum.py`, `fx/run5.py` (`python -m fx.run5`, ~4 min), `fx/data5.py`, `fx/open_c5.py`, `fx/k5.py`.
+- **Uitkomsten (6 trials): beide primaire configuraties rejected.**
+  - G1 momentum (richting tot 12:00 NY → vasthouden tot 16:00): −1,18 bp/trade, bruto −0,12; niet beter
+    dan willekeurige tekens. Geen intraday momentum in spot-valuta te zien.
+  - G2 noise-area (anker 08:00 Londen, m=1): −0,35 bp netto, bruto +0,56; de richting van de doorbraak
+    is wél beter dan willekeurig (percentiel 100), maar de kosten (~0,9 bp) eten het op (oordeel b).
+- C5 **0× geopend** (geen candidate).
+
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe
   candle: zondag 11-10 rond 23:05 UTC.

@@ -190,3 +190,60 @@ def test_h4_guard_only_candidates_and_only_once(tmp_path, monkeypatch):
     with pytest.raises(PermissionError):
         holdout.open_h4("F1-EU", "candidate")
     assert holdout.times_opened("F1-EU") == 1
+
+
+# ---------------------------------------------------------------------------
+# Ronde 5: intraday momentum (G1, G2)
+# ---------------------------------------------------------------------------
+
+def _session_walk(weeks=6, seed=3):
+    t = pd.date_range("2019-07-07 21:00", periods=24 * 7 * weeks, freq="h", tz="UTC")
+    t = t[data.in_fx_session(t)]
+    return t, _random_walk(len(t), seed)
+
+
+def test_g1_signal_uses_only_bars_before_entry():
+    from fx import momentum
+    t, mid = _session_walk()
+    px = engine.prices(_bars(t, mid))
+    st = momentum.g1_setups(t, px["close"], px["open"], 17, 12, 16)
+    assert len(st) > 10
+    assert (t[st.entry].tz_convert("America/New_York").hour == 12).all()
+    assert (t[st.exit].tz_convert("America/New_York").hour == 16).all()
+    mid2 = mid.copy()
+    for e in st.entry:  # alles vanaf de entry-bar veranderen mag het teken niet raken
+        mid2[e:e + 4] += 0.05
+    px2 = engine.prices(_bars(t, mid2))
+    st2 = momentum.g1_setups(t, px2["close"], px2["open"], 17, 12, 16)
+    assert (st.dir.to_numpy() == st2.dir.to_numpy()).all()
+
+
+def test_g2_bands_and_signals_do_not_use_future():
+    from fx import momentum
+    t, mid = _session_walk(weeks=8)
+    cut = len(t) * 3 // 4
+    mid2 = mid.copy()
+    mid2[cut + 1:] += np.random.default_rng(5).normal(0, 0.01, len(t) - cut - 1)
+    px, px2 = engine.prices(_bars(t, mid)), engine.prices(_bars(t, mid2))
+    b1 = momentum.g2_bands(px, "Europe/London", 8, 14, 10, 16)
+    b2 = momentum.g2_bands(px2, "Europe/London", 8, 14, 10, 16)
+    early = b1.i <= cut
+    assert b1.sigma[early].notna().sum() > 0
+    assert np.allclose(b1.sigma[early].fillna(-1), b2.sigma[early].fillna(-1))  # σ alleen uit eerdere dagen
+    s1 = momentum.g2_trades(px, b1, 1.0, [14, 15, 16, 17])
+    s2 = momentum.g2_trades(px2, b2, 1.0, [14, 15, 16, 17])
+    assert len(s1[s1.entry <= cut]) > 0
+    cols = ["entry", "dir"]  # de exit van een trade die vóór de knip begint, mag erna anders zijn
+    assert s1.loc[s1.entry <= cut, cols].reset_index(drop=True).equals(
+        s2.loc[s2.entry <= cut, cols].reset_index(drop=True))
+
+
+def test_c5_guard_only_candidates_and_only_once(tmp_path, monkeypatch):
+    import pytest
+    from fx import open_c5
+    monkeypatch.setattr(open_c5, "LOG", tmp_path / "holdout_log.json")
+    with pytest.raises(PermissionError):
+        open_c5.open_c5("G2", "rejected")
+    open_c5.open_c5("G1", "candidate")
+    with pytest.raises(PermissionError):
+        open_c5.open_c5("G1", "candidate")

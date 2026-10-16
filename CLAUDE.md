@@ -60,6 +60,13 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
 - Status: **F1-EU validated** (formeel; in H4 zwak, +0,26 bp, 2025–2026 negatief); de rest rejected.
   H4 is open voor F1-EU: niets meer aan F1-regels/vensters veranderen.
 
+## Ronde 5 (`fx/momentum.py`, `fx/run5.py`, `research/round5/`): intraday momentum in valuta
+- Opzet `research/round5/PLAN5.md` (vooraf gecommit). Parameters `fx/config.yaml` → `round5`. Engine van ronde 4
+  ongewijzigd hergebruikt. Research 2005–2019 op EUR/USD, GBP/USD, USD/JPY; **C5** = AUD/USD, USD/CAD, USD/CHF
+  2005–2019 (bevestiging, max. 1× per candidate via `fx/open_c5.py`, log `research/round5/holdout_log.json`);
+  K5 2020–2026 alleen beschrijvend (`fx/k5.py`).
+- Status: G1 en G2 **rejected**; C5 0× geopend.
+
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.
 - Identifiers Engels; comments, uitleg en communicatie Nederlands. Leg **waarom** uit.

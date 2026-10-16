@@ -81,3 +81,25 @@ stats:
   pct_positive: 0.80
   null_percentile: 95
   reality_check_p: 0.05
+
+# ---------------------------------------------------------------------------
+# Ronde 5 (research/round5/PLAN5.md): intraday momentum. Raakt ronde 4 niet.
+# ---------------------------------------------------------------------------
+round5:
+  research_pairs: {EUR/USD: 0.0001, GBP/USD: 0.0001, USD/JPY: 0.01}
+  confirm_pairs: {AUD/USD: 0.0001, USD/CAD: 0.0001, USD/CHF: 0.0001}   # C5, max. 1x per primair
+  k5: ["2020-01-01", "2026-10-01"]   # besmet blok, alleen beschrijvend
+  g1:
+    day_open_ny_hour: 17
+    windows: [[12, 16], [14, 16]]      # [S, X] in NY-uren
+    primary: [12, 16]
+    null_replicates: 200
+  g2:
+    anchors:                           # [tijdzone, uur]
+      ny17: [America/New_York, 17]
+      london08: [Europe/London, 8]
+    multipliers: [1.0, 1.5]
+    lookback_days: 14
+    min_days: 10
+    primary: {anchor: london08, m: 1.0}
+    null_replicates: 200
