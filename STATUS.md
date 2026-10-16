@@ -79,6 +79,8 @@ _Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
   - G2 noise-area (anker 08:00 Londen, m=1): −0,35 bp netto, bruto +0,56; de richting van de doorbraak
     is wél beter dan willekeurig (percentiel 100), maar de kosten (~0,9 bp) eten het op (oordeel b).
 - C5 **0× geopend** (geen candidate).
+- K5 2020–2026 (beschrijvend, 6 paren): G1 −1,08 bp, G2 −1,00 bp netto (bruto ≈ 0). Ook in de periode
+  waarin intraday momentum bekend werd, is het in spot-valuta niet te zien.
 
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe
