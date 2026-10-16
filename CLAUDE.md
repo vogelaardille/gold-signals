@@ -51,14 +51,14 @@ Actuele stand: `STATUS.md`. Gebruikersuitleg en commando's: `README.md`.
   Parameters in `fx/config.yaml`. Opzet `research/round4/PLAN4.md` (vooraf gecommit, wijzigingen in §11).
 - Data: Dukascopy 1h **bid én ask** (EUR/USD, GBP/USD, USD/JPY), cache `data/cache/fx/`. Kleiner dan
   1h pas vanaf 2012 → alleen 1h. Tijden altijd tz-aware UTC aan `dukascopy_python` geven (naive = lokale tijd).
-- Blokken: warm-up 2003-06 – 2004, research 2005 – 2019, **H4 2020-01 – 2026-10 (0× geopend)**.
+- Blokken: warm-up 2003-06 – 2004, research 2005 – 2019, **H4 2020-01 – 2026-10 (1× geopend, alleen F1-EU)**.
   Research-code laadt via `fx.data.research_data()`; H4 alleen via `fx/open_holdout.py`.
 - Fills op bid/ask (echte spread) + slippage; nooit een positie over 17:00 NY.
 - Commando's: `python -m fx.data` (download + `research/round4/data_quality.md`), `python -m fx.run`
   (research → `research/round4/research_results.md`, `results/`), `python -m fx.open_holdout <primair>`
   (H4, eenmalig, alleen candidates; log `research/round4/holdout_log.json`). Tests: `tests/test_fx.py`.
-- Status research: alleen **F1-EU** candidate; de rest rejected. Niets aan F1-regels/vensters veranderen
-  zodra H4 voor F1-EU open is.
+- Status: **F1-EU validated** (formeel; in H4 zwak, +0,26 bp, 2025–2026 negatief); de rest rejected.
+  H4 is open voor F1-EU: niets meer aan F1-regels/vensters veranderen.
 
 ## Werkafspraken
 - Gebruiker: bachelorstudent, basis Python. Code simpel en modulair.

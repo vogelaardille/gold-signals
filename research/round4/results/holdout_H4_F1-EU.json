@@ -1,0 +1,52 @@
+{
+ "config": "F1-EU",
+ "trial": "F1|EUR/USD|Europe",
+ "block": "H4",
+ "period": [
+  "2020-01-01",
+  "2026-10-01"
+ ],
+ "n_trades": 3504,
+ "net_bp": 0.25771916882084434,
+ "gross_bp": 0.7131707705939614,
+ "cost_bp": 0.45545160177311717,
+ "r": null,
+ "hit_rate": 0.5045662100456622,
+ "sharpe": 0.23871179199800951,
+ "boot_pos": 0.7095,
+ "ci95_net_bp": [
+  -0.5741610344356013,
+  1.0959832167591805
+ ],
+ "max_dd_bp": -1278.2141596988026,
+ "best_year": 2023,
+ "net_bp_without_best_year": 0.06863099971692509,
+ "net_bp_by_year": {
+  "2020": 496.2,
+  "2021": 432.2,
+  "2022": 109.3,
+  "2023": 698.1,
+  "2024": 356.9,
+  "2025": -808.6,
+  "2026": -381.0
+ },
+ "long_net_bp": -0.34464153089382343,
+ "short_net_bp": 0.8600798685355121,
+ "net_bp_2x_slippage": 0.0782790380928478,
+ "net_bp_retail": -0.6394814854669513,
+ "by_leg_net_bp": {
+  "E_pre": 0.8600798685355119,
+  "L_post": -0.3446415308938234
+ },
+ "by_leg_gross_bp": {
+  "E_pre": 1.3253421288975893,
+  "L_post": 0.10099941229033355
+ },
+ "checks": {
+  "min_trades": true,
+  "net_positive": true,
+  "net_positive_2x_slippage": true,
+  "reality_check_research": true
+ },
+ "status": "validated"
+}

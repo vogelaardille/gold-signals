@@ -60,8 +60,12 @@ _Bijgewerkt: 2026-10-16 (ronde 4 gestart: plan + data)_
   - F1-TK (Tokio op USD/JPY): rejected, bruto wel (+1,45) maar netto weg bij 3× slippage (oordeel b).
   - F2 ronde getallen (bounce/breakout) en F3 London breakout: **rejected**, netto negatief, niet
     beter dan het nulmodel. Bounce op echte ronde getallen is zelfs slechter dan op verschoven niveaus.
-- **H4 nog 0× geopend.** Bewaker `fx/holdout.py`, openen met `python -m fx.open_holdout F1-EU`
-  (eenmalig; wacht op akkoord gebruiker).
+- **H4 1× geopend voor F1-EU** (akkoord gebruiker, 2026-10-16; `research/round4/holdout_log.json`).
+  Formeel **validated** (regels PLAN4 §9: ≥300 trades, netto > 0, > 0 bij 2× slippage, RC p < 0,05),
+  maar zwak: netto +0,26 bp/trade (research +1,32), bruto 0,71 (research 2,13), Sharpe 0,24,
+  bootstrap > 0 maar 71%, 2025 en 2026 negatief, L_post-been netto negatief, retail −0,64 bp.
+  Effect is na publicatie grotendeels verdwenen. Niet naar paper trading zonder apart FORWARD-plan
+  en akkoord. **Niets meer aan F1-regels veranderen.**
 
 ## Loopt
 - Uurlijkse runs. In het weekend stoppen ze stil (markt dicht); eerste echte run met nieuwe
