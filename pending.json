@@ -1,14 +1,1 @@
-[
- {
-  "direction": 1,
-  "label": "candidate",
-  "min_rr": 2.4000000000000004,
-  "reason": "Uptrend op 1h (EMA50 > EMA200), koers tikte de EMA50 (4167.43) en sloot weer erboven.",
-  "rr": null,
-  "signal_time": "2026-10-19T11:00:00+00:00",
-  "stop": 4143.220284539637,
-  "stop_dist": null,
-  "strategy": "ema_pullback",
-  "target": 4248.319146381088
- }
-]
+[]
