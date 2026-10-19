@@ -1,15 +1,15 @@
 {
- "first_seen_candle": "2026-10-19T09:00:00+00:00",
+ "first_seen_candle": "2026-10-19T10:00:00+00:00",
  "forward_start": {
   "vol_squeeze_4h": "2026-10-11T22:00:00+00:00"
  },
  "forward_status": {
   "vol_squeeze_4h": "actief"
  },
- "last_latency_min": 28.5,
- "last_price": 4167.065,
- "last_processed": "2026-10-19T09:00:00+00:00",
- "last_run": "2026-10-19T10:28:32.048863+00:00",
+ "last_latency_min": 26.5,
+ "last_price": 4169.495,
+ "last_processed": "2026-10-19T10:00:00+00:00",
+ "last_run": "2026-10-19T11:26:27.186637+00:00",
  "signal_log": [
   {
    "close": 4208.665,
@@ -34,18 +34,21 @@
    "reason": "Rustige markt (bandbreedte in laagste 20% van het jaar), daarna een slot onder het laagste punt van de vorige 20 4h-candles. AANWIJZING, NIET BEWEZEN.",
    "strategy": "vol_squeeze_4h",
    "time": "2026-10-14T13:00:00+00:00"
+  },
+  {
+   "close": 4169.495,
+   "direction": 1,
+   "label": "candidate",
+   "reason": "Uptrend op 1h (EMA50 > EMA200), koers tikte de EMA50 (4167.43) en sloot weer erboven.",
+   "strategy": "ema_pullback",
+   "time": "2026-10-19T11:00:00+00:00"
   }
  ],
  "zone_alerts": [
   {
-   "high": 4187.021941717263,
-   "low": 4177.338058282738,
-   "time": "2026-10-18T23:15:57.170156+00:00"
-  },
-  {
-   "high": 4169.879413378542,
-   "low": 4160.060586621458,
-   "time": "2026-10-18T23:15:57.170156+00:00"
+   "high": 4172.448735773019,
+   "low": 4166.9712642269815,
+   "time": "2026-10-19T11:26:27.186637+00:00"
   }
  ]
 }
